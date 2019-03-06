@@ -16,7 +16,7 @@ notes:
 package io.reactjava.client.examples.tictactoe;
                                        // imports --------------------------- //
 import io.reactjava.client.core.react.Component;
-import io.reactjava.client.core.react.Properties;
+
                                        // BoardView ==========================//
 public class BoardView extends Component
 {
@@ -29,44 +29,6 @@ public class BoardView extends Component
                                        // protected instance variables -------//
                                        // (none)                              //
 
-/*------------------------------------------------------------------------------
-
-@name       BoardView - default constructor
-                                                                              */
-                                                                             /**
-            Default constructor
-
-@return     An instance of BoardView if successful.
-
-@history    Mon May 21, 2018 10:30:00 (Giavaneers - LBM) created
-
-@notes
-                                                                              */
-//------------------------------------------------------------------------------
-public BoardView()
-{
-   super();
-}
-/*------------------------------------------------------------------------------
-
-@name       BoardView - constructor for specified properties
-                                                                              */
-                                                                             /**
-            Constructor for specified properties
-
-@return     An instance of BoardView if successful.
-
-@history    Mon May 21, 2018 10:30:00 (Giavaneers - LBM) created
-
-@notes
-                                                                              */
-//------------------------------------------------------------------------------
-@SuppressWarnings("unusable-by-js")
-public BoardView(
-   Properties props)
-{
-   super(props);
-}
 /*------------------------------------------------------------------------------
 
 @name       render - render markup

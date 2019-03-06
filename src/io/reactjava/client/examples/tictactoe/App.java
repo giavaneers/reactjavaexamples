@@ -54,48 +54,6 @@ public static final long   kTHINK_TIME         = 100;
 
 /*------------------------------------------------------------------------------
 
-@name       App - default constructor
-                                                                              */
-                                                                             /**
-            Default constructor
-
-@return     An instance of App if successful.
-
-@history    Mon Aug 28, 2017 10:30:00 (Giavaneers - LBM) created
-
-@notes
-                                                                              */
-//------------------------------------------------------------------------------
-public App()
-{
-   this(new Properties());
-}
-/*------------------------------------------------------------------------------
-
-@name       App - constructor for specified properties
-                                                                              */
-                                                                             /**
-            Constructor for specified properties
-
-@return     An instance of App if successful.
-
-@history    Mon Aug 28, 2017 10:30:00 (Giavaneers - LBM) created
-
-@notes
-                                                                              */
-//------------------------------------------------------------------------------
-public App(
-   Properties props)
-{
-   super(props);
-
-   props.set(kKEY_INIT_FCN, initFcn);
-   props.set(kKEY_MOVE_FCN, moveFcn);
-
-   initFcn.accept(kSTATUS_INIT);
-}
-/*------------------------------------------------------------------------------
-
 @name       getBoard - get board
                                                                               */
                                                                              /**
@@ -147,7 +105,7 @@ protected MonteCarloTreeSearchPlayer getPlayer()
 
                                                                               */
 //------------------------------------------------------------------------------
-protected Consumer initFcn = (statusPrevious) ->
+public Consumer initFcn = (statusPrevious) ->
 {
    props.set(kKEY_BOARD,  new Board());
    props.set(kKEY_PLAYER, new MonteCarloTreeSearchPlayer());
@@ -192,7 +150,7 @@ protected Consumer initFcn = (statusPrevious) ->
 
                                                                               */
 //------------------------------------------------------------------------------
-protected Consumer<Integer> moveFcn = (move) ->
+public Consumer<Integer> moveFcn = (move) ->
 {
    if (getBoard().isValidAction(move))
    {
@@ -217,6 +175,34 @@ protected Consumer<Integer> moveFcn = (move) ->
 };
 /*------------------------------------------------------------------------------
 
+@name       initialize - set properties
+                                                                              */
+                                                                             /**
+            Set properties.
+
+@return     void
+
+@return     props     properties
+
+@history    Mon May 21, 2018 10:30:00 (Giavaneers - LBM) created
+
+@notes
+
+                                                                              */
+//------------------------------------------------------------------------------
+public Properties initialize(
+   Properties props)
+{
+   super.initialize(props);
+
+   props.set(kKEY_INIT_FCN, initFcn);
+   props.set(kKEY_MOVE_FCN, moveFcn);
+
+   initFcn.accept(kSTATUS_INIT);
+   return(props);
+}
+/*------------------------------------------------------------------------------
+
 @name       render - render component
                                                                               */
                                                                              /**
@@ -232,21 +218,21 @@ protected Consumer<Integer> moveFcn = (move) ->
 //------------------------------------------------------------------------------
 public void render()
 {
-   Statistics stats  = (Statistics)props.get(App.kKEY_STATISTICS);
-   int        status = props.getInt(App.kKEY_STATUS);
+   Statistics stats   = (Statistics)props.get(App.kKEY_STATISTICS);
+   int        status  = props.getInt(App.kKEY_STATUS);
 /*--
    <div class='container'>
       <BoardView
          board={props.get(App.kKEY_BOARD)}
          statistics={stats}
          status={status}
-         movefcn={props.get(App.kKEY_MOVE_FCN)}
+         movefcn={moveFcn}
       >
       </BoardView>
       <Modal
          statistics={stats}
          status={status}
-         initfcn={props.get(App.kKEY_INIT_FCN)}
+         initfcn={initFcn}
       >
       </Modal>
    </div>

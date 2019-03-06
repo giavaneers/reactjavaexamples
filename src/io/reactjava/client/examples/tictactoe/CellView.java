@@ -35,54 +35,6 @@ public class CellView extends Component
 
 /*------------------------------------------------------------------------------
 
-@name       CellView - default constructor
-                                                                              */
-                                                                             /**
-            Default constructor
-
-@return     An instance of CellView if successful.
-
-@history    Mon May 21, 2018 10:30:00 (Giavaneers - LBM) created
-
-@notes
-                                                                              */
-//------------------------------------------------------------------------------
-public CellView()
-{
-   super();
-}
-/*------------------------------------------------------------------------------
-
-@name       CellView - constructor for specified properties
-                                                                              */
-                                                                             /**
-            Constructor for specified properties
-
-@return     An instance of CellView if successful.
-
-@history    Mon May 21, 2018 10:30:00 (Giavaneers - LBM) created
-
-@notes
-                                                                              */
-//------------------------------------------------------------------------------
-@SuppressWarnings("unusable-by-js")
-public CellView(
-   Properties props)
-{
-   super(props);
-                                       // assign this cell grid position      //
-   int cellIndex     = props.getInt(App.kKEY_CELL_INDEX);
-   int subBoardIndex = props.getInt(App.kKEY_SUBBOARD_INDEX);
-   int subBoardY     = subBoardIndex / 3;
-   int subBoardX     = subBoardIndex % 3;
-   int cellY         = subBoardY * 3 + cellIndex / 3;
-   int cellX         = subBoardX * 3 + cellIndex % 3;
-   int gridPos       = cellY * 9     + cellX;
-
-   props.set(App.kKEY_GRID_POSITION, gridPos);
-}
-/*------------------------------------------------------------------------------
-
 @name       clickHandler - cell onClick event handler
                                                                               */
                                                                              /**
@@ -126,6 +78,40 @@ public INativeEventHandler clickHandler = (Event e) ->
 protected Consumer<Integer> getMoveFunction()
 {
    return((Consumer<Integer>)props.get(App.kKEY_MOVE_FCN));
+}
+/*------------------------------------------------------------------------------
+
+@name       initialize - set properties
+                                                                              */
+                                                                             /**
+            Set properties.
+
+@return     void
+
+@return     props     properties
+
+@history    Mon May 21, 2018 10:30:00 (Giavaneers - LBM) created
+
+@notes
+
+                                                                              */
+//------------------------------------------------------------------------------
+public Properties initialize(
+   Properties props)
+{
+   super.initialize(props);
+
+                                       // assign this cell grid position      //
+   int cellIndex     = props.getInt(App.kKEY_CELL_INDEX);
+   int subBoardIndex = props.getInt(App.kKEY_SUBBOARD_INDEX);
+   int subBoardY     = subBoardIndex / 3;
+   int subBoardX     = subBoardIndex % 3;
+   int cellY         = subBoardY * 3 + cellIndex / 3;
+   int cellX         = subBoardX * 3 + cellIndex % 3;
+   int gridPos       = cellY * 9     + cellX;
+
+   props.set(App.kKEY_GRID_POSITION, gridPos);
+   return(props);
 }
 /*------------------------------------------------------------------------------
 
@@ -276,5 +262,5 @@ public void renderCSS()
       .cellText{font-size: 121px;}
    }
 --*/
-};
+}
 }//====================================// end CellView =======================//

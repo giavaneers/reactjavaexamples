@@ -16,6 +16,7 @@ notes:
                                        // package --------------------------- //
 package io.reactjava.client.examples.threebythree;
                                        // imports --------------------------- //
+
 import elemental2.dom.Element;
 import elemental2.dom.Event;
 import io.reactjava.client.core.react.AppComponentTemplate;
@@ -35,46 +36,6 @@ public String[] colors;                // a theme                             //
                                        // (none)                              //
                                        // private instance variables -------- //
                                        // (none)                              //
-/*------------------------------------------------------------------------------
-
-@name       App - default constructor
-                                                                              */
-                                                                             /**
-            Required default constructor. This implementation is null, but it
-            is not required to be.
-
-@return     An instance of App iff successful.
-
-@history    Sat Oct 27, 2018 10:30:00 (Giavaneers - LBM) created
-
-@notes
-                                                                              */
-//------------------------------------------------------------------------------
-public App()
-{
-}
-/*------------------------------------------------------------------------------
-
-@name       App - constructor for specified properties
-                                                                              */
-                                                                             /**
-            Required constructor for specified properties. This implementation
-            is essentially null, but it often is not.
-
-@return     An instance of App iff successful.
-
-@history    Sat Oct 27, 2018 10:30:00 (Giavaneers - LBM) created
-
-@notes
-                                                                              */
-//------------------------------------------------------------------------------
-public App(
-   Properties props)
-{
-   super(props);
-                                       // create a set of colors              //
-   getColors();
-}
 /*------------------------------------------------------------------------------
 
 @name       buttonClickHandler - button onClick event handler
@@ -169,6 +130,32 @@ public void getColors()
    };
 
    this.colors = themes[(int)(Math.random() * themes.length)].split(",");
+}
+/*------------------------------------------------------------------------------
+
+@name       initialize - set properties
+                                                                              */
+                                                                             /**
+            Set properties.
+
+@return     void
+
+@return     props     properties
+
+@history    Mon May 21, 2018 10:30:00 (Giavaneers - LBM) created
+
+@notes
+
+                                                                              */
+//------------------------------------------------------------------------------
+public Properties initialize(
+   Properties props)
+{
+   super.initialize(props);
+
+                                       // create a set of colors              //
+   getColors();
+   return(props);
 }
 /*------------------------------------------------------------------------------
 
@@ -306,5 +293,5 @@ public void renderCSS()
       button{height:  100px;  width: 1140px;}
    }
 --*/
-};
+}
 }//====================================// end App ============================//

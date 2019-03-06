@@ -34,41 +34,28 @@ public class App extends AppComponentTemplate<Properties>
                                        // (none)                              //
 /*------------------------------------------------------------------------------
 
-@name       App - default constructor
+@name       initialize - set properties
                                                                               */
                                                                              /**
-            Default constructor
+            Set properties.
 
-@return     An instance of App if successful.
+@return     void
 
-@history    Mon Aug 28, 2017 10:30:00 (Giavaneers - LBM) created
+@return     props     properties
 
-@notes
-                                                                              */
-//------------------------------------------------------------------------------
-public App()
-{
-   this(new Properties());
-}
-/*------------------------------------------------------------------------------
-
-@name       App - constructor for specified properties
-                                                                              */
-                                                                             /**
-            Constructor for specified properties
-
-@return     An instance of App if successful.
-
-@history    Mon Aug 28, 2017 10:30:00 (Giavaneers - LBM) created
+@history    Mon May 21, 2018 10:30:00 (Giavaneers - LBM) created
 
 @notes
+
                                                                               */
 //------------------------------------------------------------------------------
-public App(
+public Properties initialize(
    Properties props)
 {
-   super(props);
+   super.initialize(props);
+
    props.set("text", getClass().getName() + ".java");
+   return(props);
 }
 /*------------------------------------------------------------------------------
 

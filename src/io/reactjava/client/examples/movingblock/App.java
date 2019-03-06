@@ -35,43 +35,27 @@ public int left;                       // left position                       //
                                        // (none)                              //
 /*------------------------------------------------------------------------------
 
-@name       App - default constructor
+@name       initialize - set properties
                                                                               */
                                                                              /**
-            Required default constructor. This implementation is null, but it
-            is not required to be.
+            Set properties.
 
-@return     An instance of App iff successful.
+@return     void
 
-@history    Sat Oct 27, 2018 10:30:00 (Giavaneers - LBM) created
+@return     props     properties
 
-@notes
-                                                                              */
-//------------------------------------------------------------------------------
-public App()
-{
-}
-/*------------------------------------------------------------------------------
-
-@name       App - constructor for specified properties
-                                                                              */
-                                                                             /**
-            Required constructor for specified properties. This implementation
-            is essentially null, but it often is not.
-
-@return     An instance of App iff successful.
-
-@history    Sat Oct 27, 2018 10:30:00 (Giavaneers - LBM) created
+@history    Mon May 21, 2018 10:30:00 (Giavaneers - LBM) created
 
 @notes
+
                                                                               */
 //------------------------------------------------------------------------------
-public App(
+public Properties initialize(
    Properties props)
 {
-   super(props);
-                                       // start timer to kick off every second//
-   new Timer()
+   super.initialize(props);
+
+    new Timer()
    {
       public void run()
       {
@@ -83,6 +67,8 @@ public App(
       }
 
    }.scheduleRepeating(100);
+
+   return(props);
 }
 /*------------------------------------------------------------------------------
 

@@ -20,7 +20,6 @@ import io.reactjava.client.examples.tictactoe.App.Statistics;
 import io.reactjava.client.core.providers.platform.IPlatform;
 import io.reactjava.client.core.react.Component;
 import io.reactjava.client.core.react.INativeEventHandler;
-import io.reactjava.client.core.react.Properties;
 import io.reactjava.client.core.react.ReactJava;
 import java.util.function.Consumer;
                                        // Modal ==============================//
@@ -35,44 +34,6 @@ public class Modal extends Component
                                        // protected instance variables -------//
                                        // (none)                              //
 
-/*------------------------------------------------------------------------------
-
-@name       Modal - default constructor
-                                                                              */
-                                                                             /**
-            Default constructor
-
-@return     An instance of Modal if successful.
-
-@history    Mon May 21, 2018 10:30:00 (Giavaneers - LBM) created
-
-@notes
-                                                                              */
-//------------------------------------------------------------------------------
-public Modal()
-{
-   super();
-}
-/*------------------------------------------------------------------------------
-
-@name       Modal - constructor for specified properties
-                                                                              */
-                                                                             /**
-            Constructor for specified properties
-
-@return     An instance of Modal if successful.
-
-@history    Mon May 21, 2018 10:30:00 (Giavaneers - LBM) created
-
-@notes
-                                                                              */
-//------------------------------------------------------------------------------
-@SuppressWarnings("unusable-by-js")
-public Modal(
-   Properties props)
-{
-   super(props);
-}
 /*------------------------------------------------------------------------------
 
 @name       clickHandler - button onClick event handler

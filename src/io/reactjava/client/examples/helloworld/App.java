@@ -34,44 +34,6 @@ public class App extends AppComponentTemplate<Properties>
                                        // (none)                              //
 /*------------------------------------------------------------------------------
 
-@name       App - default constructor
-                                                                              */
-                                                                             /**
-            Required default constructor. This implementation is null, but it
-            is not required to be.
-
-@return     An instance of App iff successful.
-
-@history    Sat Oct 27, 2018 10:30:00 (Giavaneers - LBM) created
-
-@notes
-                                                                              */
-//------------------------------------------------------------------------------
-public App()
-{
-}
-/*------------------------------------------------------------------------------
-
-@name       App - constructor for specified properties
-                                                                              */
-                                                                             /**
-            Required constructor for specified properties. This implementation
-            is essentially null, but it often is not.
-
-@return     An instance of App iff successful.
-
-@history    Sat Oct 27, 2018 10:30:00 (Giavaneers - LBM) created
-
-@notes
-                                                                              */
-//------------------------------------------------------------------------------
-public App(
-   Properties props)
-{
-   super(props);
-}
-/*------------------------------------------------------------------------------
-
 @name       render - render component
                                                                               */
                                                                              /**

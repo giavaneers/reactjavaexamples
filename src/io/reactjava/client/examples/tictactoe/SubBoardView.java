@@ -35,44 +35,6 @@ public class SubBoardView extends Component
 
 /*------------------------------------------------------------------------------
 
-@name       SubBoardView - default constructor
-                                                                              */
-                                                                             /**
-            Default constructor
-
-@return     An instance of SubBoardView if successful.
-
-@history    Mon May 21, 2018 10:30:00 (Giavaneers - LBM) created
-
-@notes
-                                                                              */
-//------------------------------------------------------------------------------
-public SubBoardView()
-{
-   super();
-}
-/*------------------------------------------------------------------------------
-
-@name       SubBoardView - constructor for specified properties
-                                                                              */
-                                                                             /**
-            Constructor for specified properties
-
-@return     An instance of SubBoardView if successful.
-
-@history    Mon May 21, 2018 10:30:00 (Giavaneers - LBM) created
-
-@notes
-                                                                              */
-//------------------------------------------------------------------------------
-@SuppressWarnings("unusable-by-js")
-public SubBoardView(
-   Properties props)
-{
-   super(props);
-}
-/*------------------------------------------------------------------------------
-
 @name       clickHandler - button onClick event handler
                                                                               */
                                                                              /**
