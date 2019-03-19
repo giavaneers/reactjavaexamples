@@ -30,7 +30,7 @@ import static io.reactjava.client.examples.tictactoe.Game.kSTATUS_START;
 import static io.reactjava.client.examples.tictactoe.Game.kSTATUS_TIE;
 
                                        // App ================================//
-public class App extends AppComponentTemplate<Properties>
+public class App extends AppComponentTemplate
 {
                                        // class constants --------------------//
 public static final String kKEY_BOARD          = "board";

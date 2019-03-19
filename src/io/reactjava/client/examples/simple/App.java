@@ -20,7 +20,7 @@ import io.reactjava.client.core.react.AppComponentTemplate;
 import io.reactjava.client.core.react.Properties;
 
                                        // App ================================//
-public class App extends AppComponentTemplate<Properties>
+public class App extends AppComponentTemplate
 {
                                        // class constants --------------------//
                                        // (none)                              //
