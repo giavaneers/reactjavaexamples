@@ -630,11 +630,10 @@ protected MonteCarloTreeSearchNode expandNode(
 protected int getMove(
    Board board,
    int   opMove,
-   int   player,
    long  maxTime)
 {
    double magicConstant = 0.4;
-   opponent             = 3 - player;
+   opponent             = 1;
 
                                  // reusing previous tree gives better results//
    MonteCarloTreeSearchNode root = null;

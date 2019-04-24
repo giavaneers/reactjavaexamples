@@ -19,13 +19,14 @@ package io.reactjava.client.examples.statevariable;
 import elemental2.dom.Event;
 import io.reactjava.client.core.react.Component;
 import io.reactjava.client.core.react.INativeEventHandler;
+import io.reactjava.client.core.react.Properties;
 import java.util.function.Consumer;
                                        // A ==================================//
-public class A extends Component
+public class A <P extends Properties> extends Component
 {
                                        // class constants ------------------- //
-public static final String kPROPERTY_ON         = "on";
-public static final String kPROPERTY_ON_HANDLER = "onHandler";
+public static final String kPROPERTY_ON                   = "on";
+public static final String kPROPERTY_STATE_CHANGE_HANDLER = "statechangehandler";
 
                                        // class variables ------------------- //
                                        // (none)                              //
@@ -52,7 +53,7 @@ public static final String kPROPERTY_ON_HANDLER = "onHandler";
 //------------------------------------------------------------------------------
 public INativeEventHandler clickHandler = (Event e) ->
 {
-   ((Consumer)getProperties().get(kPROPERTY_ON_HANDLER)).accept(true);
+   ((Consumer)props().get(kPROPERTY_STATE_CHANGE_HANDLER)).accept("true");
 };
 /*------------------------------------------------------------------------------
 
@@ -72,10 +73,9 @@ public INativeEventHandler clickHandler = (Event e) ->
 //------------------------------------------------------------------------------
 public void render()
 {
-   String clas = getProperties().getBoolean(kPROPERTY_ON) ? "on" : "off";
+   String clas = "true".equals(props().getString(kPROPERTY_ON)) ? "on" : "off";
 /*--
-   <div class={clas} onClick={clickHandler} >
-   </div>
+   <div class={clas} onClick={clickHandler} id="Adiv"></div>
 --*/
 };
 /*------------------------------------------------------------------------------

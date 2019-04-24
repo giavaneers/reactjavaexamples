@@ -17,9 +17,10 @@ notes:
 package io.reactjava.client.examples.statevariable;
                                        // imports --------------------------- //
 import io.reactjava.client.core.react.AppComponentTemplate;
+import io.reactjava.client.core.react.Properties;
 import java.util.function.Consumer;
                                        // App ================================//
-public class App extends AppComponentTemplate
+public class App<P extends Properties> extends AppComponentTemplate
 {
                                        // class constants ------------------- //
 public static final String kSTATE_ON = "on";
@@ -34,7 +35,7 @@ public static final String kSTATE_ON = "on";
                                        // (none)                              //
 /*------------------------------------------------------------------------------
 
-@name       onHandler - initialize
+@name       onhandler - initialize
                                                                               */
                                                                              /**
             Initialize.
@@ -47,9 +48,9 @@ public static final String kSTATE_ON = "on";
 
                                                                               */
 //------------------------------------------------------------------------------
-public Consumer onHandler = (bOn) ->
+public Consumer onHandler = (onValue) ->
 {
-   setState(kSTATE_ON, bOn);
+   setState(kSTATE_ON, onValue);
 };
 /*------------------------------------------------------------------------------
 
@@ -69,13 +70,22 @@ public Consumer onHandler = (bOn) ->
 //------------------------------------------------------------------------------
 public void render()
 {
-   useState(kSTATE_ON, false);
-   boolean bOn = getStateBoolean(kSTATE_ON);
+                                       // react complains when a state        //
+                                       // variable is boolean                 //
+   useState(kSTATE_ON, "false");
+   String onValue = getStateString(kSTATE_ON);
+
+                                       // react complains if an attribute     //
+                                       // is not all lower case; so           //
+                                       // 'stateChangeHandler' ->             //
+                                       //    'statechangehandler'             //
 /*--
-   <React.Fragment>
-      <A on={bOn}  onHandler={onHandler}></A>
-      <B on={!bOn} onHandler={onHandler}></B>
-   </React.Fragment>
+   <div id={"App"}>
+      <A on={onValue} statechangehandler={onHandler} id="A"></A>
+      <B on={onValue.equals("true") ? "false" : "true"}
+         statechangehandler={onHandler} id="B">
+      </B>
+   </div>
 --*/
 };
 }//====================================// end App ============================//

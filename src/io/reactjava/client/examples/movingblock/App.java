@@ -53,9 +53,9 @@ public int left;                       // left position                       //
 public Properties initialize(
    Properties props)
 {
-   super.initialize(props);
+   props = super.initialize(props);
 
-    new Timer()
+   new Timer()
    {
       public void run()
       {
@@ -89,7 +89,7 @@ public Properties initialize(
 public void render()
 {
 /*--
-   <div style="width : 100%; height : 100%;">
+   <div style="width:100%; height:100%;">
       <div class='panel' />
    </div>
 --*/

@@ -16,10 +16,9 @@ notes:
 package io.reactjava.client.examples.tictactoe;
                                        // imports --------------------------- //
 import elemental2.dom.Event;
+import io.reactjava.client.core.react.INativeEventHandler;
 import io.reactjava.client.examples.tictactoe.Game.Board;
 import io.reactjava.client.core.react.Component;
-import io.reactjava.client.core.react.INativeEventHandler;
-import io.reactjava.client.core.react.Properties;
 import java.util.function.Consumer;
                                        // CellView ===========================//
 public class CellView extends Component
@@ -31,7 +30,9 @@ public class CellView extends Component
                                        // public instance variables --------- //
                                        // (none)                              //
                                        // protected instance variables -------//
-                                       // (none)                              //
+protected Board   board;               // board                               //
+protected int     cellIndex;           // cell index                          //
+protected Integer gridPos;             // grid position                       //
 
 /*------------------------------------------------------------------------------
 
@@ -39,7 +40,7 @@ public class CellView extends Component
                                                                               */
                                                                              /**
             Cell onClick event handler as a public instance variable, accessible
-            via 'this' in markup.
+            in markup.
 
 @return     void
 
@@ -51,9 +52,6 @@ public class CellView extends Component
 //------------------------------------------------------------------------------
 public INativeEventHandler clickHandler = (Event e) ->
 {
-   Board board   = (Board)props.get(App.kKEY_BOARD);
-   int   gridPos = props.getInt(App.kKEY_GRID_POSITION);
-
    if (board.isValidAction(gridPos))
    {
                                        // invoke the app move function        //
@@ -77,41 +75,7 @@ public INativeEventHandler clickHandler = (Event e) ->
 //------------------------------------------------------------------------------
 protected Consumer<Integer> getMoveFunction()
 {
-   return((Consumer<Integer>)props.get(App.kKEY_MOVE_FCN));
-}
-/*------------------------------------------------------------------------------
-
-@name       initialize - set properties
-                                                                              */
-                                                                             /**
-            Set properties.
-
-@return     void
-
-@return     props     properties
-
-@history    Mon May 21, 2018 10:30:00 (Giavaneers - LBM) created
-
-@notes
-
-                                                                              */
-//------------------------------------------------------------------------------
-public Properties initialize(
-   Properties props)
-{
-   super.initialize(props);
-
-                                       // assign this cell grid position      //
-   int cellIndex     = props.getInt(App.kKEY_CELL_INDEX);
-   int subBoardIndex = props.getInt(App.kKEY_SUBBOARD_INDEX);
-   int subBoardY     = subBoardIndex / 3;
-   int subBoardX     = subBoardIndex % 3;
-   int cellY         = subBoardY * 3 + cellIndex / 3;
-   int cellX         = subBoardX * 3 + cellIndex % 3;
-   int gridPos       = cellY * 9     + cellX;
-
-   props.set(App.kKEY_GRID_POSITION, gridPos);
-   return(props);
+   return((Consumer<Integer>)props().get(App.kKEY_MOVE_FCN));
 }
 /*------------------------------------------------------------------------------
 
@@ -130,12 +94,19 @@ public Properties initialize(
 //------------------------------------------------------------------------------
 public void render()
 {
-   int     cellIndex = props.getInt(App.kKEY_CELL_INDEX);
-   Board   board     = (Board)props.get(App.kKEY_BOARD);
-   int     gridPos   = props.getInt(App.kKEY_GRID_POSITION);
+   if (board == null)
+   {
+      this.board         = (Board)props().get(App.kKEY_BOARD);
+      this.cellIndex     = props().getInt(App.kKEY_CELL_INDEX);
+      int  subBoardIndex = props().getInt(App.kKEY_SUBBOARD_INDEX);
+      int  subBoardY     = subBoardIndex / 3;
+      int  subBoardX     = subBoardIndex % 3;
+      int  cellY         = subBoardY * 3 + cellIndex / 3;
+      int  cellX         = subBoardX * 3 + cellIndex % 3;
+      this.gridPos       = cellY * 9     + cellX;
+   }
    int     player    = board.grid[gridPos];
    boolean bValid    = board.isValidAction(gridPos);
-
    String  brdStyle  = "border" + cellIndex;
    String  cellStyle = "cell " + (bValid ? "cellValid " : "") + brdStyle;
    String  textStyle = "cellText cellTextPlayer" + player;
@@ -144,7 +115,7 @@ public void render()
          ? "X"
          : player == Game.kSTATUS_OPPONENT ? "O" : bValid ? "." : "";
 /*--
-  <div class={cellStyle} onClick={this.clickHandler}>
+  <div class={cellStyle} onClick={clickHandler}>
     <div class={textStyle}>
       {text}
     </div>

@@ -16,12 +16,11 @@ notes:
 package io.reactjava.client.examples.tictactoe;
                                        // imports --------------------------- //
 import elemental2.dom.Event;
+import io.reactjava.client.core.react.INativeEventHandler;
 import io.reactjava.client.examples.tictactoe.App.Statistics;
 import io.reactjava.client.core.providers.platform.IPlatform;
 import io.reactjava.client.core.react.Component;
-import io.reactjava.client.core.react.INativeEventHandler;
 import io.reactjava.client.core.react.ReactJava;
-import java.util.function.Consumer;
                                        // Modal ==============================//
 public class Modal extends Component
 {
@@ -40,7 +39,7 @@ public class Modal extends Component
                                                                               */
                                                                              /**
             Button onClick event handler as a public instance variable,
-            accessible via 'this' in markup.
+            accessible in markup.
 
 @return     void
 
@@ -53,8 +52,7 @@ public class Modal extends Component
 public INativeEventHandler clickHandler = (Event e) ->
 {
    e.preventDefault();
-   int status = props.getInt(App.kKEY_STATUS);
-   ((Consumer)props.get(App.kKEY_INIT_FCN)).accept(status);
+   ((Runnable)props().get(App.kKEY_INIT_FCN)).run();
 };
 /*------------------------------------------------------------------------------
 
@@ -81,7 +79,7 @@ public void render()
    String modalText  = "";
    String buttonText = "";
 
-   switch(props.getInt(App.kKEY_STATUS))
+   switch(props().getInt(App.kKEY_STATUS))
    {
       case Game.kSTATUS_OPPONENT:
       {
@@ -119,7 +117,7 @@ public void render()
       }
    }
 
-   Statistics statistics   = (Statistics)props.get(App.kKEY_STATISTICS);
+   Statistics statistics   = (Statistics)props().get(App.kKEY_STATISTICS);
    String     winsText     = "Total Wins  : " + statistics.player;
    String     opponentText = "Total Loses : " + statistics.opponent;
    String     drawsText    = "Total Draws : " + statistics.tie;
@@ -131,11 +129,9 @@ public void render()
             <div>{winsText}</div>
             <div>{opponentText}</div>
             <div>{drawsText}</div>
-            <IonicButton
-               onClick={this.clickHandler}
-               text={buttonText}
-               login='true'
-            />
+            <button onClick={clickHandler} login='true'>
+               {buttonText}
+            </button>
          </div>
       </div>
    </div>

@@ -1,8 +1,8 @@
 /*==============================================================================
 
-name:       B.java
+name:       App.java
 
-purpose:    Component B.
+purpose:    HelloWorldSansJSX App.
 
 history:    Sat Oct 27, 2018 10:30:00 (Giavaneers - LBM) created
 
@@ -14,20 +14,19 @@ notes:
 
 ==============================================================================*/
                                        // package --------------------------- //
-package io.reactjava.client.examples.statevariable;
+package io.reactjava.client.examples.helloworldsansjsx;
                                        // imports --------------------------- //
-import elemental2.dom.Event;
-import io.reactjava.client.core.react.Component;
-import io.reactjava.client.core.react.INativeEventHandler;
+import io.reactjava.client.core.react.AppComponentTemplate;
+import io.reactjava.client.core.react.ReactElement;
+import io.reactjava.client.core.react.ElementDsc;
 import io.reactjava.client.core.react.Properties;
-import java.util.function.Consumer;
-                                       // A ==================================//
-public class B<P extends Properties> extends Component
+import java.util.Stack;
+import java.util.function.Function;
+                                       // App ================================//
+public class App extends AppComponentTemplate
 {
-                                       // class constants ------------------- //
-public static final String kPROPERTY_ON                   = "on";
-public static final String kPROPERTY_STATE_CHANGE_HANDLER = "statechangehandler";
-
+                                       // class constants --------------------//
+                                       // (none)                              //
                                        // class variables ------------------- //
                                        // (none)                              //
                                        // public instance variables --------- //
@@ -36,25 +35,6 @@ public static final String kPROPERTY_STATE_CHANGE_HANDLER = "statechangehandler"
                                        // (none)                              //
                                        // private instance variables -------- //
                                        // (none)                              //
-/*------------------------------------------------------------------------------
-
-@name       clickHandler - onClick event handler
-                                                                              */
-                                                                             /**
-            onClick event handler as a public instance variable, accessible in
-            markup.
-
-@return     void
-
-@history    Thu Feb 14, 2019 10:30:00 (Giavaneers - LBM) created
-
-@notes
-                                                                              */
-//------------------------------------------------------------------------------
-public INativeEventHandler clickHandler = (Event e) ->
-{
-   ((Consumer)props().get(kPROPERTY_STATE_CHANGE_HANDLER)).accept("false");
-};
 /*------------------------------------------------------------------------------
 
 @name       render - render component
@@ -73,10 +53,39 @@ public INativeEventHandler clickHandler = (Event e) ->
 //------------------------------------------------------------------------------
 public void render()
 {
-   String clas = "true".equals(props().getString(kPROPERTY_ON)) ? "on" : "off";
-/*--
-   <div class={clas} onClick={clickHandler} id="Bdiv"></div>
---*/
+   Function<Properties,ReactElement> fcn = (props) ->
+   {
+      ReactElement      element = null;
+      Stack<ElementDsc> parents = new Stack<>();
+      ElementDsc        root    = null;
+      ElementDsc        elem;
+      Properties        p;
+
+      p =
+         Properties.with(
+            "className", "hello",
+            "style",
+            Properties.with(
+               "color", "blue", "marginTop", "30px", "fontSize", "20px"),
+            "id", getNextId());
+
+      elem = ElementDsc.create(parents.size() > 0 ? parents.peek() : null,"h1", p);
+      root = root == null ? elem : root;
+      parents.push(elem);
+
+      p    = Properties.with("id", getNextId());
+      elem = ElementDsc.create(parents.size() > 0 ? parents.peek() : null,"span", p," Hello world! ");
+      root = root == null ? elem : root;
+      parents.pop();
+
+      if (root != null)
+      {
+         element = ElementDsc.createElement(root);
+         setId(element.props.getString("id"));
+      }
+      return(element);
+   };
+   this.componentFcn = fcn;
 };
 /*------------------------------------------------------------------------------
 
@@ -96,18 +105,9 @@ public void render()
 public void renderCSS()
 {
 /*--
-   .on
-   {
-      height:           300px;
-      width:            300px;
-      background-color: green;
-   }
-   .off
-   {
-      height:           300px;
-      width:            300px;
-      background-color: red;
+   .hello {
+      color: blue
    }
 --*/
 }
-}//====================================// end B ==============================//
+}//====================================// end App ============================//

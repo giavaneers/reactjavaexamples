@@ -16,22 +16,22 @@ notes:
                                        // package --------------------------- //
 package io.reactjava.client.examples.threebythree;
                                        // imports --------------------------- //
-
 import elemental2.dom.Element;
 import elemental2.dom.Event;
 import io.reactjava.client.core.react.AppComponentTemplate;
 import io.reactjava.client.core.react.INativeEventHandler;
-import io.reactjava.client.core.react.Properties;
 
                                        // App ================================//
 public class App extends AppComponentTemplate
 {
-                                       // class constants --------------------//
-                                       // (none)                              //
+                                       // class constants ------------------- //
+                                       // state variable name                 //
+public static final String kSTATE_COLORS = "colors";
+
                                        // class variables ------------------- //
                                        // (none)                              //
                                        // public instance variables --------- //
-public String[] colors;                // a theme                             //
+                                       // (none)                              //
                                        // protected instance variables -------//
                                        // (none)                              //
                                        // private instance variables -------- //
@@ -54,10 +54,9 @@ public String[] colors;                // a theme                             //
 //------------------------------------------------------------------------------
 public INativeEventHandler buttonClickHandler = (Event e) ->
 {
-                                       // reassign the colors                 //
-   getColors();
-                                       // re-render                           //
-   update();
+                                       // reassign the state variable which   //
+                                       // will cause a re-render              //
+   setState(kSTATE_COLORS, getColors());
 };
 /*------------------------------------------------------------------------------
 
@@ -102,14 +101,15 @@ public INativeEventHandler cellClickHandler = (Event e) ->
 public String getColor(
    int idx)
 {
-   return(idx < 0 ? this.colors[2] : this.colors[idx % 2]);
+   String[] colors = (String[])getState(kSTATE_COLORS);
+   return(idx < 0 ? colors[2] : colors[idx % 2]);
 }
 /*------------------------------------------------------------------------------
 
-@name       getColors - assign colors array
+@name       getColors - assign a new colors array
                                                                               */
                                                                              /**
-            Assign colors array.
+            Assign a new colors array.
 
 @return     void
 
@@ -119,7 +119,7 @@ public String getColor(
 
                                                                               */
 //------------------------------------------------------------------------------
-public void getColors()
+public String[] getColors()
 {
    String[] themes =
    {
@@ -129,33 +129,7 @@ public void getColors()
       "blue,white,red",
    };
 
-   this.colors = themes[(int)(Math.random() * themes.length)].split(",");
-}
-/*------------------------------------------------------------------------------
-
-@name       initialize - set properties
-                                                                              */
-                                                                             /**
-            Set properties.
-
-@return     void
-
-@return     props     properties
-
-@history    Mon May 21, 2018 10:30:00 (Giavaneers - LBM) created
-
-@notes
-
-                                                                              */
-//------------------------------------------------------------------------------
-public Properties initialize(
-   Properties props)
-{
-   super.initialize(props);
-
-                                       // create a set of colors              //
-   getColors();
-   return(props);
+   return(themes[(int)(Math.random() * themes.length)].split(","));
 }
 /*------------------------------------------------------------------------------
 
@@ -175,40 +149,38 @@ public Properties initialize(
 //------------------------------------------------------------------------------
 public void render()
 {
-/*--
-   <div class='container'>
-      <div class='board'>
+                                       // assign state variable initial value //
+   useState(kSTATE_COLORS, getColors());
+   String[] colors = (String[])getState(kSTATE_COLORS);
+/*--  <div class='container'>
+         <div class='board'>
 --*/
-      for (int i = 0; i < 9; i++)
-      {
-/*--
-         <div class='cell'
-            style='background-color:{this.getColor(i)}'
-            onClick={this.cellClickHandler} />
---*/
-      }
-/*--
-         <@material-ui.core.Button
-            class='button'
-            variant='contained'
-            fullWidth={true}
-            onClick={this.buttonClickHandler}>
-            Change Colors
-         </@material-ui.core.Button>
-         <ul>
---*/
-         for (int i = 0; i < this.colors.length; i++)
+         for (int i = 0; i < 9; i++)
          {
-            String sKey  = Integer.toString(i);
-            String color = this.colors[i];
-/*--
-            <li key={sKey}>{color}</li>
+/*--        <div class='cell'
+               style='background-color:{getColor(i)}'
+               onClick={cellClickHandler} />
 --*/
          }
-/*--
-         </ul>
+/*--        <@material-ui.core.Button
+               class='button'
+               variant='contained'
+               fullWidth={true}
+               onClick={buttonClickHandler}>
+               Change Colors
+            </@material-ui.core.Button>
+            <ul>
+--*/
+            for (int i = 0; i < colors.length; i++)
+            {
+               String sKey  = Integer.toString(i);
+               String color = colors[i];
+/*--           <li key={sKey}>{color}</li>
+--*/
+            }
+/*--        </ul>
+         </div>
       </div>
-   </div>
 --*/
 };
 /*------------------------------------------------------------------------------
@@ -259,7 +231,7 @@ public void renderCSS()
    }
    @media (min-width: 320px)
    {
-      .board{height: 300px;  width: 300px;}
+      .board{height:  300px;  width: 300px;}
       .cell {height:  100px;  width: 100px;}
       ul    {height:  100px;  width: 300px;}
       button{height:  100px;  width: 300px;}

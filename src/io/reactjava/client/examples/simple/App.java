@@ -23,7 +23,9 @@ import io.reactjava.client.core.react.Properties;
 public class App extends AppComponentTemplate
 {
                                        // class constants --------------------//
-                                       // (none)                              //
+protected static final String kIMAGE_URL = "images/logo.svg";
+protected static final String kTEXT      = App.class.getName() + ".java";
+
                                        // class variables ------------------- //
                                        // (none)                              //
                                        // public instance variables --------- //
@@ -32,31 +34,6 @@ public class App extends AppComponentTemplate
                                        // (none)                              //
                                        // private instance variables -------- //
                                        // (none)                              //
-/*------------------------------------------------------------------------------
-
-@name       initialize - set properties
-                                                                              */
-                                                                             /**
-            Set properties.
-
-@return     void
-
-@return     props     properties
-
-@history    Mon May 21, 2018 10:30:00 (Giavaneers - LBM) created
-
-@notes
-
-                                                                              */
-//------------------------------------------------------------------------------
-public Properties initialize(
-   Properties props)
-{
-   super.initialize(props);
-
-   props.set("text", getClass().getName() + ".java");
-   return(props);
-}
 /*------------------------------------------------------------------------------
 
 @name       render - render markup
@@ -74,20 +51,17 @@ public Properties initialize(
 //------------------------------------------------------------------------------
 public void render()
 {
-   String imgURL = "images/logo.svg";
 /*--
-   <IonicScrollContent>
-      <div class="App">
-         <header class="App-header">
-            <img src={imgURL} class="App-logo" alt="logo" />
-            <h1 class="App-title">Welcome to ReactJava</h1>
-         </header>
-         <p class="App-intro">
-            To get started, edit <code>{(String)props.get("text")}</code>,
-            <strong>save and refresh browser</strong> to reload.
-         </p>
-      </div>
-   </IonicScrollContent>
+   <div class="App">
+      <header class="App-header">
+         <img src={kIMAGE_URL} class="App-logo" alt="logo" />
+         <h1 class="App-title">Welcome to ReactJava</h1>
+      </header>
+      <p class="App-intro">
+         To get started, edit <code>{kTEXT}</code>,
+         <strong>save and refresh browser</strong> to reload.
+      </p>
+   </div>
 --*/
 }
 /*------------------------------------------------------------------------------

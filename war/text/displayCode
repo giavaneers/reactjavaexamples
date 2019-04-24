@@ -1,70 +1,51 @@
-.descriptiveUnit.body
-ReactJava lets you define components as subclasses of the Component class.
+/*==============================================================================
+
+    Display Code
+
+==============================================================================*/
+.title
+Display Code
 .end
 
-.descriptiveUnit.caption
-Overview
-.end
+.code
+/*==============================================================================
 
-.descriptiveUnit.example1
-import java.util.Scanner;
-public class Life
+name:       App.java
+
+purpose:    Three By Three App.
+
+history:    Sat Oct 27, 2018 10:30:00 (Giavaneers - LBM) created
+
+notes:
+
+                  This program was created by Giavaneers
+        and is the confidential and proprietary product of Giavaneers Inc.
+      Any unauthorized use, reproduction or transfer is strictly prohibited.
+
+                     COPYRIGHT 2018 BY GIAVANEERS, INC.
+      (Subject to limited distribution and restricted disclosure only).
+                           All rights reserved.
+
+
+==============================================================================*/
+                                       // package --------------------------- //
+package io.reactjava.client.examples.threebythree;
+                                       // imports --------------------------- //
+import io.reactjava.client.gwt.react.AppComponentTemplate;
+import io.reactjava.client.gwt.react.Properties;
+
+                                       // App ================================//
+public class App extends AppComponentTemplate<Properties>
 {
-   @Override @Bind("One")
-   public void show(boolean[][] grid)
-   {
-      String s = "";
-      for(boolean[] row : grid)
-      {
-         for (boolean val : row)
-         {
-            if(val)
-            {
-               s += "*";
-            }
-            else
-            {
-               s += ".";
-               s += "\\n";
-            }
-         }
-      }
-      System.out.println(s);
-   }
-
-   public static boolean[][] gen()
-   {
-      boolean[][] grid = new boolean[10][10];
-      for (int r = 0; r < 10; r++)
-      {
-         for (int c = 0; c < 10; c++)
-         {
-            if ( Math.random() > 0.7 )
-            {
-               grid[r][c] = true;
-            }
-         }
-      }
-      return grid;
-   }
-
-   public static void main(String[] args)
-   {
-      boolean[][] world = gen();
-      show(world);
-      System.out.println();
-      world = nextGen(world);
-      show(world);
-      Scanner s = new Scanner(System.in);
-      while(s.nextLine().length() == 0)
-      {
-         System.out.println();
-         world = nextGen(world);
-         show(world);
-      }
-   }
-
-   // [...]
-}
+                                       // class constants --------------------//
+                                       // (none)                              //
+                                       // class variables ------------------- //
+                                       // (none)                              //
+                                       // public instance variables --------- //
+public String[] colors;                // a theme                             //
+                                       // protected instance variables -------//
+                                       // (none)                              //
+                                       // private instance variables -------- //
+                                       // (none)                              //
 .end
 

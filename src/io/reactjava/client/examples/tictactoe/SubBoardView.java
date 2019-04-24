@@ -16,10 +16,9 @@ notes:
 package io.reactjava.client.examples.tictactoe;
                                        // imports --------------------------- //
 import elemental2.dom.Event;
+import io.reactjava.client.core.react.INativeEventHandler;
 import io.reactjava.client.examples.tictactoe.Game.Board;
 import io.reactjava.client.core.react.Component;
-import io.reactjava.client.core.react.INativeEventHandler;
-import io.reactjava.client.core.react.Properties;
 
                                        // SubBoardView =======================//
 public class SubBoardView extends Component
@@ -39,7 +38,7 @@ public class SubBoardView extends Component
                                                                               */
                                                                              /**
             Button onClick event handler as a public instance variable,
-            accessible via 'this' in markup.
+            accessible in markup.
 
 @return     void
 
@@ -70,8 +69,8 @@ public INativeEventHandler clickHandler = (Event e) ->
 //------------------------------------------------------------------------------
 public void render()
 {
-   Board  board               = (Board)props.get(App.kKEY_BOARD);
-   int    index               = props.getInt(App.kKEY_SUBBOARD_INDEX);
+   Board  board               = (Board)props().get(App.kKEY_BOARD);
+   int    index               = props().getInt(App.kKEY_SUBBOARD_INDEX);
    int    winner              = board.subWinners[index];
    String borderStyle         = "border" + index;
    String subBoardStyle       = "subBoard " + borderStyle;
@@ -91,7 +90,7 @@ public void render()
             key={i}
             cellindex={i}
             movefcn={props.get(App.kKEY_MOVE_FCN)}
-            onClick={this.clickHandler}
+            onClick={clickHandler}
          >
          </CellView>
          --*/
@@ -106,9 +105,7 @@ public void render()
       String text      = winner == Game.kSTATUS_PLAYER ? "X" : "O";
       /*--
       <div class={subBoardWinnerStyle}>
-         <div class={textStyle}>
-            {text}
-         </div>
+         <div class={textStyle}>{text} </div>
       </div>
       --*/
    }

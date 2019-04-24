@@ -20,7 +20,6 @@ import com.google.gwt.user.client.Timer;
 import io.reactjava.client.examples.tictactoe.Game.Board;
 import io.reactjava.client.examples.tictactoe.Game.MonteCarloTreeSearchPlayer;
 import io.reactjava.client.core.react.AppComponentTemplate;
-import io.reactjava.client.core.react.Properties;
 import java.util.function.Consumer;
 import static io.reactjava.client.examples.tictactoe.Game.kSTATUS_INIT;
 import static io.reactjava.client.examples.tictactoe.Game.kSTATUS_OPPONENT;
@@ -35,13 +34,12 @@ public class App extends AppComponentTemplate
                                        // class constants --------------------//
 public static final String kKEY_BOARD          = "board";
 public static final String kKEY_CELL_INDEX     = "cellindex";
-public static final String kKEY_GRID_POSITION  = "gridposition";
 public static final String kKEY_INIT_FCN       = "initfcn";
 public static final String kKEY_MOVE_FCN       = "movefcn";
-public static final String kKEY_PLAYER         = "player";
 public static final String kKEY_STATISTICS     = "statistics";
 public static final String kKEY_STATUS         = "status";
 public static final String kKEY_SUBBOARD_INDEX = "subboardindex";
+public static final String kKEY_TURN           = "turn";
 
 public static final long   kTHINK_TIME         = 100;
 
@@ -50,46 +48,13 @@ public static final long   kTHINK_TIME         = 100;
                                        // public instance variables --------- //
                                        // (none)                              //
                                        // protected instance variables -------//
-                                       // (none)                              //
+                                       // current board                       //
+protected Board                      board;
+                                       // current player                      //
+protected MonteCarloTreeSearchPlayer player;
+                                       // statistics                          //
+protected Statistics                 stats;
 
-/*------------------------------------------------------------------------------
-
-@name       getBoard - get board
-                                                                              */
-                                                                             /**
-            Get board.
-
-@return     board
-
-@history    Mon May 21, 2018 10:30:00 (Giavaneers - LBM) created
-
-@notes
-
-                                                                              */
-//------------------------------------------------------------------------------
-protected Board getBoard()
-{
-   return((Board)props.get(kKEY_BOARD));
-}
-/*------------------------------------------------------------------------------
-
-@name       getPlayer - get player
-                                                                              */
-                                                                             /**
-            Get player.
-
-@return     player
-
-@history    Mon May 21, 2018 10:30:00 (Giavaneers - LBM) created
-
-@notes
-
-                                                                              */
-//------------------------------------------------------------------------------
-protected MonteCarloTreeSearchPlayer getPlayer()
-{
-   return((MonteCarloTreeSearchPlayer)props.get(kKEY_PLAYER));
-}
 /*------------------------------------------------------------------------------
 
 @name       initFcn - initialize
@@ -105,34 +70,26 @@ protected MonteCarloTreeSearchPlayer getPlayer()
 
                                                                               */
 //------------------------------------------------------------------------------
-public Consumer initFcn = (statusPrevious) ->
+public Runnable initFcn = () ->
 {
-   props.set(kKEY_BOARD,  new Board());
-   props.set(kKEY_PLAYER, new MonteCarloTreeSearchPlayer());
+   board  = new Board();
+   player = new MonteCarloTreeSearchPlayer();
 
-   if (statusPrevious.equals(kSTATUS_INIT))
+
+   if (getStateInt(kKEY_STATUS) == kSTATUS_INIT)
    {
-      Statistics stats = retrieveStatistics();
+      stats = retrieveStatistics();
       if (stats == null)
       {
          stats = new Statistics();
       }
-      props.set(kKEY_STATISTICS, stats);
-      props.set(kKEY_STATUS, kSTATUS_START);
+                                       // update state causing render         //
+      setState(kKEY_STATUS, kSTATUS_START);
    }
    else
    {
-      props.set(kKEY_STATUS, kSTATUS_PLAYING);
-                                       // explicitly re-render since this     //
-                                       // property change can affect          //
-                                       // appearance. Perhaps updates can be  //
-                                       // done automatically (like react      //
-                                       // component state changes) or leverage//
-                                       // react built-in update mechanism...  //
-                                       // can functional components in react  //
-                                       // be automatically or explicitly      //
-                                       // updated?                            //
-      update();
+                                       // update state causing render         //
+      setState(kKEY_STATUS, kSTATUS_PLAYING);
    }
 };
 /*------------------------------------------------------------------------------
@@ -152,7 +109,7 @@ public Consumer initFcn = (statusPrevious) ->
 //------------------------------------------------------------------------------
 public Consumer<Integer> moveFcn = (move) ->
 {
-   if (getBoard().isValidAction(move))
+   if (board.isValidAction(move))
    {
       if (updateBoard(move, kSTATUS_PLAYER) == kSTATUS_PLAYING)
       {
@@ -163,44 +120,13 @@ public Consumer<Integer> moveFcn = (move) ->
                                        // event thread                        //
             public void run()
             {
-               int opMove =
-                  getPlayer().getMove(
-                     getBoard(), move, kSTATUS_OPPONENT, kTHINK_TIME);
-
+               int opMove = player.getMove(board, move, kTHINK_TIME);
                updateBoard(opMove, kSTATUS_OPPONENT);
             }
          }.schedule(0);
       }
    }
 };
-/*------------------------------------------------------------------------------
-
-@name       initialize - set properties
-                                                                              */
-                                                                             /**
-            Set properties.
-
-@return     void
-
-@return     props     properties
-
-@history    Mon May 21, 2018 10:30:00 (Giavaneers - LBM) created
-
-@notes
-
-                                                                              */
-//------------------------------------------------------------------------------
-public Properties initialize(
-   Properties props)
-{
-   super.initialize(props);
-
-   props.set(kKEY_INIT_FCN, initFcn);
-   props.set(kKEY_MOVE_FCN, moveFcn);
-
-   initFcn.accept(kSTATUS_INIT);
-   return(props);
-}
 /*------------------------------------------------------------------------------
 
 @name       render - render component
@@ -218,22 +144,19 @@ public Properties initialize(
 //------------------------------------------------------------------------------
 public void render()
 {
-   Statistics stats   = (Statistics)props.get(App.kKEY_STATISTICS);
-   int        status  = props.getInt(App.kKEY_STATUS);
+   useState(kKEY_STATUS, kSTATUS_INIT);
+   useState(kKEY_TURN,   kSTATUS_PLAYER);
+
+   int status = getStateInt(kKEY_STATUS);
+   if (kSTATUS_INIT == status)
+   {
+      initFcn.run();
+   }
 /*--
    <div class='container'>
-      <BoardView
-         board={props.get(App.kKEY_BOARD)}
-         statistics={stats}
-         status={status}
-         movefcn={moveFcn}
-      >
+      <BoardView board={board} statistics={stats} status={status} movefcn={moveFcn}>
       </BoardView>
-      <Modal
-         statistics={stats}
-         status={status}
-         initfcn={initFcn}
-      >
+      <Modal statistics={stats} status={status} initfcn={initFcn}>
       </Modal>
    </div>
 --*/
@@ -326,9 +249,6 @@ protected int updateBoard(
    int move,
    int player)
 {
-   Board      board = (Board)props.get(kKEY_BOARD);
-   Statistics stats = (Statistics)props.get(kKEY_STATISTICS);
-
    board.move(move, player);
 
    int[]   validActions = board.validActions();
@@ -361,21 +281,9 @@ protected int updateBoard(
    {
       updateStatistics(stats);
    }
-
-   props.set(kKEY_BOARD,      board);
-   props.set(kKEY_STATISTICS, stats);
-   props.set(kKEY_STATUS,     status);
-                                       // explicitly re-render since this     //
-                                       // property change can affect          //
-                                       // appearance. Perhaps updates can be  //
-                                       // done automatically (like react      //
-                                       // component state changes) or leverage//
-                                       // react built-in update mechanism...  //
-                                       // can functional components in react  //
-                                       // be automatically or explicitly      //
-                                       // updated?                            //
-   update();
-
+                                       // modify whose turn causing re-render //
+   setState(kKEY_TURN,   player);
+   setState(kKEY_STATUS, status);
    return(status);
 }
 /*------------------------------------------------------------------------------

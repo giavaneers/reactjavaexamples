@@ -2,29 +2,29 @@
 
 name:       App.java
 
-purpose:    Three By Three App.
+purpose:    ReactJava website App.
 
-history:    Sat Oct 27, 2018 10:30:00 (Giavaneers - LBM) created
+history:    Thu Feb 14, 2019 10:30:00 (Giavaneers - LBM) created
 
 notes:
 
-                        COPYRIGHT (c) BY GIAVANEERS, INC.
-         This source code is licensed under the MIT license found in the
-               LICENSE file in the root directory of this source tree.
+                  This program was created by Giavaneers
+        and is the confidential and proprietary product of Giavaneers Inc.
+      Any unauthorized use, reproduction or transfer is strictly prohibited.
+
+                     COPYRIGHT 2019 BY GIAVANEERS, INC.
+      (Subject to limited distribution and restricted disclosure only).
+                           All rights reserved.
+
 
 ==============================================================================*/
                                        // package --------------------------- //
-package io.reactjava.client.examples.displaycode;
+package io.reactjava.client.examples.materialui.generalpage;
                                        // imports --------------------------- //
-import io.reactjava.client.components.generalpage.Prism;
 import io.reactjava.client.core.react.AppComponentTemplate;
-import io.reactjava.client.core.react.ReactElement;
-import io.reactjava.client.core.react.ElementDsc;
 import io.reactjava.client.core.react.Properties;
-import io.reactjava.client.core.react.ReactJava;
 import java.util.Arrays;
 import java.util.List;
-import java.util.function.Function;
                                        // App ================================//
 public class App extends AppComponentTemplate
 {
@@ -66,81 +66,19 @@ protected List<String> getImportedNodeModules()
 @name       render - render component
                                                                               */
                                                                              /**
-            Render component. This implementation is all markup, with no java
-            code included.
+            Render component.
 
 @return     void
 
-@history    Sat Oct 27, 2018 10:30:00 (Giavaneers - LBM) created
+@history    Thu Feb 14, 2019 10:30:00 (Giavaneers - LBM) created
 
 @notes
-   Function<Properties, Element> fcn=(props) ->
-   {
-      ElementDsc root =
-         ElementDsc.create(
-            null,
-            ReactJava.getRenderableComponent("io.reactjava.client.components.generalpage.Prism"),
-            Properties.with("background", "#6dcff6", "id", getNextId()));
-
-      ElementDsc elem =
-         ElementDsc.create(root,
-         "span",
-         Properties.with("id", getNextId()),
-         ".code\n/*==============================================================================\n\n");
-
-      Element element = ElementDsc.createElement(root);
-      return(element);
-   };
-   this.componentFcn = fcn;
-
-   <React.Fragment>
-      <div class="top" ></div>
-      <Prism background='#6dcff6'>{text://text/displayCode}</Prism>
-      <div class="bottom" ></div>
-   </React.Fragment>
-
                                                                               */
 //------------------------------------------------------------------------------
 public void render()
 {
 /*--
-   <Prism background='#6dcff6'>{text://text/displayCode}</Prism>
---*/
-};
-/*------------------------------------------------------------------------------
-
-@name       renderCSS - get component css
-                                                                              */
-                                                                             /**
-            Get component css.
-
-@return     void
-
-@history    Sat Oct 27, 2018 10:30:00 (Giavaneers - LBM) created
-
-@notes
-
-                                                                              */
-//------------------------------------------------------------------------------
-public void renderCSS()
-{
-/*--
-   .top
-   {
-      height:           300px;
-      width:            300px;
-      background-color: green;
-   }
-   .bottom
-   {
-      height:           300px;
-      width:            300px;
-      background-color: red;
-   }
-   .token.comment
-   {
-      color: #6dcff6;
-   }
+   <GeneralPage manifest={text://text/generalPage}></GeneralPage>
 --*/
 }
 }//====================================// end App ============================//
