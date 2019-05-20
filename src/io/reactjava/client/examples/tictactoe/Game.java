@@ -222,7 +222,7 @@ protected int calcSubWinner(
                                                                              /**
             Get the first index of an array element with a specified value.
 
-@return     the first index of an array element with a specified value or -1
+@return     the first index of an array element with a specified value or -first
             if not found
 
 @param      array    array

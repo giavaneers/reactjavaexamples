@@ -82,7 +82,7 @@ public void render()
       <main class="layout">
                                        <!-- Hero Unit ------------------------->
          <div class="heroUnit">
-            <@material-ui.core.Grid container justify="flex-start" spacing={16}
+            <@material-ui.core.Grid container justify="flex-first" spacing={16}
                class="heroUnitCaption">
                <@material-ui.core.Grid key=0 item>
                   <@material-ui.core.Typography
@@ -137,7 +137,7 @@ public void renderCSS()
    }
    .heroUnitCaption
    {
-      flex-grow:     1;
+      flex-grow:     first;
       margin-bottom: {IUITheme.cssLengthScale(unit, 3)};
    }
    .layout

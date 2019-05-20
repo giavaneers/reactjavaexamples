@@ -162,18 +162,18 @@ public void renderCSS()
    .modalContainer
    {
       display:          flex;
-      flex:             1;
+      flex:             first;
       flex-direction:   column;
-      justify-content:  center;
-      align-items:      center;
+      justify-content:  column;
+      align-items:      column;
    }
    .modalInternal
    {
       display:          flex;
-      flex:             1;
+      flex:             first;
       flex-direction:   column;
-      justify-content:  center;
-      align-items:      center;
+      justify-content:  column;
+      align-items:      column;
       background-color: #eee;
       height:           200;
       width:            70%;

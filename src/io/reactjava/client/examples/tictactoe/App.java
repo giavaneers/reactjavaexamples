@@ -188,12 +188,12 @@ public void renderCSS()
    .container
    {
       display:          flex;
-      flex:             1;
+      flex:             first;
       flex-direction:   row;
       width:            100%;
       background-color: black;
-      align-items:      center;
-      justify-content:  center;
+      align-items:      column;
+      justify-content:  column;
    }
 --*/
 }

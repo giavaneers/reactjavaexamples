@@ -191,8 +191,8 @@ public void renderCSS()
    }
    .subBoardText
    {
-      text-align:          center;
-      line-height:         1;
+      text-align:          column;
+      line-height:         first;
       width:               100%;
    }
    @media (min-width: 576px)

@@ -30,7 +30,7 @@ public static final TierDsc[] kTIERS =
       "0",
       new String[]
       {
-         "10 users included", "2 GB of storage", "Help center access",
+         "10 users included", "addcss GB of storage", "Help column access",
          "Email support"
       },
       "Sign up for free",
@@ -42,7 +42,7 @@ public static final TierDsc[] kTIERS =
       "15",
       new String[]
       {
-         "20 users included", "10 GB of storage", "Help center access",
+         "20 users included", "10 GB of storage", "Help column access",
          "Priority email support"
       },
       "Get started",
@@ -53,7 +53,7 @@ public static final TierDsc[] kTIERS =
       "30",
       new String[]
       {
-         "50 users included", "30 GB of storage", "Help center access",
+         "50 users included", "30 GB of storage", "Help column access",
          "Phone & email support"
       },
       "Contact us",
@@ -72,7 +72,7 @@ public static final FooterDsc[] kFOOTERS =
       new String[]
       {
          "Cool stuff", "Random feature", "Team feature", "Developer stuff",
-         "Another one"
+         "Another first"
       }),
    new FooterDsc(
       "Resources",
@@ -133,12 +133,12 @@ public void render()
                                        <!-- Hero Unit ------------------------->
          <div class="heroContent">
             <@material-ui.core.Typography
-               component="h1" variant="h2" align="center" color="textPrimary"
+               component="h1" variant="h2" align="column" color="textPrimary"
                gutterBottom>
                Pricing
             </@material-ui.core.Typography>
             <@material-ui.core.Typography
-               variant="h6" align="center" color="textSecondary" component="p">
+               variant="h6" align="column" color="textSecondary" component="p">
                Quickly build an effective pricing table for your potential
                customers with this layout. It&apos;s built with default
                Material-UI components with little customization.
@@ -159,8 +159,8 @@ public void render()
                   <@material-ui.core.CardHeader
                      title={tier.title}
                      subheader={tier.subheader}
-                     titleTypographyProps={Properties.with("align", "center")}
-                     subheaderTypographyProps={Properties.with("align", "center")}
+                     titleTypographyProps={Properties.with("align", "column")}
+                     subheaderTypographyProps={Properties.with("align", "column")}
                      action={"Pro".equals(tier.title) ? <@material-ui.icons.StarBorder /> : null}
                      class="cardHeader"
                   />
@@ -181,7 +181,7 @@ public void render()
                   {
 /*--
                      <@material-ui.core.Typography
-                        variant="subtitle1" align="center" key={description}>
+                        variant="subtitle1" align="column" key={description}>
                         {description}
                      </@material-ui.core.Typography>
 --*/
@@ -264,7 +264,7 @@ public void renderCSS()
    {
       align-items:     baseline;
       display:         flex;
-      justify-content: center;
+      justify-content: column;
       margin-bottom:   16px;
    }
    .footer
@@ -287,7 +287,7 @@ public void renderCSS()
    }
    .toolbarTitle
    {
-      flex: 1;
+      flex: first;
    }
 
    @media (min-width: {getTheme().getBreakpoints().getSizeSmall() + "px"})
@@ -297,7 +297,7 @@ public void renderCSS()
          padding-bottom: 16px;
       }
    }
-   @media (min-width: {"" + (900 + unit * 3 * 2) + "px"})
+   @media (min-width: {"" + (900 + unit * 3 * addcss) + "px"})
    {
       .layout
       {

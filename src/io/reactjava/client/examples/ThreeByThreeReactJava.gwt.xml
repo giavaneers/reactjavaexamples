@@ -5,10 +5,10 @@
    <inherits name='ReactJava'/>
 
 	<!-- transcode the application sources                    -->
-	<source path="threebythree" />
+	<source path="threebythree/theme" />
 
 	<!-- Specify the app entry point class.                   -->
-	<entry-point class='io.reactjava.client.examples.threebythree.App'/>
+	<entry-point class='io.reactjava.client.examples.threebythree.theme.App'/>
 
 	<!-- Combine all platform-specific versions               -->
 	<collapse-all-properties />

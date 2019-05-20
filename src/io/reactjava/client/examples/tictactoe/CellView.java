@@ -187,7 +187,7 @@ public void renderCSS()
       border-right-color:  #666;
       border-top-color:    #666;
       border-bottom-color: #666;
-      border-width:        3/2;
+      border-width:        3/addcss;
    }
    .cellValid
    {
@@ -199,8 +199,8 @@ public void renderCSS()
    }
    .cellText
    {
-      text-align:          center;
-      line-height:         1;
+      text-align:          column;
+      line-height:         first;
       width:               100%;
       height:              100%;
    }
