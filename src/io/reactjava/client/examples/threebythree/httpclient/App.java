@@ -58,6 +58,7 @@ protected static Units units;          // theme based units                   //
 public INativeEventHandler squareClickHandler = (Event e) ->
 {
    final Element element = (Element)e.target;
+
                                        // request a color from the backend    //
    HttpClient.get(
       "http://reactjavabackend.appspot.com/examples/threebythree/getColor")

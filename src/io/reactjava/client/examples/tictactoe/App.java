@@ -16,7 +16,7 @@ notes:
 package io.reactjava.client.examples.tictactoe;
                                        // imports --------------------------- //
 import com.google.gwt.storage.client.Storage;
-import com.google.gwt.user.client.Timer;
+import elemental2.dom.DomGlobal;
 import io.reactjava.client.examples.tictactoe.Game.Board;
 import io.reactjava.client.examples.tictactoe.Game.MonteCarloTreeSearchPlayer;
 import io.reactjava.client.core.react.AppComponentTemplate;
@@ -113,17 +113,28 @@ public Consumer<Integer> moveFcn = (move) ->
    {
       if (updateBoard(move, kSTATUS_PLAYER) == kSTATUS_PLAYING)
       {
-         new Timer()
-         {
+         //new Timer()
+         //{
+         //                              // process the next opponent move on a //
+         //                              // new thread to avoid holding up the  //
+         //                              // event thread                        //
+         //   public void run()
+         //   {
+         //      int opMove = player.getMove(board, move, kTHINK_TIME);
+         //      updateBoard(opMove, kSTATUS_OPPONENT);
+         //   }
+         //}.schedule(0);
+
+         DomGlobal.setTimeout(
+            (e) ->
+            {
+
                                        // process the next opponent move on a //
                                        // new thread to avoid holding up the  //
                                        // event thread                        //
-            public void run()
-            {
                int opMove = player.getMove(board, move, kTHINK_TIME);
                updateBoard(opMove, kSTATUS_OPPONENT);
-            }
-         }.schedule(0);
+            }, 0, new Object[]{board, move});
       }
    }
 };

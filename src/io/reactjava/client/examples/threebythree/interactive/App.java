@@ -41,7 +41,7 @@ protected static Units units;          // theme based units                   //
 @name       squareClickHandler - square onClick event handler
                                                                               */
                                                                              /**
-            Square onClick event handler as an instance variable, accessible in
+            SquareByRenderCSS onClick event handler as an instance variable, accessible in
             markup.
 
 @return     void

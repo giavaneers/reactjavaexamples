@@ -1,8 +1,8 @@
 /*==============================================================================
 
-name:       App.java
+name:       Board.java
 
-purpose:    Three By Three App version interactive.
+purpose:    Three By Three Board.
 
 history:    Sat Oct 27, 2018 10:30:00 (Giavaneers - LBM) created
 
@@ -13,18 +13,15 @@ notes:
 
 ==============================================================================*/
                                        // package --------------------------- //
-package io.reactjava.client.examples.threebythree.board;
+package io.reactjava.client.examples.threebythree.state;
 
                                        // imports --------------------------- //
-import elemental2.dom.Element;
-import elemental2.dom.Event;
-import io.reactjava.client.core.react.AppComponentTemplate;
-import io.reactjava.client.core.react.INativeEventHandler;
+import io.reactjava.client.core.react.Component;
 import io.reactjava.client.core.react.IUITheme;
 import io.reactjava.client.core.react.IUITheme.Breakpoints;
 
-                                       // App ================================//
-public class App extends AppComponentTemplate
+                                       // Board ==============================//
+public class Board extends Component
 {
                                        // class constants ------------------- //
                                        // (none)                              //
@@ -36,28 +33,6 @@ protected static Units units;          // theme based units                   //
                                        // (none)                              //
                                        // private instance variables -------- //
                                        // (none)                              //
-/*------------------------------------------------------------------------------
-
-@name       squareClickHandler - square onClick event handler
-                                                                              */
-                                                                             /**
-            SquareByRenderCSS onClick event handler as an instance variable, accessible in
-            markup.
-
-@return     void
-
-@history    Sat Oct 27, 2018 10:30:00 (Giavaneers - LBM) created
-
-@notes
-
-                                                                              */
-//------------------------------------------------------------------------------
-public INativeEventHandler squareClickHandler = (Event e) ->
-{
-                                       // change the clicked element to green //
-   Element element = (Element)e.target;
-   element.setAttribute("style", "background-color:green");
-};
 /*------------------------------------------------------------------------------
 
 @name       getUnits - get theme based units
@@ -80,7 +55,6 @@ public Units getUnits()
    {
       units = new Units();
    }
-
    return(units);
 };
 /*------------------------------------------------------------------------------
@@ -100,29 +74,49 @@ public Units getUnits()
 //------------------------------------------------------------------------------
 public void render()
 {
-/*--
+   int numColumns;
+   int gridColsEach;
+                                       // normalize the closest integral fit  //
+                                       // to the twelve column grid layout    //
+   numColumns   = props().getInt("numcolumns");
+   gridColsEach = 12 / numColumns;
+   numColumns   = 12 / gridColsEach;
+                                                                           /*--
    <@material-ui.core.Grid container justify="center">
---*/
-   for (int iRow = 0; iRow < 3; iRow++)
+                                                                           --*/
+   for (int iRow = 0; iRow < numColumns; iRow++)
    {
-/*--
-      <@material-ui.core.Grid container spacing={8} class='contentWidth'>
---*/
-         for (int iCol = 0; iCol < 3; iCol++)
+                                                                           /*--
+      <@material-ui.core.Grid container spacing={8} class='contentWidth' >
+                                                                           --*/
+      for (int iCol = 0; iCol < numColumns; iCol++)
+      {
+                                                                           /*--
+         <@material-ui.core.Grid item xs={gridColsEach}>
+                                                                           --*/
+         if ("SquareByRenderCSS".equals(props().getString("squareclass")))
          {
-/*--
-         <@material-ui.core.Grid item xs={4}>
-            <div class='square' onClick={squareClickHandler}></div>
-         </@material-ui.core.Grid>
---*/
+                                                                           /*--
+            <SquareByRenderCSS clickhandler={props().get("clickhandler")} />
+                                                                           --*/
          }
-/*--
+         else
+         {
+                                                                           /*--
+            <SquareByRender clickhandler={props().get("clickhandler")} />
+                                                                           --*/
+         }
+                                                                           /*--
+         </@material-ui.core.Grid>
+                                                                           --*/
+      }
+                                                                           /*--
       </@material-ui.core.Grid>
---*/
+                                                                           --*/
    }
-/*--
+                                                                           /*--
    </@material-ui.core.Grid>
---*/
+                                                                           --*/
 };
 /*------------------------------------------------------------------------------
 
@@ -144,11 +138,6 @@ public void renderCSS()
 {
    Units units = getUnits();
 /*--
-   .square
-   {
-      background:  blue;
-      padding-top: 100%
-   }
    .contentWidth
    {
       margin-top: 4px;

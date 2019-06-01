@@ -1,33 +1,27 @@
 /*==============================================================================
 
-name:       A.java
+name:       SquareByRenderCSS.java
 
-purpose:    Component A.
+purpose:    Three By Three SquareByRenderCSS.
 
 history:    Sat Oct 27, 2018 10:30:00 (Giavaneers - LBM) created
 
 notes:
-
                         COPYRIGHT (c) BY GIAVANEERS, INC.
          This source code is licensed under the MIT license found in the
-               LICENSE file in the root directory of this source tree.
+             LICENSE file in the root directory of this source tree.
 
 ==============================================================================*/
                                        // package --------------------------- //
-package io.reactjava.client.examples.statevariable;
+package io.reactjava.client.examples.threebythree.components;
+
                                        // imports --------------------------- //
-import elemental2.dom.Event;
 import io.reactjava.client.core.react.Component;
-import io.reactjava.client.core.react.INativeEventHandler;
-import io.reactjava.client.core.react.Properties;
-import java.util.function.Consumer;
-                                       // A ==================================//
-public class A <P extends Properties> extends Component
+                                       // SquareByRenderCSS =============================//
+public class Square extends Component
 {
                                        // class constants ------------------- //
-public static final String kPROPERTY_ON                   = "on";
-public static final String kPROPERTY_STATE_CHANGE_HANDLER = "statechangehandler";
-
+                                       // (none)                              //
                                        // class variables ------------------- //
                                        // (none)                              //
                                        // public instance variables --------- //
@@ -38,30 +32,10 @@ public static final String kPROPERTY_STATE_CHANGE_HANDLER = "statechangehandler"
                                        // (none)                              //
 /*------------------------------------------------------------------------------
 
-@name       clickHandler - onClick event handler
-                                                                              */
-                                                                             /**
-            onClick event handler as a public instance variable, accessible in
-            markup.
-
-@return     void
-
-@history    Thu Feb 14, 2019 10:30:00 (Giavaneers - LBM) created
-
-@notes
-                                                                              */
-//------------------------------------------------------------------------------
-public INativeEventHandler clickHandler = (Event e) ->
-{
-   ((Consumer)props().get(kPROPERTY_STATE_CHANGE_HANDLER)).accept("true");
-};
-/*------------------------------------------------------------------------------
-
 @name       render - render component
                                                                               */
                                                                              /**
-            Render component. This implementation is all markup, with no java
-            code included.
+            Render component. This implementation includes only markup.
 
 @return     void
 
@@ -73,9 +47,8 @@ public INativeEventHandler clickHandler = (Event e) ->
 //------------------------------------------------------------------------------
 public void render()
 {
-   String clas = "true".equals(props().getString(kPROPERTY_ON)) ? "on" : "off";
 /*--
-   <div class={clas} onClick={clickHandler} id="Adiv"></div>
+   <div class='square' onClick={props().get("clickhandler")}></div>
 --*/
 };
 /*------------------------------------------------------------------------------
@@ -83,7 +56,8 @@ public void render()
 @name       renderCSS - get component css
                                                                               */
                                                                              /**
-            Get component css.
+            Get component css. This implementation is all css, with no java
+            code included.
 
 @return     void
 
@@ -96,18 +70,11 @@ public void render()
 public void renderCSS()
 {
 /*--
-   .on
+   .square
    {
-      height:           300px;
-      width:            300px;
-      background-color: green;
-   }
-   .off
-   {
-      height:           300px;
-      width:            300px;
-      background-color: red;
+      background:  blue;
+      padding-top: 100%
    }
 --*/
 }
-}//====================================// end A ==============================//
+}//====================================// end SquareByRenderCSS =========================//

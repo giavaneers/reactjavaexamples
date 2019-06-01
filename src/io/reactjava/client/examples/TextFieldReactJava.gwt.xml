@@ -1,14 +1,14 @@
 <!DOCTYPE module PUBLIC "-//Google Inc.//DTD Google Web Toolkit 2.8.2//EN" "http://gwtproject.org/doctype/2.8.0/gwt-module.dtd">
-<module rename-to="ThreeByThreeReactJava">
+<module rename-to="TextFieldReactJava">
 
 	<!-- Inherit the ReactJava module                         -->
    <inherits name='ReactJava'/>
 
 	<!-- transcode the application sources                    -->
-	<source path="threebythree/progress" />
+	<source path="textfield" />
 
 	<!-- Specify the app entry point class.                   -->
-	<entry-point class='io.reactjava.client.examples.threebythree.progress.App'/>
+	<entry-point class='io.reactjava.client.examples.textfield.App'/>
 
 	<!-- Combine all platform-specific versions               -->
 	<collapse-all-properties />

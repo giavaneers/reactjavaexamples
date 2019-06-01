@@ -2,29 +2,33 @@
 
 name:       App.java
 
-purpose:    Three By Three App.
+purpose:    Three By Three App version components.
 
 history:    Sat Oct 27, 2018 10:30:00 (Giavaneers - LBM) created
 
 notes:
-
                         COPYRIGHT (c) BY GIAVANEERS, INC.
          This source code is licensed under the MIT license found in the
-               LICENSE file in the root directory of this source tree.
+             LICENSE file in the root directory of this source tree.
 
 ==============================================================================*/
                                        // package --------------------------- //
-package io.reactjava.client.examples.statevariable;
+package io.reactjava.client.examples.threebythree.components;
+
                                        // imports --------------------------- //
+import elemental2.dom.DomGlobal;
+import elemental2.dom.Element;
+import elemental2.dom.Event;
+import io.reactjava.client.core.providers.http.HttpClient;
+import io.reactjava.client.core.providers.http.HttpResponse;
 import io.reactjava.client.core.react.AppComponentTemplate;
-import io.reactjava.client.core.react.Properties;
-import java.util.function.Consumer;
+import io.reactjava.client.core.react.INativeEventHandler;
+
                                        // App ================================//
-public class App<P extends Properties> extends AppComponentTemplate
+public class App extends AppComponentTemplate
 {
                                        // class constants ------------------- //
-public static final String kSTATE_ON = "on";
-
+                                       // (none)                              //
                                        // class variables ------------------- //
                                        // (none)                              //
                                        // public instance variables --------- //
@@ -35,30 +39,44 @@ public static final String kSTATE_ON = "on";
                                        // (none)                              //
 /*------------------------------------------------------------------------------
 
-@name       onhandler - initialize
+@name       squareClickHandler - square onClick event handler
                                                                               */
                                                                              /**
-            Initialize.
+            Cell onClick event handler as an instance variable, accessible in
+            markup.
 
 @return     void
 
-@history    Mon May 21, 2018 10:30:00 (Giavaneers - LBM) created
+@history    Sat Oct 27, 2018 10:30:00 (Giavaneers - LBM) created
 
 @notes
 
                                                                               */
 //------------------------------------------------------------------------------
-public Consumer onHandler = (onValue) ->
+public INativeEventHandler squareClickHandler = (Event e) ->
 {
-   setState(kSTATE_ON, onValue);
+   final Element element = (Element)e.target;
+
+                                       // request a color from the backend    //
+   HttpClient.get(
+      "http://reactjavabackend.appspot.com/examples/threebythree/getColor")
+      .subscribe(
+         (HttpResponse rsp) ->
+         {
+                                       // change the clicked element to green //
+            element.setAttribute("style", "background-color:" + rsp.getText());
+         },
+         (Throwable error) ->
+         {
+            DomGlobal.window.console.log(error.getMessage());
+         });
 };
 /*------------------------------------------------------------------------------
 
 @name       render - render component
                                                                               */
                                                                              /**
-            Render component. This implementation is all markup, with no java
-            code included.
+            Render component. This implementation includes java with markup.
 
 @return     void
 
@@ -70,22 +88,8 @@ public Consumer onHandler = (onValue) ->
 //------------------------------------------------------------------------------
 public void render()
 {
-                                       // react complains when a state        //
-                                       // variable is boolean                 //
-   useState(kSTATE_ON, "false");
-   String onValue = getStateString(kSTATE_ON);
-
-                                       // react complains if an attribute     //
-                                       // is not all lower case; so           //
-                                       // 'stateChangeHandler' ->             //
-                                       //    'statechangehandler'             //
 /*--
-   <div id={"App"}>
-      <A on={onValue} statechangehandler={onHandler} id="A"></A>
-      <B on={onValue.equals("true") ? "false" : "true"}
-         statechangehandler={onHandler} id="B">
-      </B>
-   </div>
+   <Board numcolumns={4} clickhandler={squareClickHandler}></Board>
 --*/
 };
 }//====================================// end App ============================//

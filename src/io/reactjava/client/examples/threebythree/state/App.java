@@ -1,33 +1,35 @@
 /*==============================================================================
 
-name:       B.java
+name:       App.java
 
-purpose:    Component B.
+purpose:    Three By Three App version state.
 
 history:    Sat Oct 27, 2018 10:30:00 (Giavaneers - LBM) created
 
 notes:
-
                         COPYRIGHT (c) BY GIAVANEERS, INC.
          This source code is licensed under the MIT license found in the
-               LICENSE file in the root directory of this source tree.
+             LICENSE file in the root directory of this source tree.
 
 ==============================================================================*/
                                        // package --------------------------- //
-package io.reactjava.client.examples.statevariable;
+package io.reactjava.client.examples.threebythree.state;
+
                                        // imports --------------------------- //
+import elemental2.dom.DomGlobal;
+import elemental2.dom.Element;
 import elemental2.dom.Event;
+import io.reactjava.client.core.providers.http.HttpClient;
+import io.reactjava.client.core.providers.http.HttpResponse;
+import io.reactjava.client.core.react.AppComponentTemplate;
 import io.reactjava.client.core.react.Component;
 import io.reactjava.client.core.react.INativeEventHandler;
-import io.reactjava.client.core.react.Properties;
-import java.util.function.Consumer;
-                                       // A ==================================//
-public class B<P extends Properties> extends Component
+
+                                       // App ================================//
+public class App extends AppComponentTemplate
 {
                                        // class constants ------------------- //
-public static final String kPROPERTY_ON                   = "on";
-public static final String kPROPERTY_STATE_CHANGE_HANDLER = "statechangehandler";
-
+                                       // (none)                              //
                                        // class variables ------------------- //
                                        // (none)                              //
                                        // public instance variables --------- //
@@ -38,30 +40,47 @@ public static final String kPROPERTY_STATE_CHANGE_HANDLER = "statechangehandler"
                                        // (none)                              //
 /*------------------------------------------------------------------------------
 
-@name       clickHandler - onClick event handler
+@name       squareClickHandler - square onClick event handler
                                                                               */
                                                                              /**
-            onClick event handler as a public instance variable, accessible in
+            Cell onClick event handler as an instance variable, accessible in
             markup.
 
 @return     void
 
-@history    Thu Feb 14, 2019 10:30:00 (Giavaneers - LBM) created
+@history    Sat Oct 27, 2018 10:30:00 (Giavaneers - LBM) created
 
 @notes
+
                                                                               */
 //------------------------------------------------------------------------------
-public INativeEventHandler clickHandler = (Event e) ->
+public INativeEventHandler squareClickHandler = (Event e) ->
 {
-   ((Consumer)props().get(kPROPERTY_STATE_CHANGE_HANDLER)).accept("false");
+                                       // get the square clicked              //
+   final Component square = Component.forElement((Element)e.target);
+
+                                       // request a color from the backend    //
+   HttpClient.get(
+      "http://reactjavabackend.appspot.com/examples/threebythree/getColor")
+      .subscribe(
+         (HttpResponse rsp) ->
+         {
+                                       // change the clicked square to the    //
+                                       // new color by changing its state     //
+            String newColor = rsp.getText();
+            square.setState("color", newColor);
+         },
+         (Throwable error) ->
+         {
+            DomGlobal.window.console.log(error.getMessage());
+         });
 };
 /*------------------------------------------------------------------------------
 
 @name       render - render component
                                                                               */
                                                                              /**
-            Render component. This implementation is all markup, with no java
-            code included.
+            Render component. This implementation includes java with markup.
 
 @return     void
 
@@ -73,41 +92,12 @@ public INativeEventHandler clickHandler = (Event e) ->
 //------------------------------------------------------------------------------
 public void render()
 {
-   String clas = "true".equals(props().getString(kPROPERTY_ON)) ? "on" : "off";
 /*--
-   <div class={clas} onClick={clickHandler} id="Bdiv"></div>
+   <Board
+      numcolumns={3}
+      clickhandler={squareClickHandler}
+      squareclass={"SquareByRender"}
+   />
 --*/
 };
-/*------------------------------------------------------------------------------
-
-@name       renderCSS - get component css
-                                                                              */
-                                                                             /**
-            Get component css.
-
-@return     void
-
-@history    Sat Oct 27, 2018 10:30:00 (Giavaneers - LBM) created
-
-@notes
-
-                                                                              */
-//------------------------------------------------------------------------------
-public void renderCSS()
-{
-/*--
-   .on
-   {
-      height:           300px;
-      width:            300px;
-      background-color: green;
-   }
-   .off
-   {
-      height:           300px;
-      width:            300px;
-      background-color: red;
-   }
---*/
-}
-}//====================================// end B ==============================//
+}//====================================// end App ============================//

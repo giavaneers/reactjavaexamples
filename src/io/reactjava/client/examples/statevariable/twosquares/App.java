@@ -10,40 +10,37 @@ notes:
 
                         COPYRIGHT (c) BY GIAVANEERS, INC.
          This source code is licensed under the MIT license found in the
-             LICENSE file in the root directory of this source tree.
+               LICENSE file in the root directory of this source tree.
 
 ==============================================================================*/
                                        // package --------------------------- //
-package io.reactjava.client.examples.movingblock;
+package io.reactjava.client.examples.statevariable.twosquares;
                                        // imports --------------------------- //
-import elemental2.dom.DomGlobal;
 import io.reactjava.client.core.react.AppComponentTemplate;
 import io.reactjava.client.core.react.Properties;
-
+import java.util.function.Consumer;
                                        // App ================================//
-public class App extends AppComponentTemplate
+public class App<P extends Properties> extends AppComponentTemplate
 {
-                                       // class constants --------------------//
-                                       // (none)                              //
+                                       // class constants ------------------- //
+public static final String kSTATE_ON = "on";
+
                                        // class variables ------------------- //
                                        // (none)                              //
                                        // public instance variables --------- //
-public int top;                        // top position                        //
-public int left;                       // left position                       //
+                                       // (none)                              //
                                        // protected instance variables -------//
                                        // (none)                              //
                                        // private instance variables -------- //
                                        // (none)                              //
 /*------------------------------------------------------------------------------
 
-@name       initialize - set properties
+@name       onhandler - initialize
                                                                               */
                                                                              /**
-            Set properties.
+            Initialize.
 
 @return     void
-
-@return     props     properties
 
 @history    Mon May 21, 2018 10:30:00 (Giavaneers - LBM) created
 
@@ -51,35 +48,10 @@ public int left;                       // left position                       //
 
                                                                               */
 //------------------------------------------------------------------------------
-public Properties initialize(
-   Properties props)
+public Consumer onHandler = (onValue) ->
 {
-   props = super.initialize(props);
-
-   //new Timer()
-   //{
-   //   public void run()
-   //   {
-   //                                    // move down and to right by 2px each  //
-   //      top  += 2;
-   //      left += 2;
-   //                                    // cause render() to be invoked        //
-   //      update();
-   //   }
-   //
-   //}.scheduleRepeating(100);
-   DomGlobal.setTimeout(
-      (e) ->
-      {
-                                       // move down and to right by 2px each  //
-         top  += 2;
-         left += 2;
-                                       // cause render() to be invoked        //
-         forceUpdate();
-      }, 0, new Object[]{top, left});
-
-   return(props);
-}
+   setState(kSTATE_ON, onValue);
+};
 /*------------------------------------------------------------------------------
 
 @name       render - render component
@@ -98,41 +70,22 @@ public Properties initialize(
 //------------------------------------------------------------------------------
 public void render()
 {
+                                       // react complains when a state        //
+                                       // variable is boolean                 //
+   useState(kSTATE_ON, "false");
+   String onValue = getStateString(kSTATE_ON);
+
+                                       // react complains if an attribute     //
+                                       // is not all lower case; so           //
+                                       // 'stateChangeHandler' ->             //
+                                       //    'statechangehandler'             //
 /*--
-   <div style="width:100%; height:100%;">
-      <div class='panel' />
+   <div id={"App"}>
+      <A on={onValue} statechangehandler={onHandler} id="A"></A>
+      <B on={onValue.equals("true") ? "false" : "true"}
+         statechangehandler={onHandler} id="B">
+      </B>
    </div>
---*/
-};
-/*------------------------------------------------------------------------------
-
-@name       renderCSS - parse styles
-                                                                              */
-                                                                             /**
-            Parse styles.
-
-@return     void
-
-@history    Mon May 21, 2018 10:30:00 (Giavaneers - LBM) created
-
-@notes
-
-                                                                              */
-//------------------------------------------------------------------------------
-public void renderCSS()
-{
-   String topValue  = "" + this.top  + "px";
-   String leftValue = "" + this.left + "px";
-/*--
-   .panel
-   {
-      background-color: blue;
-      position:         relative;
-      height:           30px;
-      width:            30px;
-      top:              {topValue};
-      left:             {leftValue};
-   }
 --*/
 };
 }//====================================// end App ============================//
