@@ -51,11 +51,8 @@ public int left;                       // left position                       //
 
                                                                               */
 //------------------------------------------------------------------------------
-public Properties initialize(
-   Properties props)
+public void initialize()
 {
-   props = super.initialize(props);
-
    //new Timer()
    //{
    //   public void run()
@@ -77,8 +74,6 @@ public Properties initialize(
                                        // cause render() to be invoked        //
          forceUpdate();
       }, 0, new Object[]{top, left});
-
-   return(props);
 }
 /*------------------------------------------------------------------------------
 

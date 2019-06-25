@@ -16,15 +16,9 @@ notes:
                                        // package --------------------------- //
 package io.reactjava.client.examples.displaycode;
                                        // imports --------------------------- //
-import io.reactjava.client.components.generalpage.Prism;
 import io.reactjava.client.core.react.AppComponentTemplate;
-import io.reactjava.client.core.react.ReactElement;
-import io.reactjava.client.core.react.ElementDsc;
-import io.reactjava.client.core.react.Properties;
-import io.reactjava.client.core.react.ReactJava;
 import java.util.Arrays;
 import java.util.List;
-import java.util.function.Function;
                                        // App ================================//
 public class App extends AppComponentTemplate
 {
@@ -74,31 +68,6 @@ protected List<String> getImportedNodeModules()
 @history    Sat Oct 27, 2018 10:30:00 (Giavaneers - LBM) created
 
 @notes
-   Function<Properties, Element> fcn=(props) ->
-   {
-      ElementDsc root =
-         ElementDsc.create(
-            null,
-            ReactJava.getRenderableComponent("io.reactjava.client.components.generalpage.Prism"),
-            Properties.with("background", "#6dcff6", "id", getNextId()));
-
-      ElementDsc elem =
-         ElementDsc.create(root,
-         "span",
-         Properties.with("id", getNextId()),
-         ".code\n/*==============================================================================\n\n");
-
-      Element element = ElementDsc.createElement(root);
-      return(element);
-   };
-   this.componentFcn = fcn;
-
-   <React.Fragment>
-      <div class="top" ></div>
-      <Prism background='#6dcff6'>{text://text/displayCode}</Prism>
-      <div class="bottom" ></div>
-   </React.Fragment>
-
                                                                               */
 //------------------------------------------------------------------------------
 public void render()

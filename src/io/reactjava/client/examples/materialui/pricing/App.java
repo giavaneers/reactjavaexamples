@@ -297,7 +297,7 @@ public void renderCSS()
          padding-bottom: 16px;
       }
    }
-   @media (min-width: {"" + (900 + unit * 3 * addcss) + "px"})
+   @media (min-width: {"" + (900 + unit * 3 * 2) + "px"})
    {
       .layout
       {
