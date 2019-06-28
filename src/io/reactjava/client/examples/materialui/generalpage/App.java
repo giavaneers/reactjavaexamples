@@ -22,7 +22,6 @@ notes:
 package io.reactjava.client.examples.materialui.generalpage;
                                        // imports --------------------------- //
 import io.reactjava.client.core.react.AppComponentTemplate;
-import io.reactjava.client.core.react.Properties;
 import java.util.Arrays;
 import java.util.List;
                                        // App ================================//
