@@ -2,7 +2,7 @@
 
 name:       App.java
 
-purpose:    Three By Three App.
+purpose:    Simple State Variable App.
 
 history:    Sat Oct 27, 2018 10:30:00 (Giavaneers - LBM) created
 
@@ -24,7 +24,8 @@ import io.reactjava.client.core.react.INativeEventHandler;
 public class App extends AppComponentTemplate
 {
                                        // class constants ------------------- //
-                                       // (none)                              //
+public static final String kSIZE = "300px";
+
                                        // class variables ------------------- //
                                        // (none)                              //
                                        // public instance variables --------- //
@@ -33,25 +34,6 @@ public class App extends AppComponentTemplate
                                        // (none)                              //
                                        // private instance variables -------- //
                                        // (none)                              //
-/*------------------------------------------------------------------------------
-
-@name       clickHandler - onClick event handler
-                                                                              */
-                                                                             /**
-            onClick event handler as a public instance variable, accessible in
-            markup.
-
-@return     void
-
-@history    Thu Feb 14, 2019 10:30:00 (Giavaneers - LBM) created
-
-@notes
-                                                                              */
-//------------------------------------------------------------------------------
-public INativeEventHandler clickHandler = (Event e) ->
-{
-   setState("on", "true".equals(getStateString("on")) ? "false" : "true");
-};
 /*------------------------------------------------------------------------------
 
 @name       render - render component
@@ -71,12 +53,18 @@ public void render()
 {
    useState("on", "true");
    String currentState = getStateString("on");
-
-   String background = "true".equals(currentState) ? "green" : "red";
+   String background   = "true".equals(currentState) ? "green" : "red";
 /*--
    <div
-      style='width:300px; height:300px; backgroundColor:{background};'
-      onClick={clickHandler}
+      style='width:{kSIZE}; height:{kSIZE}; backgroundColor:{background};'
+      onClick=
+      {
+         (INativeEventHandler)(Event e) ->
+         {
+            setState(
+               "on", "true".equals(getStateString("on")) ? "false" : "true");
+         }
+      }
    >
    </div>
 --*/
