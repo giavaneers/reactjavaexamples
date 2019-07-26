@@ -39,8 +39,7 @@ public static final String kSIZE = "300px";
 @name       render - render component
                                                                               */
                                                                              /**
-            Render component. This implementation is all markup, with no java
-            code included.
+            Render component.
 
 @return     void
 

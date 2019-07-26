@@ -57,8 +57,7 @@ public Consumer onHandler = (onValue) ->
 @name       render - render component
                                                                               */
                                                                              /**
-            Render component. This implementation is all markup, with no java
-            code included.
+            Render component.
 
 @return     void
 

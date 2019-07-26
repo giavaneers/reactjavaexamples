@@ -67,9 +67,11 @@
           <module name="io.reactjava.client.examples.TextFieldReactJava" enabled="false" />
           <module name="io.reactjava.client.examples.ThreeByThreeReactJava" enabled="false" />
           <module name="io.reactjava.client.examples.TicTacToeReactJava" enabled="false" />
+          <module name="io.reactjava.client.examples.UseRefReactJava" enabled="false" />
           <module name="io.reactjava.client.examples.materialui.MaterialUIGeneralPageReactJava" enabled="false" />
           <module name="io.reactjava.client.examples.materialui.MaterialUIPricingReactJava" enabled="false" />
           <module name="io.reactjava.client.examples.materialui.MaterialUIThemeReactJava" enabled="false" />
+          <module name="io.reactjava.client.examples.statevariable.StateVariableSimpleReactJava" enabled="false" />
           <module name="io.reactjava.client.examples.statevariable.StateVariableTwoSquaresReactJava" enabled="false" />
         </packaging>
       </configuration>

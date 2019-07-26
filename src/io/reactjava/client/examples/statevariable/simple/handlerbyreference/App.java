@@ -1,8 +1,8 @@
 /*==============================================================================
 
-name:       B.java
+name:       App.java
 
-purpose:    Component B.
+purpose:    Three By Three App.
 
 history:    Sat Oct 27, 2018 10:30:00 (Giavaneers - LBM) created
 
@@ -14,20 +14,17 @@ notes:
 
 ==============================================================================*/
                                        // package --------------------------- //
-package io.reactjava.client.examples.statevariable.twosquares;
+package io.reactjava.client.examples.statevariable.simple.handlerbyreference;
                                        // imports --------------------------- //
 import elemental2.dom.Event;
-import io.reactjava.client.core.react.Component;
+import io.reactjava.client.core.react.AppComponentTemplate;
 import io.reactjava.client.core.react.INativeEventHandler;
-import io.reactjava.client.core.react.Properties;
-import java.util.function.Consumer;
-                                       // A ==================================//
-public class B<P extends Properties> extends Component
+
+                                       // App ================================//
+public class App extends AppComponentTemplate
 {
                                        // class constants ------------------- //
-public static final String kPROPERTY_ON                   = "on";
-public static final String kPROPERTY_STATE_CHANGE_HANDLER = "statechangehandler";
-
+                                       // (none)                              //
                                        // class variables ------------------- //
                                        // (none)                              //
                                        // public instance variables --------- //
@@ -53,60 +50,35 @@ public static final String kPROPERTY_STATE_CHANGE_HANDLER = "statechangehandler"
 //------------------------------------------------------------------------------
 public INativeEventHandler clickHandler = (Event e) ->
 {
-   ((Consumer)props().get(kPROPERTY_STATE_CHANGE_HANDLER)).accept("false");
+   setState("on", "true".equals(getStateString("on")) ? "false" : "true");
 };
 /*------------------------------------------------------------------------------
 
 @name       render - render component
                                                                               */
                                                                              /**
-            Render component.
+            Render component. This implementation is all markup, with no java
+            code included.
 
 @return     void
 
 @history    Sat Oct 27, 2018 10:30:00 (Giavaneers - LBM) created
 
 @notes
-
                                                                               */
 //------------------------------------------------------------------------------
 public void render()
 {
-   String clas = "true".equals(props().getString(kPROPERTY_ON)) ? "on" : "off";
+   useState("on", "true");
+   String currentState = getStateString("on");
+
+   String background = "true".equals(currentState) ? "green" : "red";
 /*--
-   <div class={clas} onClick={clickHandler} id="Bdiv"></div>
+   <div
+      style='width:300px; height:300px; backgroundColor:{background};'
+      onClick={clickHandler}
+   >
+   </div>
 --*/
 };
-/*------------------------------------------------------------------------------
-
-@name       renderCSS - get component css
-                                                                              */
-                                                                             /**
-            Get component css.
-
-@return     void
-
-@history    Sat Oct 27, 2018 10:30:00 (Giavaneers - LBM) created
-
-@notes
-
-                                                                              */
-//------------------------------------------------------------------------------
-public void renderCSS()
-{
-/*--
-   .on
-   {
-      height:           300px;
-      width:            300px;
-      background-color: green;
-   }
-   .off
-   {
-      height:           300px;
-      width:            300px;
-      background-color: red;
-   }
---*/
-}
-}//====================================// end B ==============================//
+}//====================================// end App ============================//
