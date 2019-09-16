@@ -30,8 +30,11 @@ public static final String kPATH_B       = "B";
 public static final String kPATH_DEFAULT = "";
 
                                        // component class                     //
-public static final Class kCLASS_A = A.class;
-public static final Class kCLASS_B = B.class;
+public static final Class kCLASS_A =
+   io.reactjava.client.examples.routing.A.class;
+
+public static final Class kCLASS_B =
+   io.reactjava.client.examples.routing.B.class;
 
 public static final Map<String,Class> kAPP_ROUTES =
    Collections.unmodifiableMap(
