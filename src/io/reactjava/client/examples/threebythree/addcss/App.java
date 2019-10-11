@@ -74,7 +74,7 @@ public void renderCSS()
 /*--
    .square
    {
-      background: blue;
+      background: green;
       width:      300px;
       height:     300px;
    }

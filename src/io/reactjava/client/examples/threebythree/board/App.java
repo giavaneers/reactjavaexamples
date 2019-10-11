@@ -29,7 +29,10 @@ public class App extends AppComponentTemplate
                                        // class constants ------------------- //
                                        // (none)                              //
                                        // class variables ------------------- //
-protected static Units units;          // theme based units                   //
+
+
+
+ static Units units;          // theme based units                   //
                                        // public instance variables --------- //
                                        // (none)                              //
                                        // protected instance variables -------//

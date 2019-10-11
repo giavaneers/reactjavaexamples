@@ -8,7 +8,7 @@
 	<source path="simple/handlerbyreference" />
 
 	<!-- Specify the app entry point classes                   -->
-	<entry-point class='io.reactjava.client.examples.statevariable.simple.handlerbyreference .App'/>
+	<entry-point class='io.reactjava.client.examples.statevariable.simple.handlerbyreference.App'/>
 
 	<!-- Combine all platform-specific versions                -->
 	<collapse-all-properties />

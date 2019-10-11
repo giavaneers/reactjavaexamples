@@ -50,7 +50,7 @@ public class App extends AppComponentTemplate
 public void render()
 {
 /*--
-   <div style='background:blue;width:300px;height:300px'></div>
+   <div style='background:green;width:300px;height:300px'></div>
 --*/
 };
 }//====================================// end App ============================//
