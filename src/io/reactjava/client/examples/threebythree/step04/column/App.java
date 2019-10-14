@@ -1,8 +1,8 @@
 /*==============================================================================
 
-name:       Square=.java
+name:       App.java
 
-purpose:    Three By Three Square=.
+purpose:    Three By Three App version column.
 
 history:    Sat Oct 27, 2018 10:30:00 (Giavaneers - LBM) created
 
@@ -13,12 +13,13 @@ notes:
 
 ==============================================================================*/
                                        // package --------------------------- //
-package io.reactjava.client.examples.threebythree.components;
+package io.reactjava.client.examples.threebythree.step04.column;
 
                                        // imports --------------------------- //
-import io.reactjava.client.core.react.Component;
-                                       // Square =============================//
-public class Square extends Component
+import io.reactjava.client.core.react.AppComponentTemplate;
+
+                                       // App ================================//
+public class App extends AppComponentTemplate
 {
                                        // class constants ------------------- //
                                        // (none)                              //
@@ -35,7 +36,8 @@ public class Square extends Component
 @name       render - render component
                                                                               */
                                                                              /**
-            Render component. This implementation includes only markup.
+            Render component. This implementation is all markup, with no java
+            code included.
 
 @return     void
 
@@ -48,7 +50,11 @@ public class Square extends Component
 public void render()
 {
 /*--
-   <div class='square' onClick={props().get("clickhandler")}></div>
+   <div class='row'>
+      <div class='contentWidth'>
+         <div class='square'></div>
+      </div>
+   </div>
 --*/
 };
 /*------------------------------------------------------------------------------
@@ -56,7 +62,7 @@ public void render()
 @name       renderCSS - get component css
                                                                               */
                                                                              /**
-            Get component css. This implementation is all css, with no java
+            Get component css.This implementation is all css, with no java
             code included.
 
 @return     void
@@ -70,14 +76,25 @@ public void render()
 public void renderCSS()
 {
 /*--
+   .row
+   {
+      display:         flex;
+      flex:            one;
+      flex-direction:  row;
+      width:           100%;
+      align-items:     center;
+      justify-content: center;
+   }
    .square
    {
-      padding-top: 100%
+      background:  blue;
+      padding-top: 100%;
    }
-   {cssSelectorForId()}
+   .contentWidth
    {
-      background-color: blue;
+      box-sizing: border-box;
+      width:      300px;
    }
 --*/
 }
-}//====================================// end Square =========================//
+}//====================================// end App ============================//

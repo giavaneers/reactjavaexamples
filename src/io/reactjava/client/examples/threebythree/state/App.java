@@ -96,7 +96,7 @@ public void render()
    <Board
       numcolumns={3}
       clickhandler={squareClickHandler}
-      squareclass={"SquareByRender"}
+      squareclass={"SquareByRenderCSS"}
    />
 --*/
 };

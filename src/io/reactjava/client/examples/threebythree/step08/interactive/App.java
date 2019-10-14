@@ -2,7 +2,7 @@
 
 name:       App.java
 
-purpose:    Three By Three App version httpclient.
+purpose:    Three By Three App version interactive.
 
 history:    Sat Oct 27, 2018 10:30:00 (Giavaneers - LBM) created
 
@@ -13,14 +13,11 @@ notes:
 
 ==============================================================================*/
                                        // package --------------------------- //
-package io.reactjava.client.examples.threebythree.httpclient;
+package io.reactjava.client.examples.threebythree.step08.interactive;
 
                                        // imports --------------------------- //
-import elemental2.dom.DomGlobal;
 import elemental2.dom.Element;
 import elemental2.dom.Event;
-import io.reactjava.client.core.providers.http.HttpClient;
-import io.reactjava.client.core.providers.http.HttpResponse;
 import io.reactjava.client.core.react.AppComponentTemplate;
 import io.reactjava.client.core.react.INativeEventHandler;
 import io.reactjava.client.core.react.IUITheme;
@@ -44,7 +41,7 @@ protected static Units units;          // theme based units                   //
 @name       squareClickHandler - square onClick event handler
                                                                               */
                                                                              /**
-            Cell onClick event handler as an instance variable, accessible in
+            SquareByRenderCSS onClick event handler as an instance variable, accessible in
             markup.
 
 @return     void
@@ -57,21 +54,9 @@ protected static Units units;          // theme based units                   //
 //------------------------------------------------------------------------------
 public INativeEventHandler squareClickHandler = (Event e) ->
 {
-   final Element element = (Element)e.target;
-
-                                       // request a color from the backend    //
-   HttpClient.get(
-      "http://reactjavabackend.appspot.com/examples/threebythree/getColor")
-      .subscribe(
-         (HttpResponse rsp) ->
-         {
                                        // change the clicked element to green //
-            element.setAttribute("style", "background-color:" + rsp.getText());
-         },
-         (Throwable error) ->
-         {
-            DomGlobal.window.console.log(error.getMessage());
-         });
+   Element element = (Element)e.target;
+   element.setAttribute("style", "background-color:green");
 };
 /*------------------------------------------------------------------------------
 
@@ -102,7 +87,8 @@ public Units getUnits()
 @name       render - render component
                                                                               */
                                                                              /**
-            Render component. This implementation includes java with markup.
+            Render component. This implementation is all markup, with no java
+            code included.
 
 @return     void
 
@@ -116,25 +102,9 @@ public void render()
 {
 /*--
    <@material-ui.core.Grid container justify="center">
---*/
-   for (int iRow = 0; iRow < 3; iRow++)
-   {
-/*--
-      <@material-ui.core.Grid container spacing={8} class='contentWidth'>
---*/
-         for (int iCol = 0; iCol < 3; iCol++)
-         {
-/*--
-         <@material-ui.core.Grid item xs={4}>
-            <div class='square' onClick={squareClickHandler}></div>
-         </@material-ui.core.Grid>
---*/
-         }
-/*--
+      <@material-ui.core.Grid item class="contentWidth">
+         <div class='square' onClick={squareClickHandler}></div>
       </@material-ui.core.Grid>
---*/
-   }
-/*--
    </@material-ui.core.Grid>
 --*/
 };
@@ -161,11 +131,10 @@ public void renderCSS()
    .square
    {
       background:  blue;
-      padding-top: 100%
+      padding-top: 100%;
    }
    .contentWidth
    {
-      margin-top: 4px;
    }
    @media (max-width: {units.sm})
    {

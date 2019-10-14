@@ -2,7 +2,7 @@
 
 name:       App.java
 
-purpose:    Three By Three App version interactive.
+purpose:    Three By Three App version theme.
 
 history:    Sat Oct 27, 2018 10:30:00 (Giavaneers - LBM) created
 
@@ -13,13 +13,10 @@ notes:
 
 ==============================================================================*/
                                        // package --------------------------- //
-package io.reactjava.client.examples.threebythree.interactive;
+package io.reactjava.client.examples.threebythree.step07.theme;
 
                                        // imports --------------------------- //
-import elemental2.dom.Element;
-import elemental2.dom.Event;
 import io.reactjava.client.core.react.AppComponentTemplate;
-import io.reactjava.client.core.react.INativeEventHandler;
 import io.reactjava.client.core.react.IUITheme;
 import io.reactjava.client.core.react.IUITheme.Breakpoints;
 
@@ -36,28 +33,6 @@ protected static Units units;          // theme based units                   //
                                        // (none)                              //
                                        // private instance variables -------- //
                                        // (none)                              //
-/*------------------------------------------------------------------------------
-
-@name       squareClickHandler - square onClick event handler
-                                                                              */
-                                                                             /**
-            SquareByRenderCSS onClick event handler as an instance variable, accessible in
-            markup.
-
-@return     void
-
-@history    Sat Oct 27, 2018 10:30:00 (Giavaneers - LBM) created
-
-@notes
-
-                                                                              */
-//------------------------------------------------------------------------------
-public INativeEventHandler squareClickHandler = (Event e) ->
-{
-                                       // change the clicked element to green //
-   Element element = (Element)e.target;
-   element.setAttribute("style", "background-color:green");
-};
 /*------------------------------------------------------------------------------
 
 @name       getUnits - get theme based units
@@ -81,7 +56,7 @@ public Units getUnits()
       units = new Units();
    }
    return(units);
-};
+}
 /*------------------------------------------------------------------------------
 
 @name       render - render component
@@ -102,8 +77,8 @@ public void render()
 {
 /*--
    <@material-ui.core.Grid container justify="center">
-      <@material-ui.core.Grid item class="contentWidth">
-         <div class='square' onClick={squareClickHandler}></div>
+      <@material-ui.core.Grid item class='contentWidth'>
+         <div class='square'></div>
       </@material-ui.core.Grid>
    </@material-ui.core.Grid>
 --*/

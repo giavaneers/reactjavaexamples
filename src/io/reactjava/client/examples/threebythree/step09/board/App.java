@@ -13,7 +13,7 @@ notes:
 
 ==============================================================================*/
                                        // package --------------------------- //
-package io.reactjava.client.examples.threebythree.board;
+package io.reactjava.client.examples.threebythree.step09.board;
 
                                        // imports --------------------------- //
 import elemental2.dom.Element;

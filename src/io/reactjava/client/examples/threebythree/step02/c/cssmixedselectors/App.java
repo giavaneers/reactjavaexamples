@@ -2,7 +2,7 @@
 
 name:       App.java
 
-purpose:    Three By Three App version first.
+purpose:    Three By Three App version addcss.
 
 history:    Sat Oct 27, 2018 10:30:00 (Giavaneers - LBM) created
 
@@ -13,7 +13,7 @@ notes:
 
 ==============================================================================*/
                                        // package --------------------------- //
-package io.reactjava.client.examples.threebythree.first;
+package io.reactjava.client.examples.threebythree.step02.c.cssmixedselectors;
 
                                        // imports --------------------------- //
 import io.reactjava.client.core.react.AppComponentTemplate;
@@ -50,7 +50,30 @@ public class App extends AppComponentTemplate
 public void render()
 {
 /*--
-   <div style='background:green;width:300px;height:300px'></div>
+   <div class='square'></div>
 --*/
 };
+/*------------------------------------------------------------------------------
+
+@name       renderCSS - get component css
+                                                                              */
+                                                                             /**
+            Get component css. This implementation is all css, with no java
+            code included.
+
+@return     void
+
+@history    Sat Oct 27, 2018 10:30:00 (Giavaneers - LBM) created
+
+@notes
+
+                                                                              */
+//------------------------------------------------------------------------------
+public void renderCSS()
+{
+/*--
+   .square              {width:300px; height:300px;}
+   {cssSelectorForId()} {background-color:blue;}
+--*/
+}
 }//====================================// end App ============================//

@@ -2,7 +2,7 @@
 
 name:       App.java
 
-purpose:    Three By Three App version responsive.
+purpose:    Three By Three App version center.
 
 history:    Sat Oct 27, 2018 10:30:00 (Giavaneers - LBM) created
 
@@ -13,7 +13,7 @@ notes:
 
 ==============================================================================*/
                                        // package --------------------------- //
-package io.reactjava.client.examples.threebythree.responsive;
+package io.reactjava.client.examples.threebythree.step03.center;
 
                                        // imports --------------------------- //
 import io.reactjava.client.core.react.AppComponentTemplate;
@@ -50,11 +50,9 @@ public class App extends AppComponentTemplate
 public void render()
 {
 /*--
-   <@material-ui.core.Grid container justify="center">
-      <@material-ui.core.Grid item class='contentWidth'>
-         <div class='square'></div>
-      </@material-ui.core.Grid>
-   </@material-ui.core.Grid>
+   <div class='row'>
+      <div class='square'></div>
+   </div>
 --*/
 };
 /*------------------------------------------------------------------------------
@@ -76,33 +74,20 @@ public void render()
 public void renderCSS()
 {
 /*--
+   .row
+   {
+      display:          flex;
+      flex:             one;
+      flex-direction:   row;
+      width:            100%;
+      align-items:      center;
+      justify-content:  center;
+   }
    .square
    {
-      background:  blue;
-      padding-top: 100%;
-   }
-   .contentWidth
-   {
-   }
-   @media (min-width: 320px)
-   {
-      .contentWidth {width: 300px;}
-   }
-   @media (min-width: 576px)
-   {
-      .contentWidth {width: 540px;}
-   }
-   @media (min-width: 768px)
-   {
-      .contentWidth {width: 720px;}
-   }
-   @media (min-width: 992px)
-   {
-      .contentWidth {width: 960px;}
-   }
-   @media (min-width: 1200px)
-   {
-      .contentWidth {width: 1140px;}
+      width:            300px;
+      height:           300px;
+      background-color: blue;
    }
 --*/
 }

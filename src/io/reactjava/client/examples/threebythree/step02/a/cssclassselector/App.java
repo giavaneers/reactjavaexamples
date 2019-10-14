@@ -2,7 +2,7 @@
 
 name:       App.java
 
-purpose:    Three By Three App version column.
+purpose:    Three By Three App version addcss.
 
 history:    Sat Oct 27, 2018 10:30:00 (Giavaneers - LBM) created
 
@@ -13,7 +13,7 @@ notes:
 
 ==============================================================================*/
                                        // package --------------------------- //
-package io.reactjava.client.examples.threebythree.column;
+package io.reactjava.client.examples.threebythree.step02.a.cssclassselector;
 
                                        // imports --------------------------- //
 import io.reactjava.client.core.react.AppComponentTemplate;
@@ -50,11 +50,7 @@ public class App extends AppComponentTemplate
 public void render()
 {
 /*--
-   <div class='row'>
-      <div class='contentWidth'>
-         <div class='square'></div>
-      </div>
-   </div>
+   <div class='square'></div>
 --*/
 };
 /*------------------------------------------------------------------------------
@@ -62,7 +58,7 @@ public void render()
 @name       renderCSS - get component css
                                                                               */
                                                                              /**
-            Get component css.This implementation is all css, with no java
+            Get component css. This implementation is all css, with no java
             code included.
 
 @return     void
@@ -76,24 +72,11 @@ public void render()
 public void renderCSS()
 {
 /*--
-   .row
-   {
-      display:         flex;
-      flex:            first;
-      flex-direction:  row;
-      width:           100%;
-      align-items:     center;
-      justify-content: center;
-   }
    .square
    {
-      background:  blue;
-      padding-top: 100%;
-   }
-   .contentWidth
-   {
-      box-sizing: border-box;
+      background: green;
       width:      300px;
+      height:     300px;
    }
 --*/
 }

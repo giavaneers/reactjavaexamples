@@ -2,7 +2,7 @@
 
 name:       App.java
 
-purpose:    Three By Three App version materialui.
+purpose:    Three By Three App version responsive.
 
 history:    Sat Oct 27, 2018 10:30:00 (Giavaneers - LBM) created
 
@@ -13,7 +13,7 @@ notes:
 
 ==============================================================================*/
                                        // package --------------------------- //
-package io.reactjava.client.examples.threebythree.materialui;
+package io.reactjava.client.examples.threebythree.step06.responsive;
 
                                        // imports --------------------------- //
 import io.reactjava.client.core.react.AppComponentTemplate;
@@ -83,7 +83,26 @@ public void renderCSS()
    }
    .contentWidth
    {
-      width: 300px;
+   }
+   @media (min-width: 320px)
+   {
+      .contentWidth {width: 300px;}
+   }
+   @media (min-width: 576px)
+   {
+      .contentWidth {width: 540px;}
+   }
+   @media (min-width: 768px)
+   {
+      .contentWidth {width: 720px;}
+   }
+   @media (min-width: 992px)
+   {
+      .contentWidth {width: 960px;}
+   }
+   @media (min-width: 1200px)
+   {
+      .contentWidth {width: 1140px;}
    }
 --*/
 }

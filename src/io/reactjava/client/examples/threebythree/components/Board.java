@@ -93,7 +93,7 @@ public void render()
       {
                                                                            /*--
          <@material-ui.core.Grid item xs={gridColsEach}>
-            <SquareByRenderCSS clickhandler={props().get("clickhandler")}></SquareByRenderCSS>
+            <Square clickhandler={props().get("clickhandler")}></SquareCSS>
          </@material-ui.core.Grid>
                                                                            --*/
       }
