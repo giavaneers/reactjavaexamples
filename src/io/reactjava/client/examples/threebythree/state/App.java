@@ -99,5 +99,5 @@ public void render()
       squareclass={"SquareByRenderCSS"}
    />
 --*/
-};
+}
 }//====================================// end App ============================//

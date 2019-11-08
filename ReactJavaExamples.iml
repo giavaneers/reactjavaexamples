@@ -62,7 +62,6 @@
           <module name="io.reactjava.client.examples.HelloWorldSansJSXReactJava" enabled="false" />
           <module name="io.reactjava.client.examples.MovingBlockReactJava" enabled="false" />
           <module name="io.reactjava.client.examples.ReactJavaExamples" path="/ReactJavaExamples" />
-          <module name="io.reactjava.client.examples.RoutingReactJava" enabled="false" />
           <module name="io.reactjava.client.examples.SimpleReactJava" enabled="false" />
           <module name="io.reactjava.client.examples.TextFieldReactJava" enabled="false" />
           <module name="io.reactjava.client.examples.ThreeByThreeReactJava" enabled="false" />
@@ -71,6 +70,7 @@
           <module name="io.reactjava.client.examples.materialui.MaterialUIGeneralPageReactJava" enabled="false" />
           <module name="io.reactjava.client.examples.materialui.MaterialUIPricingReactJava" enabled="false" />
           <module name="io.reactjava.client.examples.materialui.MaterialUIThemeReactJava" enabled="false" />
+          <module name="io.reactjava.client.examples.statevariable.StateVariableSimpleReactHandlerByReferenceJava" enabled="false" />
           <module name="io.reactjava.client.examples.statevariable.StateVariableSimpleReactJava" enabled="false" />
           <module name="io.reactjava.client.examples.statevariable.StateVariableTwoSquaresReactJava" enabled="false" />
         </packaging>
