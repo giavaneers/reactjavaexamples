@@ -60,8 +60,10 @@
           <module name="io.reactjava.client.examples.DisplayCodeReactJava" enabled="false" />
           <module name="io.reactjava.client.examples.HelloWorldReactJava" enabled="false" />
           <module name="io.reactjava.client.examples.HelloWorldSansJSXReactJava" enabled="false" />
+          <module name="io.reactjava.client.examples.KeyboardReactJava" enabled="false" />
           <module name="io.reactjava.client.examples.MovingBlockReactJava" enabled="false" />
           <module name="io.reactjava.client.examples.ReactJavaExamples" path="/ReactJavaExamples" />
+          <module name="io.reactjava.client.examples.RoutingReactJava" enabled="false" />
           <module name="io.reactjava.client.examples.SimpleReactJava" enabled="false" />
           <module name="io.reactjava.client.examples.TextFieldReactJava" enabled="false" />
           <module name="io.reactjava.client.examples.ThreeByThreeReactJava" enabled="false" />
