@@ -65,7 +65,7 @@ public void doCreateUser(
       App.auth = ReactJava.getProvider(IAuthenticationService.class);
 
                                        // configure the authentication service//
-      App.auth.configure(App.kAUTH_CONFIGURATION).subscribe(
+      App.auth.configure(App.kFIREBASE_CONFIGURATION).subscribe(
          response ->
          {
             doCreateUser(email, password);

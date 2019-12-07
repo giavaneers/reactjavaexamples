@@ -61,6 +61,7 @@
           <module name="io.reactjava.client.examples.HelloWorldReactJava" enabled="false" />
           <module name="io.reactjava.client.examples.HelloWorldSansJSXReactJava" enabled="false" />
           <module name="io.reactjava.client.examples.KeyboardReactJava" enabled="false" />
+          <module name="io.reactjava.client.examples.LoginReactJava" enabled="false" />
           <module name="io.reactjava.client.examples.MovingBlockReactJava" enabled="false" />
           <module name="io.reactjava.client.examples.ReactJavaExamples" path="/ReactJavaExamples" />
           <module name="io.reactjava.client.examples.RoutingReactJava" enabled="false" />
@@ -68,6 +69,7 @@
           <module name="io.reactjava.client.examples.TextFieldReactJava" enabled="false" />
           <module name="io.reactjava.client.examples.ThreeByThreeReactJava" enabled="false" />
           <module name="io.reactjava.client.examples.TicTacToeReactJava" enabled="false" />
+          <module name="io.reactjava.client.examples.TimerReactJava" enabled="false" />
           <module name="io.reactjava.client.examples.UseRefReactJava" enabled="false" />
           <module name="io.reactjava.client.examples.materialui.MaterialUIGeneralPageReactJava" enabled="false" />
           <module name="io.reactjava.client.examples.materialui.MaterialUIPricingReactJava" enabled="false" />

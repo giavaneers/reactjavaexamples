@@ -52,7 +52,7 @@ public static final Map<String,Class> kAPP_ROUTES =
          }
       });
                                        // auth configuration                  //
-public static final String[] kAUTH_CONFIGURATION =
+public static final String[] kFIREBASE_CONFIGURATION =
 {
    "AIzaSyC2lsGWFpARlWm2janyFT1f8tcUx7I9b-U",
    "pumajtourofheroes.firebaseapp.com",
