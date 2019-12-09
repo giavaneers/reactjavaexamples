@@ -43,14 +43,16 @@ public static final String[] kFIREBASE_CONFIGURATION =
    "433064327713"
 };
                                        // state variables ------------------- //
-public static final String kSTATE_INITIAL         = "Initial";
-public static final String kSTATE_CONFIGURE       = "Configure";
-public static final String kSTATE_WRITE_ONE       = "Write One";
-public static final String kSTATE_READ_ONE        = "Read One";
-public static final String kSTATE_READ_REGISTER   = "Read Register";
-public static final String kSTATE_READING_ON      = "Reading On";
-public static final String kSTATE_READ_DEREGISTER = "Reading Off";
-public static final String kSTATE_DONE            = "Done";
+public static final String kSTATE_INITIAL             = "Initial";
+public static final String kSTATE_CONFIGURE           = "Configure";
+public static final String kSTATE_WRITE_FIRST         = "Write First";
+public static final String kSTATE_READ_FIRST          = "Read One";
+public static final String kSTATE_REMOVE_FIRST        = "Remove First";
+public static final String kSTATE_READ_FIRST_REMOVED  = "Read First Removed";
+public static final String kSTATE_READ_REGISTER       = "Read Register";
+public static final String kSTATE_READING_ON          = "Reading On";
+public static final String kSTATE_READ_DEREGISTER     = "Reading Off";
+public static final String kSTATE_DONE                = "Done";
 
                                        // class variables ------------------- //
                                        // database service                    //
@@ -124,7 +126,7 @@ public IEventCallback databaseReadOnNewChild()
 }
 /*------------------------------------------------------------------------------
 
-@name       databaseReadOne - read a single record from the database
+@name       databaseReadFirst - read a single record from the database
                                                                               */
                                                                              /**
             Read a single record from the database.
@@ -137,14 +139,34 @@ public IEventCallback databaseReadOnNewChild()
 
                                                                               */
 //------------------------------------------------------------------------------
-public Observable databaseReadOne()
+public Observable databaseReadFirst()
 {
    Observable observable = database.get("messages/message1");
    return(observable);
 }
 /*------------------------------------------------------------------------------
 
-@name       databaseWriteOne - write a single record to the database
+@name       databaseRemoveFirst - remove a single record from the database
+                                                                              */
+                                                                             /**
+            Remove a single record from the database.
+
+@return     an Observable to subscribe to to be notified of completion.
+
+@history    Wed Nov 27, 2019 10:30:00 (Giavaneers - LBM) created
+
+@notes
+
+                                                                              */
+//------------------------------------------------------------------------------
+public Observable databaseRemoveFirst()
+{
+   Observable observable = database.remove("messages/message1");
+   return(observable);
+}
+/*------------------------------------------------------------------------------
+
+@name       databaseWriteFirst - write a single record to the database
                                                                               */
                                                                              /**
             Write a single record to the database.
@@ -157,7 +179,7 @@ public Observable databaseReadOne()
 
                                                                               */
 //------------------------------------------------------------------------------
-public Observable databaseWriteOne(
+public Observable databaseWriteFirst(
    int index)
 {
    Observable observable =
@@ -214,6 +236,16 @@ public IEventCallback newChildCallback =
 @history    Wed Nov 27, 2019 10:30:00 (Giavaneers - LBM) created
 
 @notes
+public static final String kSTATE_INITIAL             = "Initial";
+public static final String kSTATE_CONFIGURE           = "Configure";
+public static final String kSTATE_WRITE_FIRST         = "Write First";
+public static final String kSTATE_READ_FIRST          = "Read One";
+public static final String kSTATE_REMOVE_FIRST        = "Remove First";
+public static final String kSTATE_READ_FIRST_REMOVED  = "Read First Removed";
+public static final String kSTATE_READ_REGISTER       = "Read Register";
+public static final String kSTATE_READING_ON          = "Reading On";
+public static final String kSTATE_READ_DEREGISTER     = "Reading Off";
+public static final String kSTATE_DONE                = "Done";
 
                                                                               */
 //------------------------------------------------------------------------------
@@ -227,14 +259,39 @@ public void onError(
          kLOGGER.logError("Database service configuration failed.");
          break;
       }
-      case kSTATE_WRITE_ONE:
+      case kSTATE_WRITE_FIRST:
       {
-         kLOGGER.logError("Database write operation failed.");
+         kLOGGER.logError("Database write first operation failed.");
          break;
       }
-      case kSTATE_READ_ONE:
+      case kSTATE_READ_FIRST:
       {
-         kLOGGER.logError("Database read operation failed.");
+         kLOGGER.logError("Database read first operation failed.");
+         break;
+      }
+      case kSTATE_REMOVE_FIRST:
+      {
+         kLOGGER.logError("Database remove first operation failed.");
+         break;
+      }
+      case kSTATE_READ_FIRST_REMOVED:
+      {
+         kLOGGER.logError("Database read first removed operation failed.");
+         break;
+      }
+      case kSTATE_READ_REGISTER:
+      {
+         kLOGGER.logError("Database read register operation failed.");
+         break;
+      }
+      case kSTATE_READING_ON:
+      {
+         kLOGGER.logError("Database reading on operation failed.");
+         break;
+      }
+      case kSTATE_READ_DEREGISTER:
+      {
+         kLOGGER.logError("Database read deregister operation failed.");
          break;
       }
       default:
@@ -277,20 +334,20 @@ public void onNext(
          kLOGGER.logInfo("Database service configuration succeeded.");
 
                                        // try writing a record                //
-         observable = databaseWriteOne(++numWrites);
-         nextState  = kSTATE_WRITE_ONE;
+         observable = databaseWriteFirst(++numWrites);
+         nextState  = kSTATE_WRITE_FIRST;
          break;
       }
-      case kSTATE_WRITE_ONE:
+      case kSTATE_WRITE_FIRST:
       {
          kLOGGER.logInfo("Database write operation succeeded.");
 
                                        // try reading it back                 //
-         observable = databaseReadOne();
-         nextState  = kSTATE_READ_ONE;
+         observable = databaseReadFirst();
+         nextState  = kSTATE_READ_FIRST;
          break;
       }
-      case kSTATE_READ_ONE:
+      case kSTATE_READ_FIRST:
       {
          kLOGGER.logInfo("Database read operation succeeded:");
 
@@ -299,7 +356,35 @@ public void onNext(
          {
             kLOGGER.logInfo(key + " -> " + valueMap.get(key));
          }
-         nextState  = kSTATE_READ_REGISTER;
+                                       // try removing it                     //
+         observable = databaseRemoveFirst();
+         nextState  = kSTATE_REMOVE_FIRST;
+         break;
+      }
+      case kSTATE_REMOVE_FIRST:
+      {
+         kLOGGER.logInfo("Database remove operation succeeded.");
+
+                                       // try reading it back                 //
+         observable = databaseReadFirst();
+         nextState  = kSTATE_READ_FIRST_REMOVED;
+         break;
+      }
+      case kSTATE_READ_FIRST_REMOVED:
+      {
+         kLOGGER.logInfo("Database read removed operation succeeded.");
+
+                                       // check that nothing was read         //
+         if (result != null)
+         {
+            kLOGGER.logError("Database record was not removed.");
+            nextState  = kSTATE_DONE;
+         }
+         else
+         {
+            kLOGGER.logInfo("Database record was removed.");
+            nextState = kSTATE_READ_REGISTER;
+         }
          break;
       }
       case kSTATE_READ_REGISTER:
@@ -316,7 +401,7 @@ public void onNext(
          {
             numWrites++;
             kLOGGER.logInfo("Database writing record " + numWrites);
-            observable = databaseWriteOne(numWrites);
+            observable = databaseWriteFirst(numWrites);
          }
          else
          {
@@ -334,7 +419,7 @@ public void onNext(
          {
             numWrites++;
             kLOGGER.logInfo("Database writing record " + numWrites);
-            observable = databaseWriteOne(numWrites);
+            observable = databaseWriteFirst(numWrites);
          }
          else
          {
