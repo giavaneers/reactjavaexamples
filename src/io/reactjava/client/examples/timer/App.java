@@ -16,22 +16,14 @@ notes:
                                        // package --------------------------- //
 package io.reactjava.client.examples.timer;
                                        // imports --------------------------- //
-import com.giavaneers.util.gwt.Logger;
 import elemental2.dom.DomGlobal;
 import io.reactjava.client.core.react.AppComponentTemplate;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Map;
-import java.util.Set;
 
-// App ================================//
+                                       // App ================================//
 public class App extends AppComponentTemplate
 {
                                        // class constants --------------------//
-public static final Logger kLOGGER = Logger.newInstance();
+                                       // (none)                              //
                                        // class variables ------------------- //
                                        // (none)                              //
                                        // public instance variables --------- //
@@ -59,13 +51,6 @@ public void render()
 {
    useState("topLeft", new int[]{0,0});
 
-   int[]  test = new int[]{0,1};
-   List   list = Arrays.asList(test);
-   int    size = list.size();
-   Object copy = list.toArray();
-
-
-   kLOGGER.logInfo("render() entered");
    int[] topLeft = (int[])getState("topLeft");
    if (topLeft[0] == 0)
    {
@@ -75,8 +60,8 @@ public void render()
                                        // move down by 2px and to right by 1px//
                                        // and cause render() to be invoked    //
             int[] stateValue     = (int[])getState("topLeft");
-                  stateValue[0] += 2;
-                  stateValue[1] += 1;
+                  stateValue[0] += 1;
+                  stateValue[1] += 2;
 
             setState("topLeft", stateValue);
          }, 17);
@@ -84,12 +69,12 @@ public void render()
 /*--
    <div style='width:100%; height:100%;'>
       <div style=
-         'background-color: blue;
-          position:         relative;
-          height:           30px;
-          width:            30px;
-          top:              {topLeft[0]};
-          left:             {topLeft[1]};
+        'background-color:blue;
+         position:relative;
+         height:30px;
+         width:30px;
+         top:{topLeft[0]};
+         left:{200 + 200 * Math.sin(Math.toRadians(topLeft[1]))};'
        />
    </div>
 --*/

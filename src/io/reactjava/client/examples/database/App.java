@@ -2,7 +2,7 @@
 
 name:       App.java
 
-purpose:    Keyboard App.
+purpose:    Dtabase example.
 
 history:    Wed Nov 27, 2019 10:30:00 (Giavaneers - LBM) created
 
@@ -182,12 +182,14 @@ public Observable databaseRemoveFirst()
 public Observable databaseWriteFirst(
    int index)
 {
+   String childPath = "messages/message" + index;
+
    Observable observable =
       database.put(
-         "messages",
+         childPath,
          new HashMap<String,String>()
          {{
-            put("message" + index, "This is message " + index);
+            put("message", "This is message " + index);
          }});
 
    return(observable);
@@ -199,8 +201,8 @@ public Observable databaseWriteFirst(
                                                                              /**
             New child callback.
 
-@param      dataSnapshot      snapshot of new child
-@param      prevChildKey      previous child key
+@param      records              snapshot of new child
+@param      anyPrevChildKey      any previous child key
 
 @history    Wed Nov 27, 2019 10:30:00 (Giavaneers - LBM) created
 
@@ -209,15 +211,18 @@ public Observable databaseWriteFirst(
                                                                               */
 //------------------------------------------------------------------------------
 public IEventCallback newChildCallback =
-   (Map<String,Object> dataSnapshot, String prevChildKey) ->
+   (Map<String,Map<String,Object>> records, String anyPrevChildKey) ->
    {
       int numWrites = getStateInt("numWrites");
       if (numWrites < 5)
       {
          kLOGGER.logInfo("New child " + numWrites + " reported.");
-         for (String key : dataSnapshot.keySet())
+
+         String             name   = records.keySet().toArray(new String[0])[0];
+         Map<String,Object> record = records.get(name);
+         for (String key :  record.keySet())
          {
-            kLOGGER.logInfo(key + " -> " + dataSnapshot.get(key));
+            kLOGGER.logInfo(key + " -> " + record.get(key));
          }
       }
       else
@@ -399,6 +404,7 @@ public void onNext(
       {
          if (numWrites < 4)
          {
+                                       // write child records                 //
             numWrites++;
             kLOGGER.logInfo("Database writing record " + numWrites);
             observable = databaseWriteFirst(numWrites);

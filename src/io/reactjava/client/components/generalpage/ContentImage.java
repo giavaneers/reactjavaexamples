@@ -1,10 +1,10 @@
 /*==============================================================================
 
-name:       App.java
+name:       ContentImage.java
 
-purpose:    ReactJava website App.
+purpose:    Content image.
 
-history:    Thu Feb 14, 2019 10:30:00 (Giavaneers - LBM) created
+history:    Sun Mar 31, 2019 10:30:00 (Giavaneers - LBM) created
 
 notes:
 
@@ -19,15 +19,16 @@ notes:
 
 ==============================================================================*/
                                        // package --------------------------- //
-package io.reactjava.client.examples.materialui.generalpage;
+package io.reactjava.client.components.generalpage;
                                        // imports --------------------------- //
-import io.reactjava.client.core.react.AppComponentTemplate;
+import io.reactjava.client.core.react.Component;
+import io.reactjava.client.core.react.IUITheme;
 
-                                       // App ================================//
-public class App extends AppComponentTemplate
+                                       // ContentImage =======================//
+public class ContentImage extends Component
 {
-                                       // class constants --------------------//
-                                       // (none)                              //
+                                       // class constants ------------------- //
+                                       // protected instance variables -------//
                                        // class variables ------------------- //
                                        // (none)                              //
                                        // public instance variables --------- //
@@ -43,17 +44,42 @@ public class App extends AppComponentTemplate
                                                                              /**
             Render component.
 
-@return     void
-
-@history    Thu Feb 14, 2019 10:30:00 (Giavaneers - LBM) created
+@history    Sun Mar 31, 2019 10:30:00 (Giavaneers - LBM) created
 
 @notes
+
                                                                               */
 //------------------------------------------------------------------------------
 public void render()
 {
 /*--
-   <GeneralPage manifest={"manifests/generalPage"}></GeneralPage>
+   <img src={props().getString("content")} class="contentImage"></img>
 --*/
 }
-}//====================================// end App ============================//
+/*------------------------------------------------------------------------------
+
+@name       renderCSS - get component css
+                                                                              */
+                                                                             /**
+            Get component css.
+
+@history    Sun Mar 31, 2019 10:30:00 (Giavaneers - LBM) created
+
+@notes
+                                                                              */
+//------------------------------------------------------------------------------
+public void renderCSS()
+{
+   String unit   = "" + getTheme().getSpacing().getUnit() + "px";
+   String unit3X = IUITheme.cssLengthScale(unit, 3);
+/*--
+   .contentImage
+   {
+      width:         inherit;
+      max-width:     inherit;
+      margin-top:    {unit3X};
+      margin-bottom: {unit3X};
+   }
+--*/
+}
+}//====================================// end ContentImage ===================//

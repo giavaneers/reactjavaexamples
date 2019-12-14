@@ -2,34 +2,62 @@
 
 name:       App.java
 
-purpose:    Keyboard App.
+purpose:    Chat App using authentication and a database
 
-history:    Wed Nov 27, 2019 10:30:00 (Giavaneers - LBM) created
+history:    Thu Dec 12, 2019 10:30:00 (Giavaneers - LBM) created
 
 notes:
 
-                        COPYRIGHT (c) BY GIAVANEERS, INC.
-         This source code is licensed under the MIT license found in the
-               LICENSE file in the root directory of this source tree.
+                  This program was created by Giavaneers
+        and is the confidential and proprietary product of Giavaneers Inc.
+      Any unauthorized use, reproduction or transfer is strictly prohibited.
+
+                     COPYRIGHT 2019 BY GIAVANEERS, INC.
+      (Subject to limited distribution and restricted disclosure only).
+                           All rights reserved.
+
 
 ==============================================================================*/
                                        // package --------------------------- //
-package io.reactjava.client.examples.keyboard;
+package io.reactjava.client.examples.chat;
                                        // imports --------------------------- //
-import elemental2.dom.DomGlobal;
-import elemental2.dom.EventListener;
-import elemental2.dom.KeyboardEvent;
 import io.reactjava.client.core.react.AppComponentTemplate;
-import jsinterop.base.Js;
+import io.reactjava.client.core.react.NativeObject;
+import io.reactjava.client.core.react.Properties;
+import java.util.Collections;
+import java.util.HashMap;
+import java.util.Map;
                                        // App ================================//
 public class App extends AppComponentTemplate
 {
                                        // class constants --------------------//
-                                       // (none)                              //
+                                       // read-only input attribute           //
+public static final NativeObject kATTRIB_READ_ONLY =
+   NativeObject.with("readOnly", true);
+                                       // route paths ---                     //
+                                       // default path                        //
+public static final String kPATH_LOG_IN  = "";
+                                       // Chat class path assigning Chat      //
+                                       // instance 'displayname' property     //
+public static final String kDISPLAY_NAME = "displayname";
+public static final String kPATH_CHAT    = "Chat/:" + kDISPLAY_NAME;
+
+                                       // target component class              //
+public static final Class  kCLASS_CHAT   = Chat.class;
+public static final Class  kCLASS_LOG_IN = Login.class;
+
+public static final Map<String,Class> kAPP_ROUTES =
+   Collections.unmodifiableMap(
+      new HashMap<String,Class>()
+      {
+         {
+            put(kPATH_CHAT,   kCLASS_CHAT);
+            put(kPATH_LOG_IN, kCLASS_LOG_IN);
+         }
+      });
                                        // class variables ------------------- //
                                        // (none)                              //
                                        // public instance variables --------- //
-                                       // global event handler                //
                                        // (none)                              //
                                        // protected instance variables -------//
                                        // (none)                              //
@@ -37,102 +65,57 @@ public class App extends AppComponentTemplate
                                        // (none)                              //
 /*------------------------------------------------------------------------------
 
-@name       keyUpHandler - keyUp event handler
+@name       App - default constructor
                                                                               */
                                                                              /**
-            onClick event handler as a public instance variable, accessible in
-            markup.
+            Default constructor
 
-@return     void
+@return     An instance of App if successful.
 
-@history    Thu Feb 14, 2019 10:30:00 (Giavaneers - LBM) created
+@history    Thu Dec 12, 2019 10:30:00 (Giavaneers - LBM) created
 
 @notes
                                                                               */
 //------------------------------------------------------------------------------
-public EventListener keyUpHandler = event ->
+public App()
 {
-   KeyboardEvent keyEvent = Js.uncheckedCast(event);
-   String        key      = keyEvent.key;
-   String        message  = getStateString("message");
-   switch(key)
-   {
-      case "Control":
-      case "Meta":
-      case "Shift":
-      {
-         break;
-      }
-      case "Backspace":
-      {
-         setState("message",message.substring(0,message.length() - 1));
-         break;
-      }
-      case "Enter":
-      {
-         System.out.println("Enter key pressed.");
-         break;
-      }
-      default:
-      {
-         setState("message", message + key);
-      }
-   }
-};
+   super();
+}
 /*------------------------------------------------------------------------------
 
-@name       render - render component
+@name       App - constructor for specified properties
                                                                               */
                                                                              /**
-            Render component. This implementation is all markup, with no java
-            code included.
+            Constructor for specified properties
 
-@return     void
+@return     An instance of App if successful.
 
-@history    Wed Nov 27, 2019 10:30:00 (Giavaneers - LBM) created
+@history    Thu Dec 12, 2019 10:30:00 (Giavaneers - LBM) created
 
 @notes
-
                                                                               */
 //------------------------------------------------------------------------------
-public void render()
+public App(
+   Properties properties)
 {
-   useState("message", "Press a key: ");
-   useState("listener", false);
-
-   if (!getStateBoolean("listener"))
-   {
-      DomGlobal.document.body.addEventListener("keyup", keyUpHandler);
-      setState("listener", true);
-   }
-
-/*--
-   <h1 class='keyboard' style='color:blue;marginTop:30px;fontSize:20px'>
-      {getStateString("message")}
-   </h1>
---*/
-};
+   super(properties);
+}
 /*------------------------------------------------------------------------------
 
-@name       renderCSS - get component css
+@name       getNavRoutes - get navigation routes for application
                                                                               */
                                                                              /**
-            Get component css.
+            Get map of component classname by route path.
 
 @return     void
 
-@history    Wed Nov 27, 2019 10:30:00 (Giavaneers - LBM) created
+@history    Thu Dec 12, 2019 10:30:00 (Giavaneers - LBM) created
 
 @notes
-
                                                                               */
 //------------------------------------------------------------------------------
-public void renderCSS()
+protected Map<String,Class> getNavRoutes()
 {
-/*--
-   .keyboard {
-      color: blue
-   }
---*/
+   return(kAPP_ROUTES);
 }
 }//====================================// end App ============================//

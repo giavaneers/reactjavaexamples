@@ -78,8 +78,9 @@ public void doCreateUser(
    else
    {
       App.auth.createUserWithEmailAndPassword(email, password).subscribe(
-         responseSignIn ->
+         (response) ->
          {
+            kLOGGER.logInfo("Account created successfully for " + email);
             Router.push(App.kPATH_LOGGED_IN);
          },
          error ->
@@ -111,6 +112,13 @@ public void render()
       <@material-ui.core.Grid item class='contentWidth'>
          <img src='images/logo.svg' />
          <div class='padding'>
+            <@material-ui.core.TextField
+               id="username"
+               label="Username"
+               defaultValue={"Enter Username"}
+               margin="normal"
+               variant="outlined"
+               fullWidth />
             <@material-ui.core.TextField
                id="email"
                label="EMail"
@@ -208,6 +216,8 @@ public void renderCSS()
 //------------------------------------------------------------------------------
 public INativeEventHandler signUpHandler = (Event e) ->
 {
+   Element  userNameEntry = DomGlobal.document.getElementById("username");
+   String   userName      = ((HTMLInputElement)userNameEntry).value;
    Element  emailEntry    = DomGlobal.document.getElementById("email");
    String   email         = ((HTMLInputElement)emailEntry).value;
    Element  passwordEntry = DomGlobal.document.getElementById("password");

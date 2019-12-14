@@ -1,10 +1,10 @@
 /*==============================================================================
 
-name:       App.java
+name:       ContentCode.java
 
-purpose:    ReactJava website App.
+purpose:    Content code.
 
-history:    Thu Feb 14, 2019 10:30:00 (Giavaneers - LBM) created
+history:    Sun Mar 31, 2019 10:30:00 (Giavaneers - LBM) created
 
 notes:
 
@@ -19,15 +19,16 @@ notes:
 
 ==============================================================================*/
                                        // package --------------------------- //
-package io.reactjava.client.examples.materialui.generalpage;
+package io.reactjava.client.components.generalpage;
                                        // imports --------------------------- //
-import io.reactjava.client.core.react.AppComponentTemplate;
+import io.reactjava.client.core.react.Component;
+import io.reactjava.client.core.react.IUITheme;
 
-                                       // App ================================//
-public class App extends AppComponentTemplate
+                                       // ContentCode ========================//
+public class ContentCode extends Component
 {
-                                       // class constants --------------------//
-                                       // (none)                              //
+                                       // class constants ------------------- //
+                                       // protected instance variables -------//
                                        // class variables ------------------- //
                                        // (none)                              //
                                        // public instance variables --------- //
@@ -43,17 +44,51 @@ public class App extends AppComponentTemplate
                                                                              /**
             Render component.
 
-@return     void
-
-@history    Thu Feb 14, 2019 10:30:00 (Giavaneers - LBM) created
+@history    Sun Mar 31, 2019 10:30:00 (Giavaneers - LBM) created
 
 @notes
+
                                                                               */
 //------------------------------------------------------------------------------
 public void render()
 {
 /*--
-   <GeneralPage manifest={"manifests/generalPage"}></GeneralPage>
+   <div class='contentCode'>
+      <Prism background='#666666'>
+         {props().getString("content")}
+      </Prism>
+   </div>
 --*/
 }
-}//====================================// end App ============================//
+/*------------------------------------------------------------------------------
+
+@name       renderCSS - get component css
+                                                                              */
+                                                                             /**
+            Get component css.
+
+@history    Sun Mar 31, 2019 10:30:00 (Giavaneers - LBM) created
+
+@notes
+                                                                              */
+//------------------------------------------------------------------------------
+public void renderCSS()
+{
+   String unit   = "" + getTheme().getSpacing().getUnit() + "px";
+   String unit3X = IUITheme.cssLengthScale(unit, 3);
+/*--
+   .contentCode
+   {
+      font-size:     12px;
+      margin-top:    {unit3X};
+      margin-bottom: {unit3X};
+   }
+--*/                                   // override some prism token colors    //
+/*--
+   .token.comment
+   {
+      color:         #6dcff6;
+   }
+--*/
+}
+}//====================================// end ContentCode ====================//

@@ -2,7 +2,7 @@
 
 name:       App.java
 
-purpose:    HelloWorld App.
+purpose:    TextField Example App.
 
 history:    Sat May 13, 2018 10:30:00 (Giavaneers - LBM) created
 
@@ -21,26 +21,29 @@ notes:
                                        // package --------------------------- //
 package io.reactjava.client.examples.textfield;
                                        // imports --------------------------- //
+import com.giavaneers.util.gwt.Logger;
 import elemental2.dom.DomGlobal;
 import elemental2.dom.Element;
 import elemental2.dom.Event;
 import elemental2.dom.HTMLInputElement;
+import elemental2.dom.KeyboardEvent;
 import io.reactjava.client.core.react.AppComponentTemplate;
 import io.reactjava.client.core.react.INativeEventHandler;
+import jsinterop.base.Js;
                                        // App ================================//
 public class App extends AppComponentTemplate
 {
                                        // class constants --------------------//
-                                       // (none)                              //
+public static final Logger kLOGGER = Logger.newInstance();
                                        // class variables ------------------- //
                                        // (none)                              //
                                        // public instance variables --------- //
                                        // (none)                              //
                                        // protected instance variables -------//
-protected String default1;             // input1 default value                //
-protected String default2;             // input2 default value                //
-protected int    length1;              // length of input1                    //
-protected int    length2;              // length of input2                    //
+protected String           default1;   // input1 default value                //
+protected String           default2;   // input2 default value                //
+protected int              length1;    // length of input1                    //
+protected int              length2;    // length of input2                    //
                                        // private instance variables -------- //
                                        // (none)                              //
 /*------------------------------------------------------------------------------
@@ -48,8 +51,7 @@ protected int    length2;              // length of input2                    //
 @name       clickHandler - onClick event handler
                                                                               */
                                                                              /**
-            onClick event handler as a public instance variable, accessible in
-            markup.
+            onClick event handler as a public instance variable.
 
 @return     void
 
@@ -65,11 +67,12 @@ public INativeEventHandler clickHandler = (Event e) ->
 };
 /*------------------------------------------------------------------------------
 
-@name       handleChange - input change event handler
+@name       keyUpHandler - keyUp event handler
                                                                               */
                                                                              /**
-            onChange event handler as a public instance variable, accessible in
-            markup.
+            keyUp event handler as a public instance variable. A TextField
+            does not intrinsicly support input of the RETURN character, so we
+            add this keyboard event handler.
 
 @return     void
 
@@ -78,7 +81,39 @@ public INativeEventHandler clickHandler = (Event e) ->
 @notes
                                                                               */
 //------------------------------------------------------------------------------
-public INativeEventHandler handleChange = (Event e) ->
+public INativeEventHandler keyUpHandler = (Event e) ->
+{
+   KeyboardEvent keyEvent = Js.uncheckedCast(e);
+   switch(keyEvent.key)
+   {
+      case "Enter":
+      {
+                                       // flash a grey background             //
+         HTMLInputElement element = (HTMLInputElement)keyEvent.target;
+         element.setAttribute("style", "background-color:lightgrey");
+         DomGlobal.setTimeout((et) ->
+         {
+            element.setAttribute("style", "background-color:inherit");
+         }, 50);
+         break;
+      }
+   }
+};
+/*------------------------------------------------------------------------------
+
+@name       onChangeHandler - input change event handler
+                                                                              */
+                                                                             /**
+            onChange event handler as a public instance variable.
+
+@return     void
+
+@history    Thu Feb 14, 2019 10:30:00 (Giavaneers - LBM) created
+
+@notes
+                                                                              */
+//------------------------------------------------------------------------------
+public INativeEventHandler onChangeHandler = (Event e) ->
 {
    HTMLInputElement element = (HTMLInputElement)e.target;
    String           id      = element.id;
@@ -136,7 +171,8 @@ public void render()
                   defaultValue={"Cat in the Hat"}
                   margin="normal"
                   variant="outlined"
-                  onChange={handleChange}
+                  onChange={onChangeHandler}
+                  onKeyUp={keyUpHandler}
                   fullWidth
                />
                <@material-ui.core.TextField
@@ -145,7 +181,8 @@ public void render()
                   defaultValue={"Dog in the Blog"}
                   margin="normal"
                   variant="outlined"
-                  onChange={handleChange}
+                  onChange={onChangeHandler}
+                  onKeyUp={keyUpHandler}
                   fullWidth
                />
                <div class='gutter' />

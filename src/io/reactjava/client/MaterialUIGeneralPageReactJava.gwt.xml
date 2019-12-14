@@ -5,7 +5,8 @@
    <inherits name='ReactJava'/>
 
    <!-- transcode the application sources                    -->
-   <source path="generalpage" />
+   <source path="components/generalpage" />
+   <source path="examples/materialui/generalpage" />
 
    <!-- Specify the app entry point class.                   -->
    <entry-point class='io.reactjava.client.examples.materialui.generalpage.App'/>
