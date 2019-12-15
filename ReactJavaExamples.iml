@@ -73,7 +73,6 @@
           <module name="io.reactjava.client.examples.TicTacToeReactJava" enabled="false" />
           <module name="io.reactjava.client.examples.TimerReactJava" enabled="false" />
           <module name="io.reactjava.client.examples.UseRefReactJava" enabled="false" />
-          <module name="io.reactjava.client.examples.materialui.MaterialUIGeneralPageReactJava" enabled="false" />
           <module name="io.reactjava.client.examples.materialui.MaterialUIPricingReactJava" enabled="false" />
           <module name="io.reactjava.client.examples.materialui.MaterialUIThemeReactJava" enabled="false" />
           <module name="io.reactjava.client.examples.statevariable.StateVariableSimpleHandlerByReferenceReactJava" enabled="false" />

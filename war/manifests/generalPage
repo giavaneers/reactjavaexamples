@@ -162,3 +162,19 @@ application you like. If you are interested, you can learn about the basic
 concepts in building ReactJava apps by exploring the
 %markup%<a href="ReactJavaWebsite.html#UserGuide">Tutorial</a>%markup%.
 .end
+
+/*==============================================================================
+
+    Footer
+
+==============================================================================*/
+.caption
+Summary
+.end
+
+.body
+The sample project will serve as a template from which you can create any
+application you like. If you are interested, you can learn about the basic
+concepts in building ReactJava apps by exploring the
+%markup%<a href="ReactJavaWebsite.html#UserGuide">Tutorial</a>%markup%.
+.end
