@@ -50,7 +50,7 @@ public class App extends AppComponentTemplate
 
                                                                               */
 //------------------------------------------------------------------------------
-public void render()
+public final void render()
 {
    Function<Properties,ReactElement> fcn = (props) ->
    {
@@ -84,7 +84,7 @@ public void render()
       }
       return(element);
    };
-   this.componentFcn = fcn;
+   setComponentFcn(fcn);
 };
 /*------------------------------------------------------------------------------
 

@@ -44,7 +44,7 @@ public class SquareByRenderCSS extends Component
 @notes
                                                                               */
 //------------------------------------------------------------------------------
-public void render()
+public final void render()
 {
    useState("color", "blue");
                                        // use Paper instead of div to allow   //

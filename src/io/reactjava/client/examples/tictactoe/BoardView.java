@@ -44,7 +44,7 @@ public class BoardView extends Component
 
                                                                               */
 //------------------------------------------------------------------------------
-public void render()
+public final void render()
 {
 /*--  <div class='board'> --*/
       for (int i = 0; i < 9; i++)

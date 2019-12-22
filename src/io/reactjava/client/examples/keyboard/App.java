@@ -95,7 +95,7 @@ public EventListener keyUpHandler = event ->
 
                                                                               */
 //------------------------------------------------------------------------------
-public void render()
+public final void render()
 {
    useState("message", "Press a key: ");
    useState("listener", false);

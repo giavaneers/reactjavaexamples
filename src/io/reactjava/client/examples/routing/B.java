@@ -89,7 +89,7 @@ public INativeEventHandler clickHandlerTop = (Event e) ->
 
                                                                               */
 //------------------------------------------------------------------------------
-public void render()
+public final void render()
 {
 /*--
 <div>

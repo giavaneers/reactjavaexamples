@@ -47,7 +47,7 @@ public class App extends AppComponentTemplate
 
                                                                               */
 //------------------------------------------------------------------------------
-public void render()
+public final void render()
 {
 /*--
    <h1 class='hello' style='color:blue;marginTop:30px;fontSize:20px'>

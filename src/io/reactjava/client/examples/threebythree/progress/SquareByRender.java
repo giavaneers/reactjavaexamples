@@ -46,7 +46,7 @@ public class SquareByRender extends Component
 @notes
                                                                               */
 //------------------------------------------------------------------------------
-public void render()
+public final void render()
 {
    useState("color", "blue");
    String  color    = getStateString("color");

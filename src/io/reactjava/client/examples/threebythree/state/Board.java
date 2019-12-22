@@ -72,7 +72,7 @@ public Units getUnits()
 
                                                                               */
 //------------------------------------------------------------------------------
-public void render()
+public final void render()
 {
    int numColumns;
    int gridColsEach;

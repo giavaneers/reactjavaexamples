@@ -67,7 +67,7 @@ public INativeEventHandler clickHandler = (Event e) ->
 @notes
                                                                               */
 //------------------------------------------------------------------------------
-public void render()
+public final void render()
 {
    useState("on", "true");
    String currentState = getStateString("on");

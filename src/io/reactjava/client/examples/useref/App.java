@@ -80,7 +80,7 @@ public INativeEventHandler clickHandler = (Event e) ->
 @notes
                                                                               */
 //------------------------------------------------------------------------------
-public void render()
+public final void render()
 {
    useState("on", "true");
    useRef("clickCount", 0);

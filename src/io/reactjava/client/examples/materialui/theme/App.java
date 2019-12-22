@@ -71,7 +71,7 @@ public Consumer openHandler = (bOpen) ->
 @notes
                                                                               */
 //------------------------------------------------------------------------------
-public void render()
+public final void render()
 {
    useState(kSTATE_OPEN, false);
    boolean bOpen = getStateBoolean(kSTATE_OPEN);

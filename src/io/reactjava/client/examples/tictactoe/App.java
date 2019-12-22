@@ -153,7 +153,7 @@ public Consumer<Integer> moveFcn = (move) ->
 
                                                                               */
 //------------------------------------------------------------------------------
-public void render()
+public final void render()
 {
    useState(kKEY_STATUS, kSTATUS_INIT);
    useState(kKEY_TURN,   kSTATUS_PLAYER);

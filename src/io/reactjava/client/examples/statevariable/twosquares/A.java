@@ -70,7 +70,7 @@ public INativeEventHandler clickHandler = (Event e) ->
 
                                                                               */
 //------------------------------------------------------------------------------
-public void render()
+public final void render()
 {
    String clas = "true".equals(props().getString(kPROPERTY_ON)) ? "on" : "off";
 /*--

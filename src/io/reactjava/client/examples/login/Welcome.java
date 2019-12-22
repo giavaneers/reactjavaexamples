@@ -104,7 +104,7 @@ public void doLogin(
 
                                                                               */
 //------------------------------------------------------------------------------
-public void render()
+public final void render()
 {
 /*--
    <@material-ui.core.Grid container justify="center">

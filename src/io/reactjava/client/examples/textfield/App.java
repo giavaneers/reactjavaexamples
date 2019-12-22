@@ -143,7 +143,7 @@ public INativeEventHandler onChangeHandler = (Event e) ->
 @notes
                                                                               */
 //------------------------------------------------------------------------------
-public void render()
+public final void render()
 {
    if (default1 == null)
    {

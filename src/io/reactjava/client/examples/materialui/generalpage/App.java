@@ -50,7 +50,7 @@ public class App extends AppComponentTemplate
 @notes
                                                                               */
 //------------------------------------------------------------------------------
-public void render()
+public final void render()
 {
 /*--
    <GeneralPage manifest={"manifests/generalPage"}></GeneralPage>

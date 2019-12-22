@@ -70,7 +70,7 @@ protected List<String> getImportedNodeModules()
 @notes
                                                                               */
 //------------------------------------------------------------------------------
-public void render()
+public final void render()
 {
 /*--
    <Prism background='#6dcff6'>{text://text/displayCode}</Prism>

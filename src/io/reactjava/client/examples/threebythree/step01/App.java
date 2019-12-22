@@ -47,7 +47,7 @@ public class App extends AppComponentTemplate
 
                                                                               */
 //------------------------------------------------------------------------------
-public void render()
+public final void render()
 {
 /*--
    <div style='background:green;width:300px;height:300px'></div>

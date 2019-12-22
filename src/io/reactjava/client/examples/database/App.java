@@ -477,7 +477,7 @@ public void onNext(
 
                                                                               */
 //------------------------------------------------------------------------------
-public void render()
+public final void render()
 {
    useState("state",     kSTATE_INITIAL);
    useState("numWrites", 0);

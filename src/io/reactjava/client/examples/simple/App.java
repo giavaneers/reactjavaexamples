@@ -49,7 +49,7 @@ protected static final String kTEXT      = App.class.getName() + ".java";
 
                                                                               */
 //------------------------------------------------------------------------------
-public void render()
+public final void render()
 {
 /*--
    <div class="App">

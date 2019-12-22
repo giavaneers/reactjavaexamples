@@ -69,7 +69,7 @@ public INativeEventHandler clickHandler = (Event e) ->
 
                                                                               */
 //------------------------------------------------------------------------------
-public void render()
+public final void render()
 {
    boolean bWeb =
       ((IPlatform)ReactJava.getProvider(IPlatform.class)).getOS().equals(

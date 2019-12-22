@@ -45,7 +45,7 @@ public class Square extends Component
 
                                                                               */
 //------------------------------------------------------------------------------
-public void render()
+public final void render()
 {
 /*--
    <div class='square' onClick={props().get("clickhandler")}></div>

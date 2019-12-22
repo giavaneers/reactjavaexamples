@@ -67,7 +67,7 @@ public INativeEventHandler clickHandler = (Event e) ->
 
                                                                               */
 //------------------------------------------------------------------------------
-public void render()
+public final void render()
 {
    Board  board               = (Board)props().get(App.kKEY_BOARD);
    int    index               = props().getInt(App.kKEY_SUBBOARD_INDEX);

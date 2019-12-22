@@ -369,7 +369,7 @@ public INativeEventHandler onChangeHandler = (Event e) ->
 
                                                                               */
 //------------------------------------------------------------------------------
-public void render()
+public final void render()
 {
    useState(kSTATE_CREDENTIALS_ENTERED, false);
    useState(kSTATE_ERROR, "");

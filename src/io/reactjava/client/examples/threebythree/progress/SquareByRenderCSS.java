@@ -44,7 +44,7 @@ public class SquareByRenderCSS extends Component
 @notes
                                                                               */
 //------------------------------------------------------------------------------
-public void render()
+public final void render()
 {
    useState("color", "blue");
    boolean bPending = "pending".equals(getStateString("color"));

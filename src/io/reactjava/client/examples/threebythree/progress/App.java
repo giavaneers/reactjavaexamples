@@ -105,7 +105,7 @@ public INativeEventHandler squareClickHandler = (Event e) ->
 
                                                                               */
 //------------------------------------------------------------------------------
-public void render()
+public final void render()
 {
 /*--
    <Board

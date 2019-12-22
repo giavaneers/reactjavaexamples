@@ -48,7 +48,7 @@ public static final String kSIZE = "300px";
 @notes
                                                                               */
 //------------------------------------------------------------------------------
-public void render()
+public final void render()
 {
    useState("on", "true");
    String currentState = getStateString("on");

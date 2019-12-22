@@ -67,7 +67,7 @@ public Consumer onHandler = (onValue) ->
 
                                                                               */
 //------------------------------------------------------------------------------
-public void render()
+public final void render()
 {
                                        // react complains when a state        //
                                        // variable is boolean                 //

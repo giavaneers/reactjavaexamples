@@ -110,7 +110,7 @@ public static final FooterDsc[] kFOOTERS =
 
                                                                               */
 //------------------------------------------------------------------------------
-public void render()
+public final void render()
 {
 /*--
    <React.Fragment>

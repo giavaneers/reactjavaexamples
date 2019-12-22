@@ -92,7 +92,7 @@ protected Consumer<Integer> getMoveFunction()
 
                                                                               */
 //------------------------------------------------------------------------------
-public void render()
+public final void render()
 {
    if (board == null)
    {
