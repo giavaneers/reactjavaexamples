@@ -63,30 +63,17 @@ public void doLogin(
                                        // get an authentication service       //
                                        // instance                            //
       App.auth = ReactJava.getProvider(IAuthenticationService.class);
+   }
 
-                                       // configure the authentication service//
-      App.auth.configure(App.kFIREBASE_CONFIGURATION).subscribe(
-         response ->
-         {
-            doLogin(email, password);
-         },
-         error ->
-         {
-            kLOGGER.logError("Authentication service configuration failed.");
-         });
-   }
-   else
-   {
-      App.auth.signInWithEmailAndPassword(email, password).subscribe(
-         responseSignIn ->
-         {
-            Router.push(App.kPATH_LOGGED_IN);
-         },
-         error ->
-         {
-            kLOGGER.logError("User authentication failed.");
-         });
-   }
+   App.auth.signInWithEmailAndPassword(email, password).subscribe(
+      responseSignIn ->
+      {
+         Router.push(App.kPATH_LOGGED_IN);
+      },
+      error ->
+      {
+         kLOGGER.logError("User authentication failed.");
+      });
 }
 /*------------------------------------------------------------------------------
 

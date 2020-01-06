@@ -2,28 +2,35 @@
 
 name:       App.java
 
-purpose:    Simple App.
+purpose:    UseEffect App.
 
-history:    Sat May 13, 2018 10:30:00 (Giavaneers - LBM) created
+            Since ReactJava components are implemented as React functional
+            components, the normal lifetime events such as componentDidMount and
+            componenUpdate are not available. Instead, the useEffect hook is
+            available.
+
+history:    Mon Jan 06, 2020 10:30:00 (Giavaneers - LBM) created
 
 notes:
 
                         COPYRIGHT (c) BY GIAVANEERS, INC.
          This source code is licensed under the MIT license found in the
-             LICENSE file in the root directory of this source tree.
+               LICENSE file in the root directory of this source tree.
 
 ==============================================================================*/
                                        // package --------------------------- //
-package io.reactjava.client.examples.simple;
+package io.reactjava.client.examples.useeffect;
                                        // imports --------------------------- //
+import elemental2.dom.DomGlobal;
+import elemental2.dom.Element;
 import io.reactjava.client.core.react.AppComponentTemplate;
+import io.reactjava.client.core.react.INativeEffectHandler;
 
                                        // App ================================//
 public class App extends AppComponentTemplate
 {
-                                       // class constants --------------------//
-protected static final String kIMAGE_URL = "images/logo.svg";
-protected static final String kTEXT      = App.class.getName() + ".java";
+                                       // class constants ------------------- //
+public static final String kSIZE = "300px";
 
                                        // class variables ------------------- //
                                        // (none)                              //
@@ -35,80 +42,48 @@ protected static final String kTEXT      = App.class.getName() + ".java";
                                        // (none)                              //
 /*------------------------------------------------------------------------------
 
-@name       render - render markup
+@name       effectHandler - useEffect handler
                                                                               */
                                                                              /**
-            Render markup.
+            useEffect handler invoked after DOM is initially updated, instead
+            of componentDidMount.
 
 @return     void
 
-@history    Mon May 21, 2018 10:30:00 (Giavaneers - LBM) created
+@history    Mon Jan 06, 2020 10:30:00 (Giavaneers - LBM) created
 
 @notes
+                                                                              */
+//------------------------------------------------------------------------------
+public INativeEffectHandler effectHandler = () ->
+{
+   Element square = DomGlobal.document.getElementById("square");
+   String  style  = square.getAttribute("style");
+   square.setAttribute("style", style + "background-color:green;");
+};
+/*------------------------------------------------------------------------------
 
+@name       render - render component
+                                                                              */
+                                                                             /**
+            Render component.
+
+            Passing an empty set of dependencies causes the effect handler to be
+            invoked only when mounted and unmounted, not also on update as will
+            occurr if the single argument useEffect() method is used.
+
+@return     void
+
+@history    Mon Jan 06, 2020 10:30:00 (Giavaneers - LBM) created
+
+@notes
                                                                               */
 //------------------------------------------------------------------------------
 public final void render()
 {
+   useEffect(effectHandler, new Object[0]);
 /*--
-   <div class="App">
-      <header class="App-header">
-         <img src={kIMAGE_URL} class="App-logo" alt="logo" />
-         <h1 class="App-title">Welcome to ReactJava</h1>
-      </header>
-      <p class="App-intro">
-         To get started, edit <code>{kTEXT}</code>,
-         <strong>save and refresh browser</strong> to reload.
-      </p>
-   </div>
+   <div id='square' style='width:{kSIZE}; height:{kSIZE};'></div>
 --*/
-}
-/*------------------------------------------------------------------------------
-
-@name       renderCSS - get component css
-                                                                              */
-                                                                             /**
-            Get component css.
-
-@return     void
-
-@history    Mon May 21, 2018 10:30:00 (Giavaneers - LBM) created
-
-@notes
-
-                                                                              */
-//------------------------------------------------------------------------------
-public void renderCSS()
-{
-/*--
-   .App {
-     text-align: column;
-   }
-
-   .App-logo {
-     animation: App-logo-spin infinite 20s linear;
-     height: 80px;
-   }
-
-   .App-header {
-     background-color: #222;
-     height: 150px;
-     padding: 20px;
-     color: white;
-   }
-
-   .App-title {
-     font-size: first.5em;
-   }
-
-   .App-intro {
-     font-size: large;
-   }
-
-   @keyframes App-logo-spin {
-     from { transform: rotate(0deg); }
-     to { transform: rotate(360deg); }
-   }
---*/
-}
+};
 }//====================================// end App ============================//

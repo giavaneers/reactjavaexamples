@@ -50,9 +50,8 @@ public static final String kSIZE = "300px";
 //------------------------------------------------------------------------------
 public final void render()
 {
-   useState("on", "true");
-   String currentState = getStateString("on");
-   String background   = "true".equals(currentState) ? "green" : "red";
+   useState("on", true);
+   String background = getStateBoolean("on") ? "green" : "red";
 /*--
    <div
       style='width:{kSIZE}; height:{kSIZE}; backgroundColor:{background};'
@@ -60,8 +59,7 @@ public final void render()
       {
          (INativeEventHandler)(Event e) ->
          {
-            setState(
-               "on", "true".equals(getStateString("on")) ? "false" : "true");
+            setState("on", !getStateBoolean("on"));
          }
       }
    >

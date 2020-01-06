@@ -23,6 +23,8 @@ package io.reactjava.client.examples.login;
                                        // imports --------------------------- //
 import io.reactjava.client.core.providers.auth.IAuthenticationService;
 import io.reactjava.client.core.react.AppComponentTemplate;
+import io.reactjava.client.core.react.Configuration.CloudServices;
+import io.reactjava.client.core.react.IConfiguration.ICloudServices;
 import io.reactjava.client.core.react.Properties;
 import java.util.Collections;
 import java.util.HashMap;
@@ -52,15 +54,13 @@ public static final Map<String,Class> kAPP_ROUTES =
          }
       });
                                        // auth configuration                  //
-public static final String[] kFIREBASE_CONFIGURATION =
-{
-   "AIzaSyC2lsGWFpARlWm2janyFT1f8tcUx7I9b-U",
-   "pumajtourofheroes.firebaseapp.com",
-   "https://pumajtourofheroes.firebaseio.com",
-   "pumajtourofheroes",
-   "pumajtourofheroes.appspot.com",
-   "433064327713"
-};
+public static final ICloudServices kCLOUD_SERVICES_CONFIG =
+   new CloudServices()
+      .setAPIKey("AIzaSyDh9OrV7rghijudnkyQ9wSUz4BKZE8F-sI")
+      .setProjectId("reactjava-f11e6")
+      .setAppId("1:1074492811559:web:04a915c2562cdf92952102")
+      .setAuthDomain("reactjava-f11e6.firebaseapp.com");
+
                                        // class variables ------------------- //
                                        // authentication service provider     //
 public static IAuthenticationService auth;
@@ -106,6 +106,24 @@ public App(
    Properties properties)
 {
    super(properties);
+}
+/*------------------------------------------------------------------------------
+
+@name       getCloudServicesConfig - get cloud services configuration
+                                                                              */
+                                                                             /**
+            Get cloud services configuration.
+
+@return     cloud services configuration.
+
+@history    Sun Nov 02, 2018 10:30:00 (Giavaneers - LBM) created
+
+@notes
+                                                                              */
+//------------------------------------------------------------------------------
+protected ICloudServices getCloudServicesConfig()
+{
+   return(kCLOUD_SERVICES_CONFIG);
 }
 /*------------------------------------------------------------------------------
 

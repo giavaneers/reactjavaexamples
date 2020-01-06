@@ -60,20 +60,20 @@ public void doCreateUser(
 {
    if (App.auth == null)
    {
-                                       // get an authentication service       //
-                                       // instance                            //
-      App.auth = ReactJava.getProvider(IAuthenticationService.class);
-
-                                       // configure the authentication service//
-      App.auth.configure(App.kFIREBASE_CONFIGURATION).subscribe(
-         response ->
-         {
-            doCreateUser(email, password);
-         },
-         error ->
-         {
-            kLOGGER.logError("Authentication service configuration failed.");
-         });
+      //                                 // get an authentication service       //
+      //                                 // instance                            //
+      //App.auth = ReactJava.getProvider(IAuthenticationService.class);
+      //
+      //                                 // configure the authentication service//
+      //App.auth.configure(App.kFIREBASE_CONFIGURATION).subscribe(
+      //   response ->
+      //   {
+      //      doCreateUser(email, password);
+      //   },
+      //   error ->
+      //   {
+      //      kLOGGER.logError("Authentication service configuration failed.");
+      //   });
    }
    else
    {

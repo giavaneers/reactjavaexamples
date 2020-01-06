@@ -2,28 +2,40 @@
 
 name:       App.java
 
-purpose:    Three By Three App.
+purpose:    Google Analytics Reporting Example App.
 
-history:    Sat Oct 27, 2018 10:30:00 (Giavaneers - LBM) created
+            see   "https://flaviocopes.com/google-analytics-api-nodejs/"
+                  "#import-the-google-library"
+
+history:    Fri Jan 03, 2020 10:30:00 (Giavaneers - LBM) created
 
 notes:
 
                         COPYRIGHT (c) BY GIAVANEERS, INC.
          This source code is licensed under the MIT license found in the
-               LICENSE file in the root directory of this source tree.
+             LICENSE file in the root directory of this source tree.
 
 ==============================================================================*/
                                        // package --------------------------- //
-package io.reactjava.client.examples.displaycode;
+package io.reactjava.client.examples.googleanalytics.reportdata;
                                        // imports --------------------------- //
 import io.reactjava.client.core.react.AppComponentTemplate;
+import io.reactjava.client.core.react.Configuration.CloudServices;
+import io.reactjava.client.core.react.IConfiguration.ICloudServices;
 import java.util.Arrays;
 import java.util.List;
                                        // App ================================//
 public class App extends AppComponentTemplate
 {
                                        // class constants --------------------//
-                                       // (none)                              //
+                                       // unlike for other config parameters, //
+                                       // if the only cloud service to be     //
+                                       // used is Google Analytics, only the  //
+                                       // 'trackingId' parameter need be      //
+                                       // specified                           //
+public static final ICloudServices kCLOUD_SERVICES_CONFIG =
+   new CloudServices().setTrackingId("G-ZNP1NLDLLB");
+
                                        // class variables ------------------- //
                                        // (none)                              //
                                        // public instance variables --------- //
@@ -32,6 +44,24 @@ public class App extends AppComponentTemplate
                                        // (none)                              //
                                        // private instance variables -------- //
                                        // (none)                              //
+/*------------------------------------------------------------------------------
+
+@name       getCloudServicesConfig - get cloud services configuration
+                                                                              */
+                                                                             /**
+            Get cloud services configuration.
+
+@return     cloud services configuration.
+
+@history    Fri Jan 03, 2020 10:30:00 (Giavaneers - LBM) created
+
+@notes
+                                                                              */
+//------------------------------------------------------------------------------
+protected ICloudServices getCloudServicesConfig()
+{
+   return(kCLOUD_SERVICES_CONFIG);
+}
 /*------------------------------------------------------------------------------
 
 @name       getImportedNodeModules - get imported node modules
@@ -49,10 +79,7 @@ public class App extends AppComponentTemplate
 protected List<String> getImportedNodeModules()
 {
    return(Arrays.asList(
-      "prismjs.components.prism-core",
-      "prismjs.components.prism-clike",
-      "prismjs.components.prism-java",
-      "prismjs.themes.prism-okaidia.css"
+      "googleapis.build.src.apis.analyticsreporting.v4"
    ));
 }
 /*------------------------------------------------------------------------------
@@ -63,7 +90,7 @@ protected List<String> getImportedNodeModules()
             Render component. This implementation is all markup, with no java
             code included.
 
-@history    Sat Oct 27, 2018 10:30:00 (Giavaneers - LBM) created
+@history    Fri Jan 03, 2020 10:30:00 (Giavaneers - LBM) created
 
 @notes
                                                                               */
@@ -71,41 +98,10 @@ protected List<String> getImportedNodeModules()
 public final void render()
 {
 /*--
-   <Prism background='#6dcff6'>{text://text/displayCode}</Prism>
---*/
-};
-/*------------------------------------------------------------------------------
-
-@name       renderCSS - get component css
-                                                                              */
-                                                                             /**
-            Get component css.
-
-@history    Sat Oct 27, 2018 10:30:00 (Giavaneers - LBM) created
-
-@notes
-
-                                                                              */
-//------------------------------------------------------------------------------
-public void renderCSS()
-{
-/*--
-   .top
-   {
-      height:           300px;
-      width:            300px;
-      background-color: green;
-   }
-   .bottom
-   {
-      height:           300px;
-      width:            300px;
-      background-color: red;
-   }
-   .token.comment
-   {
-      color: #6dcff6;
-   }
+   <h1 style='color:blue;marginTop:30px;fontSize:20px'>
+      Analytics ReportData Example
+   </h1>
 --*/
 }
 }//====================================// end App ============================//
+

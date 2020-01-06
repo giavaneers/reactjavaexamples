@@ -21,6 +21,8 @@ import elemental2.dom.DomGlobal;
 import io.reactjava.client.core.providers.database.IDatabaseService;
 import io.reactjava.client.core.providers.database.IDatabaseService.IEventCallback;
 import io.reactjava.client.core.react.AppComponentTemplate;
+import io.reactjava.client.core.react.Configuration.CloudServices;
+import io.reactjava.client.core.react.IConfiguration.ICloudServices;
 import io.reactjava.client.core.react.ReactJava;
 import io.reactjava.client.core.rxjs.observable.Observable;
 import java.util.HashMap;
@@ -30,21 +32,18 @@ public class App extends AppComponentTemplate
 {
                                        // class constants --------------------//
                                        // logger                              //
-public static final Logger   kLOGGER = Logger.newInstance();
+public static final Logger kLOGGER = Logger.newInstance();
 
-                                       // database config (same as auth)      //
-public static final String[] kFIREBASE_CONFIGURATION =
-{
-   "AIzaSyC2lsGWFpARlWm2janyFT1f8tcUx7I9b-U",
-   "pumajtourofheroes.firebaseapp.com",
-   "https://pumajtourofheroes.firebaseio.com",
-   "pumajtourofheroes",
-   "pumajtourofheroes.appspot.com",
-   "433064327713"
-};
+                                       // only need database service          //
+public static final ICloudServices kCLOUD_SERVICES_CONFIG =
+   new CloudServices()
+      .setAPIKey("AIzaSyDh9OrV7rghijudnkyQ9wSUz4BKZE8F-sI")
+      .setProjectId("reactjava-f11e6")
+      .setAppId("1:1074492811559:web:37c314c24f220974952102")
+      .setDatabaseURL("https://reactjava-f11e6.firebaseio.com");
+
                                        // state variables ------------------- //
 public static final String kSTATE_INITIAL             = "Initial";
-public static final String kSTATE_CONFIGURE           = "Configure";
 public static final String kSTATE_WRITE_FIRST         = "Write First";
 public static final String kSTATE_READ_FIRST          = "Read One";
 public static final String kSTATE_REMOVE_FIRST        = "Remove First";
@@ -63,26 +62,6 @@ protected static IDatabaseService database;
                                        // protected instance variables -------//
                                        // private instance variables -------- //
                                        // (none)                              //
-/*------------------------------------------------------------------------------
-
-@name       databaseConfigure - configure the database service
-                                                                              */
-                                                                             /**
-            Cnfigure the database service.
-
-@return     an Observable to subscribe to to be notified of completion.
-
-@history    Wed Nov 27, 2019 10:30:00 (Giavaneers - LBM) created
-
-@notes
-
-                                                                              */
-//------------------------------------------------------------------------------
-public Observable databaseConfigure()
-{
-   Observable observable = database.configure(kFIREBASE_CONFIGURATION);
-   return(observable);
-}
 /*------------------------------------------------------------------------------
 
 @name       databaseReadDeregister - deregister read notifications
@@ -241,17 +220,6 @@ public IEventCallback newChildCallback =
 @history    Wed Nov 27, 2019 10:30:00 (Giavaneers - LBM) created
 
 @notes
-public static final String kSTATE_INITIAL             = "Initial";
-public static final String kSTATE_CONFIGURE           = "Configure";
-public static final String kSTATE_WRITE_FIRST         = "Write First";
-public static final String kSTATE_READ_FIRST          = "Read One";
-public static final String kSTATE_REMOVE_FIRST        = "Remove First";
-public static final String kSTATE_READ_FIRST_REMOVED  = "Read First Removed";
-public static final String kSTATE_READ_REGISTER       = "Read Register";
-public static final String kSTATE_READING_ON          = "Reading On";
-public static final String kSTATE_READ_DEREGISTER     = "Reading Off";
-public static final String kSTATE_DONE                = "Done";
-
                                                                               */
 //------------------------------------------------------------------------------
 public void onError(
@@ -259,7 +227,7 @@ public void onError(
 {
    switch (getStateString("state"))
    {
-      case kSTATE_CONFIGURE:
+      case kSTATE_INITIAL:
       {
          kLOGGER.logError("Database service configuration failed.");
          break;
@@ -329,12 +297,6 @@ public void onNext(
    switch(getStateString("state"))
    {
       case kSTATE_INITIAL:
-      {
-         observable = databaseConfigure();
-         nextState  = kSTATE_CONFIGURE;
-         break;
-      }
-      case kSTATE_CONFIGURE:
       {
          kLOGGER.logInfo("Database service configuration succeeded.");
 
@@ -460,6 +422,24 @@ public void onNext(
                                        // timeout instead of recursive call   //
       DomGlobal.setTimeout((e) ->{onNext(null);}, 0);
    }
+}
+/*------------------------------------------------------------------------------
+
+@name       getCloudServicesConfig - get cloud services configuration
+                                                                              */
+                                                                             /**
+            Get cloud services configuration.
+
+@return     cloud services configuration.
+
+@history    Sun Nov 02, 2018 10:30:00 (Giavaneers - LBM) created
+
+@notes
+                                                                              */
+//------------------------------------------------------------------------------
+protected ICloudServices getCloudServicesConfig()
+{
+   return(kCLOUD_SERVICES_CONFIG);
 }
 /*------------------------------------------------------------------------------
 

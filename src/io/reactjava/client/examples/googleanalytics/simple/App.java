@@ -2,9 +2,9 @@
 
 name:       App.java
 
-purpose:    Simple App.
+purpose:    Google Analytics Simple Example App.
 
-history:    Sat May 13, 2018 10:30:00 (Giavaneers - LBM) created
+history:    Sat Oct 27, 2018 10:30:00 (Giavaneers - LBM) created
 
 notes:
 
@@ -14,16 +14,23 @@ notes:
 
 ==============================================================================*/
                                        // package --------------------------- //
-package io.reactjava.client.examples.simple;
+package io.reactjava.client.examples.googleanalytics.simple;
                                        // imports --------------------------- //
 import io.reactjava.client.core.react.AppComponentTemplate;
+import io.reactjava.client.core.react.Configuration.CloudServices;
+import io.reactjava.client.core.react.IConfiguration.ICloudServices;
 
                                        // App ================================//
 public class App extends AppComponentTemplate
 {
                                        // class constants --------------------//
-protected static final String kIMAGE_URL = "images/logo.svg";
-protected static final String kTEXT      = App.class.getName() + ".java";
+                                       // unlike for other config parameters, //
+                                       // if the only cloud service to be     //
+                                       // used is Google Analytics, only the  //
+                                       // 'trackingId' parameter need be      //
+                                       // specified                           //
+public static final ICloudServices kCLOUD_SERVICES_CONFIG =
+   new CloudServices().setTrackingId("G-ZNP1NLDLLB");
 
                                        // class variables ------------------- //
                                        // (none)                              //
@@ -35,14 +42,33 @@ protected static final String kTEXT      = App.class.getName() + ".java";
                                        // (none)                              //
 /*------------------------------------------------------------------------------
 
-@name       render - render markup
+@name       getCloudServicesConfig - get cloud services configuration
                                                                               */
                                                                              /**
-            Render markup.
+            Get cloud services configuration.
 
-@return     void
+@return     cloud services configuration.
 
-@history    Mon May 21, 2018 10:30:00 (Giavaneers - LBM) created
+@history    Sun Nov 02, 2018 10:30:00 (Giavaneers - LBM) created
+
+@notes
+                                                                              */
+//------------------------------------------------------------------------------
+protected ICloudServices getCloudServicesConfig()
+{
+   return(kCLOUD_SERVICES_CONFIG);
+}
+/*------------------------------------------------------------------------------
+
+@name       render - render component
+                                                                              */
+                                                                             /**
+            Render component. This implementation is all markup, with no java
+            code included.
+
+
+
+@history    Wed Nov 27, 2019 10:30:00 (Giavaneers - LBM) created
 
 @notes
 
@@ -51,64 +77,11 @@ protected static final String kTEXT      = App.class.getName() + ".java";
 public final void render()
 {
 /*--
-   <div class="App">
-      <header class="App-header">
-         <img src={kIMAGE_URL} class="App-logo" alt="logo" />
-         <h1 class="App-title">Welcome to ReactJava</h1>
-      </header>
-      <p class="App-intro">
-         To get started, edit <code>{kTEXT}</code>,
-         <strong>save and refresh browser</strong> to reload.
-      </p>
-   </div>
---*/
-}
-/*------------------------------------------------------------------------------
-
-@name       renderCSS - get component css
-                                                                              */
-                                                                             /**
-            Get component css.
-
-@return     void
-
-@history    Mon May 21, 2018 10:30:00 (Giavaneers - LBM) created
-
-@notes
-
-                                                                              */
-//------------------------------------------------------------------------------
-public void renderCSS()
-{
-/*--
-   .App {
-     text-align: column;
-   }
-
-   .App-logo {
-     animation: App-logo-spin infinite 20s linear;
-     height: 80px;
-   }
-
-   .App-header {
-     background-color: #222;
-     height: 150px;
-     padding: 20px;
-     color: white;
-   }
-
-   .App-title {
-     font-size: first.5em;
-   }
-
-   .App-intro {
-     font-size: large;
-   }
-
-   @keyframes App-logo-spin {
-     from { transform: rotate(0deg); }
-     to { transform: rotate(360deg); }
-   }
+   <h1 style='color:blue;marginTop:30px;fontSize:20px'>
+      Analytics Example,
+      page view automatically generated for the configured tracking id.
+   </h1>
 --*/
 }
 }//====================================// end App ============================//
+
