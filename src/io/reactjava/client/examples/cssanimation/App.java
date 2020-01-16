@@ -2,24 +2,25 @@
 
 name:       App.java
 
-purpose:    Three By Three App.
+purpose:    Css Animation Example App.
 
-history:    Sat Oct 27, 2018 10:30:00 (Giavaneers - LBM) created
+            see:  "http://fofwebdesign.co.uk/template/_testing/"
+                  "ken-burns-slideshow-captions.htm"
+
+history:    Mon Jan 06, 2020 10:30:00 (Giavaneers - LBM) created
 
 notes:
 
                         COPYRIGHT (c) BY GIAVANEERS, INC.
          This source code is licensed under the MIT license found in the
-               LICENSE file in the root directory of this source tree.
+             LICENSE file in the root directory of this source tree.
 
 ==============================================================================*/
                                        // package --------------------------- //
-package io.reactjava.client.examples.displaycode;
+package io.reactjava.client.examples.cssanimation;
                                        // imports --------------------------- //
-import io.reactjava.client.components.generalpage.Prism;
 import io.reactjava.client.core.react.AppComponentTemplate;
-import java.util.Arrays;
-import java.util.List;
+
                                        // App ================================//
 public class App extends AppComponentTemplate
 {
@@ -33,56 +34,43 @@ public class App extends AppComponentTemplate
                                        // (none)                              //
                                        // private instance variables -------- //
                                        // (none)                              //
-/*------------------------------------------------------------------------------
 
-@name       getImportedNodeModules - get imported node modules
-                                                                              */
-                                                                             /**
-            Get imported node modules.
-
-@return     list of node module names.
-
-@history    Sun Nov 02, 2018 10:30:00 (Giavaneers - LBM) created
-
-@notes
-                                                                              */
-//------------------------------------------------------------------------------
-protected List<String> getImportedNodeModules()
-{
-   return(Arrays.asList(
-      "prismjs.components.prism-core",
-      "prismjs.components.prism-clike",
-      "prismjs.components.prism-java",
-      "prismjs.themes.prism-okaidia.css"
-   ));
-}
 /*------------------------------------------------------------------------------
 
 @name       render - render component
                                                                               */
                                                                              /**
-            Render component. This implementation is all markup, with no java
-            code included.
+            Render component.
 
-@history    Sat Oct 27, 2018 10:30:00 (Giavaneers - LBM) created
+@return     void
+
+@history    Mon Jan 06, 2020 10:30:00 (Giavaneers - LBM) created
 
 @notes
+
                                                                               */
 //------------------------------------------------------------------------------
 public final void render()
 {
 /*--
-   <Prism background='#6dcff6'>{text://text/displayCode}</Prism>
+   <@material-ui.core.Grid container justify="center">
+      <@material-ui.core.Grid item class='contentWidth'>
+         <img src='images/forest.jpg' />
+      </@material-ui.core.Grid>
+   </@material-ui.core.Grid>
 --*/
-};
+}
 /*------------------------------------------------------------------------------
 
 @name       renderCSS - get component css
                                                                               */
                                                                              /**
-            Get component css.
+            Get component css.This implementation is all css, with no java
+            code included.
 
-@history    Sat Oct 27, 2018 10:30:00 (Giavaneers - LBM) created
+@return     void
+
+@history    Mon Jan 06, 2020 10:30:00 (Giavaneers - LBM) created
 
 @notes
 
@@ -91,22 +79,36 @@ public final void render()
 public void renderCSS()
 {
 /*--
-   .top
+   .padding
    {
-      height:           300px;
-      width:            300px;
-      background-color: green;
+      padding:          16px;
+      display:          block;
+      box-sizing:       border-box;
    }
-   .bottom
+   .contentWidth
    {
-      height:           300px;
-      width:            300px;
-      background-color: red;
    }
-   .token.comment
+   @media (min-width: 320px)
    {
-      color: #6dcff6;
+      .contentWidth {width: 300px;}
+   }
+   @media (min-width: 576px)
+   {
+      .contentWidth {width: 540px;}
+   }
+   @media (min-width: 768px)
+   {
+      .contentWidth {width: 720px;}
+   }
+   @media (min-width: 992px)
+   {
+      .contentWidth {width: 960px;}
+   }
+   @media (min-width: 1200px)
+   {
+      .contentWidth {width: 1140px;}
    }
 --*/
 }
 }//====================================// end App ============================//
+

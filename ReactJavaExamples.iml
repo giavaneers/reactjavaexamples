@@ -59,6 +59,7 @@
           <module name="io.react4java.JSXParser" enabled="false" />
           <module name="io.reactjava.client.examples.BitcoinReactJava" enabled="false" />
           <module name="io.reactjava.client.examples.ChatReactJava" enabled="false" />
+          <module name="io.reactjava.client.examples.CssAnimationReactJava" enabled="false" />
           <module name="io.reactjava.client.examples.DatabaseReactJava" enabled="false" />
           <module name="io.reactjava.client.examples.DisplayCodeReactJava" enabled="false" />
           <module name="io.reactjava.client.examples.GoogleAnalyticsReactJava" enabled="false" />
@@ -69,12 +70,12 @@
           <module name="io.reactjava.client.examples.MovingBlockReactJava" enabled="false" />
           <module name="io.reactjava.client.examples.ReactJavaExamples" path="/ReactJavaExamples" />
           <module name="io.reactjava.client.examples.RoutingReactJava" enabled="false" />
-          <module name="io.reactjava.client.examples.SEOReactJava" enabled="false" />
           <module name="io.reactjava.client.examples.SimpleReactJava" enabled="false" />
           <module name="io.reactjava.client.examples.TextFieldReactJava" enabled="false" />
           <module name="io.reactjava.client.examples.ThreeByThreeReactJava" enabled="false" />
           <module name="io.reactjava.client.examples.TicTacToeReactJava" enabled="false" />
           <module name="io.reactjava.client.examples.TimerReactJava" enabled="false" />
+          <module name="io.reactjava.client.examples.UseEffectfReactJava" enabled="false" />
           <module name="io.reactjava.client.examples.UseRefReactJava" enabled="false" />
           <module name="io.reactjava.client.examples.WebSocketsReactJava" enabled="false" />
           <module name="io.reactjava.client.examples.googleanalytics.GoogleAnalyticsReportDataReactJava" enabled="false" />
@@ -85,6 +86,7 @@
           <module name="io.reactjava.client.examples.materialui.MaterialUIThemeReactJava" enabled="false" />
           <module name="io.reactjava.client.examples.statevariable.StateVariableSimpleHandlerByReferenceReactJava" enabled="false" />
           <module name="io.reactjava.client.examples.statevariable.StateVariableSimpleReactJava" enabled="false" />
+          <module name="io.reactjava.client.examples.statevariable.StateVariableTwoSquaresOneClassReactJava" enabled="false" />
           <module name="io.reactjava.client.examples.statevariable.StateVariableTwoSquaresReactJava" enabled="false" />
         </packaging>
       </configuration>

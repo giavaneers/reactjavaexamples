@@ -18,7 +18,7 @@ package io.reactjava.client.examples.tictactoe;
 import elemental2.dom.Event;
 import io.reactjava.client.core.react.INativeEventHandler;
 import io.reactjava.client.examples.tictactoe.App.Statistics;
-import io.reactjava.client.core.providers.platform.IPlatform;
+import io.reactjava.client.providers.platform.IPlatform;
 import io.reactjava.client.core.react.Component;
 import io.reactjava.client.core.react.ReactJava;
                                        // Modal ==============================//

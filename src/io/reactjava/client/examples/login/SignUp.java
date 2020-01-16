@@ -21,7 +21,7 @@ import elemental2.dom.DomGlobal;
 import elemental2.dom.Element;
 import elemental2.dom.Event;
 import elemental2.dom.HTMLInputElement;
-import io.reactjava.client.core.providers.auth.IAuthenticationService;
+import io.reactjava.client.providers.auth.IAuthenticationService;
 import io.reactjava.client.core.react.Component;
 import io.reactjava.client.core.react.INativeEventHandler;
 import io.reactjava.client.core.react.ReactJava;

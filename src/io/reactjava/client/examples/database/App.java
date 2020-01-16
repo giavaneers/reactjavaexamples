@@ -18,8 +18,8 @@ package io.reactjava.client.examples.database;
                                        // imports --------------------------- //
 import com.giavaneers.util.gwt.Logger;
 import elemental2.dom.DomGlobal;
-import io.reactjava.client.core.providers.database.IDatabaseService;
-import io.reactjava.client.core.providers.database.IDatabaseService.IEventCallback;
+import io.reactjava.client.providers.database.IDatabaseService;
+import io.reactjava.client.providers.database.IDatabaseService.IEventCallback;
 import io.reactjava.client.core.react.AppComponentTemplate;
 import io.reactjava.client.core.react.Configuration.CloudServices;
 import io.reactjava.client.core.react.IConfiguration.ICloudServices;

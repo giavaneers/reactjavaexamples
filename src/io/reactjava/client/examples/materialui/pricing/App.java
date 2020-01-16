@@ -113,7 +113,7 @@ public static final FooterDsc[] kFOOTERS =
 public final void render()
 {
 /*--
-   <React.Fragment>
+   <div>
                                        <!-- App Bar --------------------------->
       <@material-ui.core.AppBar position="static" color="default" class="appBar">
          <@material-ui.core.Toolbar>
@@ -133,12 +133,12 @@ public final void render()
                                        <!-- Hero Unit ------------------------->
          <div class="heroContent">
             <@material-ui.core.Typography
-               component="h1" variant="h2" align="column" color="textPrimary"
+               component="h1" variant="h2" align="center" color="textPrimary"
                gutterBottom>
                Pricing
             </@material-ui.core.Typography>
             <@material-ui.core.Typography
-               variant="h6" align="column" color="textSecondary" component="p">
+               variant="h6" align="center" color="textSecondary" component="p">
                Quickly build an effective pricing table for your potential
                customers with this layout. It&apos;s built with default
                Material-UI components with little customization.
@@ -159,8 +159,8 @@ public final void render()
                   <@material-ui.core.CardHeader
                      title={tier.title}
                      subheader={tier.subheader}
-                     titleTypographyProps={Properties.with("align", "column")}
-                     subheaderTypographyProps={Properties.with("align", "column")}
+                     titleTypographyProps={Properties.with("align", "center")}
+                     subheaderTypographyProps={Properties.with("align", "center")}
                      action={"Pro".equals(tier.title) ? <@material-ui.icons.StarBorder /> : null}
                      class="cardHeader"
                   />
@@ -181,7 +181,7 @@ public final void render()
                   {
 /*--
                      <@material-ui.core.Typography
-                        variant="subtitle1" align="column" key={description}>
+                        variant="subtitle1" align="center" key={description}>
                         {description}
                      </@material-ui.core.Typography>
 --*/
@@ -231,7 +231,7 @@ public final void render()
 /*--
          </@material-ui.core.Grid>
       </footer>
-   </React.Fragment>
+   </div>
 --*/
 };
 /*------------------------------------------------------------------------------

@@ -21,6 +21,7 @@ notes:
                                        // package --------------------------- //
 package io.reactjava.client.examples.materialui.generalpage;
                                        // imports --------------------------- //
+import io.reactjava.client.components.generalpage.GeneralPage;
 import io.reactjava.client.core.react.AppComponentTemplate;
 
                                        // App ================================//

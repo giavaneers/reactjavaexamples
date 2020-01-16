@@ -8,6 +8,7 @@
     "browserify": "^16.5.0",
     "common-shakeify": "^0.6.2",
     "envify": "^4.1.0",
+    "firebase-tools": "^7.11.0",
     "googleapis": "^46.0.0",
     "prismjs": "^1.15.0",
     "react": "^16.12.0",

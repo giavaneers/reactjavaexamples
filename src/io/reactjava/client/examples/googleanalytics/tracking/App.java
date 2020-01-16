@@ -18,8 +18,8 @@ package io.reactjava.client.examples.googleanalytics.tracking;
                                        // imports --------------------------- //
 import elemental2.dom.Element;
 import elemental2.dom.Event;
-import io.reactjava.client.core.providers.analytics.IAnalyticsService;
-import io.reactjava.client.core.providers.analytics.IAnalyticsService.EventNames;
+import io.reactjava.client.providers.analytics.IAnalyticsService;
+import io.reactjava.client.providers.analytics.IAnalyticsService.EventNames;
 import io.reactjava.client.core.react.AppComponentTemplate;
 import io.reactjava.client.core.react.Configuration.CloudServices;
 import io.reactjava.client.core.react.IConfiguration.ICloudServices;

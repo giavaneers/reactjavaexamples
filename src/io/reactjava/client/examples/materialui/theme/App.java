@@ -21,6 +21,8 @@ notes:
                                        // package --------------------------- //
 package io.reactjava.client.examples.materialui.theme;
                                        // imports --------------------------- //
+import io.reactjava.client.components.generalpage.GeneralAppBar;
+import io.reactjava.client.components.generalpage.SideDrawer;
 import io.reactjava.client.core.react.AppComponentTemplate;
 import io.reactjava.client.core.react.IUITheme;
 import java.util.function.Consumer;
@@ -69,6 +71,7 @@ public Consumer openHandler = (bOpen) ->
 @history    Thu Feb 14, 2019 10:30:00 (Giavaneers - LBM) created
 
 @notes
+<React.Fragment>
                                                                               */
 //------------------------------------------------------------------------------
 public final void render()
@@ -76,13 +79,15 @@ public final void render()
    useState(kSTATE_OPEN, false);
    boolean bOpen = getStateBoolean(kSTATE_OPEN);
 /*--
-   <React.Fragment>
+   <div>
                                        <!-- App Bar --------------------------->
       <GeneralAppBar open={bOpen} openHandler={openHandler}></GeneralAppBar>
       <main class="layout">
                                        <!-- Hero Unit ------------------------->
          <div class="heroUnit">
-            <@material-ui.core.Grid container justify="flex-first" spacing={16}
+            <@material-ui.core.Grid container
+               justify="center"
+               spacing={16}
                class="heroUnitCaption">
                <@material-ui.core.Grid key=0 item>
                   <@material-ui.core.Typography
@@ -104,7 +109,7 @@ public final void render()
                                        <!-- Side Drawer ----------------------->
       <SideDrawer open={bOpen} openHandler={openHandler} >
       </SideDrawer>
-   </React.Fragment>
+   </div>
 --*/
 }
 /*------------------------------------------------------------------------------
