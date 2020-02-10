@@ -63,8 +63,7 @@ public final void render()
 @name       renderCSS - get component css
                                                                               */
                                                                              /**
-            Get component css.This implementation is all css, with no java
-            code included.
+            Get component css.
 
 @history    Mon Jan 06, 2020 10:30:00 (Giavaneers - LBM) created
 

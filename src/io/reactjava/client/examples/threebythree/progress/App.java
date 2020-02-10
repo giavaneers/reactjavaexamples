@@ -93,7 +93,7 @@ public INativeEventHandler squareClickHandler = (Event e) ->
 @name       render - render component
                                                                               */
                                                                              /**
-            Render component. This implementation includes java with markup.
+            Render component.
 
 @history    Sat Oct 27, 2018 10:30:00 (Giavaneers - LBM) created
 

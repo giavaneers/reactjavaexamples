@@ -354,8 +354,7 @@ public INativeEventHandler onChangeHandler = (Event e) ->
 @name       render - render component
                                                                               */
                                                                              /**
-            Render component. This implementation is all markup, with no java
-            code included.
+            Render component.
 
 @history    Thu Dec 12, 2019 10:30:00 (Giavaneers - LBM) created
 
@@ -435,8 +434,7 @@ public final void render()
 @name       renderCSS - get component css
                                                                               */
                                                                              /**
-            Get component css.This implementation is all css, with no java
-            code included.
+            Get component css.
 
 @history    Thu Dec 12, 2019 10:30:00 (Giavaneers - LBM) created
 

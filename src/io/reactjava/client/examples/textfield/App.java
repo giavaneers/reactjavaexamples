@@ -205,8 +205,7 @@ public final void render()
 @name       renderCSS - get component css
                                                                               */
                                                                              /**
-            Get component css. This implementation is elementary, but any css
-            can go here.
+            Get component css.
 
 @history    Mon May 21, 2018 10:30:00 (Giavaneers - LBM) created
 

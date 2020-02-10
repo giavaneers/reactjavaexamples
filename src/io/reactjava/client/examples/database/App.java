@@ -446,8 +446,7 @@ protected ICloudServices getCloudServicesConfig()
 @name       render - render component
                                                                               */
                                                                              /**
-            Render component. This implementation is all markup, with no java
-            code included.
+            Render component.
 
 @history    Wed Nov 27, 2019 10:30:00 (Giavaneers - LBM) created
 

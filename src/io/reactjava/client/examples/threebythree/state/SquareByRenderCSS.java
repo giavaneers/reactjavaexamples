@@ -35,7 +35,7 @@ public class SquareByRenderCSS extends Component
 @name       render - render component
                                                                               */
                                                                              /**
-            Render component. This implementation includes only markup.
+            Render component.
 
 @history    Sat Oct 27, 2018 10:30:00 (Giavaneers - LBM) created
 
@@ -58,8 +58,7 @@ public final void render()
 @name       renderCSS - get component css
                                                                               */
                                                                              /**
-            Get component css.This implementation is all css, with no java
-            code included.
+            Get component css.
 
 @history    Sat Oct 27, 2018 10:30:00 (Giavaneers - LBM) created
 
