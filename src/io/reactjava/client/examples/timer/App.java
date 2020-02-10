@@ -42,8 +42,6 @@ public class App extends AppComponentTemplate
 @history    Sat Oct 27, 2018 10:30:00 (Giavaneers - LBM) created
 
 @notes
-         top: {400 + 400 * Math.sin(Math.toRadians(topLeft[0]))};
-
                                                                               */
 //------------------------------------------------------------------------------
 public final void render()
