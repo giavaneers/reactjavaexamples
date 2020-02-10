@@ -158,9 +158,7 @@ public Board()
                                                                              /**
             Copy specified board
 
-@return     void
-
-@param      src      source to copy
+ @param      src      source to copy
 
 @history    Mon May 21, 2018 10:30:00 (Giavaneers - LBM) created
 
@@ -185,9 +183,7 @@ protected void copy(
                                                                              /**
             Calculate subBoard winner
 
-@return     void
-
-@param      p     subBoard indices (0...8)
+ @param      p     subBoard indices (0...8)
 
 @history    Mon May 21, 2018 10:30:00 (Giavaneers - LBM) created
 
@@ -276,9 +272,7 @@ public boolean isValidAction(
                                                                              /**
             Move
 
-@return     void
-
-@param      pos
+ @param      pos
 @param      player
 
 @history    Mon May 21, 2018 10:30:00 (Giavaneers - LBM) created
@@ -366,9 +360,7 @@ protected int status(
                                                                              /**
             Move
 
-@return     void
-
-@param      pos
+ @param      pos
 @param      player
 
 @history    Mon May 21, 2018 10:30:00 (Giavaneers - LBM) created
@@ -542,9 +534,7 @@ public MonteCarloTreeSearchPlayer()
                                                                              /**
             Back propogate.
 
-@return     void
-
-@param      pos
+ @param      pos
 @param      player
 
 @history    Mon May 21, 2018 10:30:00 (Giavaneers - LBM) created
@@ -576,9 +566,7 @@ protected void backPropagate(
                                                                              /**
             Expand node.
 
-@return     void
-
-@param      pos
+ @param      pos
 @param      player
 
 @history    Mon May 21, 2018 10:30:00 (Giavaneers - LBM) created
@@ -715,9 +703,7 @@ protected int getMove(
                                                                              /**
             Select promising node.
 
-@return     void
-
-@param      pos
+ @param      pos
 @param      player
 
 @history    Mon May 21, 2018 10:30:00 (Giavaneers - LBM) created
@@ -768,9 +754,7 @@ protected MonteCarloTreeSearchNode selectPromisingNode(
                                                                              /**
             Simulate node.
 
-@return     void
-
-@param      pos
+ @param      pos
 @param      player
 
 @history    Mon May 21, 2018 10:30:00 (Giavaneers - LBM) created

@@ -449,8 +449,6 @@ protected ICloudServices getCloudServicesConfig()
             Render component. This implementation is all markup, with no java
             code included.
 
-@return     void
-
 @history    Wed Nov 27, 2019 10:30:00 (Giavaneers - LBM) created
 
 @notes

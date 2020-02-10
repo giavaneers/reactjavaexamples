@@ -43,8 +43,6 @@ public class App extends AppComponentTemplate
             onClick event handler as a public instance variable, accessible in
             markup.
 
-@return     void
-
 @history    Thu Feb 14, 2019 10:30:00 (Giavaneers - LBM) created
 
 @notes
@@ -87,8 +85,6 @@ public EventListener keyUpHandler = event ->
             Render component. This implementation is all markup, with no java
             code included.
 
-@return     void
-
 @history    Wed Nov 27, 2019 10:30:00 (Giavaneers - LBM) created
 
 @notes
@@ -118,8 +114,6 @@ public final void render()
                                                                               */
                                                                              /**
             Get component css.
-
-@return     void
 
 @history    Wed Nov 27, 2019 10:30:00 (Giavaneers - LBM) created
 

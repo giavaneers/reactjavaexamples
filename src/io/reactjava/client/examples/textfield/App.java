@@ -53,8 +53,6 @@ protected int              length2;    // length of input2                    //
                                                                              /**
             onClick event handler as a public instance variable.
 
-@return     void
-
 @history    Thu Feb 14, 2019 10:30:00 (Giavaneers - LBM) created
 
 @notes
@@ -73,8 +71,6 @@ public INativeEventHandler clickHandler = (Event e) ->
             keyUp event handler as a public instance variable. A TextField
             does not intrinsicly support input of the RETURN character, so we
             add this keyboard event handler.
-
-@return     void
 
 @history    Thu Feb 14, 2019 10:30:00 (Giavaneers - LBM) created
 
@@ -106,8 +102,6 @@ public INativeEventHandler keyUpHandler = (Event e) ->
                                                                              /**
             onChange event handler as a public instance variable.
 
-@return     void
-
 @history    Thu Feb 14, 2019 10:30:00 (Giavaneers - LBM) created
 
 @notes
@@ -133,8 +127,6 @@ public INativeEventHandler onChangeHandler = (Event e) ->
                                                                               */
                                                                              /**
             Render component.
-
-@return     void
 
 @history    Mon May 21, 2018 10:30:00 (Giavaneers - LBM) created
             Wed Oct 17, 2018 10:30:00 (Giavaneers - LBM) renamed per suggestion
@@ -164,7 +156,7 @@ public final void render()
       <@material-ui.core.Grid container justify="center">
          <@material-ui.core.Grid container class="contentWidth">
             <@material-ui.core.Grid item xs={12}>
-               <div class='gutter' />
+               <div class='gutter'></div>
                <@material-ui.core.TextField
                   id="input1"
                   label="Item1"
@@ -185,7 +177,7 @@ public final void render()
                   onKeyUp={keyUpHandler}
                   fullWidth
                />
-               <div class='gutter' />
+               <div class='gutter'></div>
                <@material-ui.core.TextField
                   id="totalLength"
                   label="Total Length"
@@ -194,7 +186,7 @@ public final void render()
                   variant="outlined"
                   fullWidth
                />
-               <div class='gutter' />
+               <div class='gutter'></div>
                <@material-ui.core.Button
                   variant="outlined"
                   color="primary"
@@ -215,8 +207,6 @@ public final void render()
                                                                              /**
             Get component css. This implementation is elementary, but any css
             can go here.
-
-@return     void
 
 @history    Mon May 21, 2018 10:30:00 (Giavaneers - LBM) created
 

@@ -132,8 +132,6 @@ protected ICloudServices getCloudServicesConfig()
                                                                              /**
             Get map of component classname by route path.
 
-@return     void
-
 @history    Sat May 13, 2018 10:30:00 (Giavaneers - LBM) created
 
 @notes

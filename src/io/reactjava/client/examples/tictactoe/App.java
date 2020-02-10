@@ -62,8 +62,6 @@ protected Statistics                 stats;
                                                                              /**
             Initialize.
 
-@return     void
-
 @history    Mon May 21, 2018 10:30:00 (Giavaneers - LBM) created
 
 @notes
@@ -98,8 +96,6 @@ public Runnable initFcn = () ->
                                                                               */
                                                                              /**
             Move function, invoked by cell click handler
-
-@return     void
 
 @history    Mon May 21, 2018 10:30:00 (Giavaneers - LBM) created
 
@@ -145,8 +141,6 @@ public Consumer<Integer> moveFcn = (move) ->
                                                                              /**
             Render component.
 
-@return     void
-
 @history    Mon May 21, 2018 10:30:00 (Giavaneers - LBM) created
 
 @notes
@@ -178,8 +172,6 @@ public final void render()
                                                                               */
                                                                              /**
             Parse styles.
-
-@return     void
 
 @history    Mon May 21, 2018 10:30:00 (Giavaneers - LBM) created
 
@@ -304,9 +296,7 @@ protected int updateBoard(
                                                                              /**
             Update statistics to local storage
 
-@return     void
-
-@param      stats    new statistics
+ @param      stats    new statistics
 
 @history    Mon May 21, 2018 10:30:00 (Giavaneers - LBM) created
 

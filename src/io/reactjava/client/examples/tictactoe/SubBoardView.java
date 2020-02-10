@@ -40,8 +40,6 @@ public class SubBoardView extends Component
             Button onClick event handler as a public instance variable,
             accessible in markup.
 
-@return     void
-
 @history    Sat Oct 27, 2018 10:30:00 (Giavaneers - LBM) created
 
 @notes
@@ -58,8 +56,6 @@ public INativeEventHandler clickHandler = (Event e) ->
                                                                               */
                                                                              /**
             Render markup.
-
-@return     void
 
 @history    Mon May 21, 2018 10:30:00 (Giavaneers - LBM) created
 
@@ -116,8 +112,6 @@ public final void render()
                                                                               */
                                                                              /**
             Get component css.
-
-@return     void
 
 @history    Mon May 21, 2018 10:30:00 (Giavaneers - LBM) created
 

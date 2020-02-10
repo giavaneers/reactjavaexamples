@@ -39,8 +39,6 @@ public class App extends AppComponentTemplate
             Render component. This implementation is all markup, with no java
             code included.
 
-@return     void
-
 @history    Sat Oct 27, 2018 10:30:00 (Giavaneers - LBM) created
 
 @notes

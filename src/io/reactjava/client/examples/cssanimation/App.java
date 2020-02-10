@@ -42,8 +42,6 @@ public class App extends AppComponentTemplate
                                                                              /**
             Render component.
 
-@return     void
-
 @history    Mon Jan 06, 2020 10:30:00 (Giavaneers - LBM) created
 
 @notes
@@ -67,8 +65,6 @@ public final void render()
                                                                              /**
             Get component css.This implementation is all css, with no java
             code included.
-
-@return     void
 
 @history    Mon Jan 06, 2020 10:30:00 (Giavaneers - LBM) created
 

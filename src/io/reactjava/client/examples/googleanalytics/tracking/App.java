@@ -54,8 +54,6 @@ public static final ICloudServices kCLOUD_SERVICES_CONFIG =
             Logs an ADD_TO_CART event to Google Analytics for the specified
             trackingId.
 
-@return     void
-
 @history    Sat Oct 27, 2018 10:30:00 (Giavaneers - LBM) created
 
 @notes
@@ -90,10 +88,7 @@ protected ICloudServices getCloudServicesConfig()
 @name       render - render component
                                                                               */
                                                                              /**
-            Render component. This implementation is all markup, with no java
-            code included.
-
-
+            Render component.
 
 @history    Wed Nov 27, 2019 10:30:00 (Giavaneers - LBM) created
 

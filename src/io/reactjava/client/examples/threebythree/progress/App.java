@@ -46,8 +46,6 @@ public class App extends AppComponentTemplate
             Cell onClick event handler as an instance variable, accessible in
             markup.
 
-@return     void
-
 @history    Sat Oct 27, 2018 10:30:00 (Giavaneers - LBM) created
 
 @notes
@@ -96,8 +94,6 @@ public INativeEventHandler squareClickHandler = (Event e) ->
                                                                               */
                                                                              /**
             Render component. This implementation includes java with markup.
-
-@return     void
 
 @history    Sat Oct 27, 2018 10:30:00 (Giavaneers - LBM) created
 

@@ -41,8 +41,6 @@ public static final String kSIZE = "300px";
                                                                              /**
             Render component.
 
-@return     void
-
 @history    Sat Oct 27, 2018 10:30:00 (Giavaneers - LBM) created
 
 @notes

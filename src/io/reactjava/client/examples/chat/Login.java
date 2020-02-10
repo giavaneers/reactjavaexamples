@@ -247,8 +247,6 @@ public HTMLInputElement getInputElement(
             does not intrinsicly support input of the RETURN character, so we
             add this keyboard event handler.
 
-@return     void
-
 @history    Thu Feb 14, 2019 10:30:00 (Giavaneers - LBM) created
 
 @notes
@@ -332,8 +330,6 @@ public void pushPathToChat()
                                                                              /**
             onChange event handler as a public instance variable.
 
-@return     void
-
 @history    Thu Feb 14, 2019 10:30:00 (Giavaneers - LBM) created
 
 @notes
@@ -360,8 +356,6 @@ public INativeEventHandler onChangeHandler = (Event e) ->
                                                                              /**
             Render component. This implementation is all markup, with no java
             code included.
-
-@return     void
 
 @history    Thu Dec 12, 2019 10:30:00 (Giavaneers - LBM) created
 
@@ -444,8 +438,6 @@ public final void render()
             Get component css.This implementation is all css, with no java
             code included.
 
-@return     void
-
 @history    Thu Dec 12, 2019 10:30:00 (Giavaneers - LBM) created
 
 @notes
@@ -497,8 +489,6 @@ public void renderCSS()
                                                                              /**
             SignIn onClick event handler as a public instance variable.
 
-@return     void
-
 @history    Thu Dec 12, 2019 10:30:00 (Giavaneers - LBM) created
 
 @notes
@@ -515,8 +505,6 @@ public INativeEventHandler signInHandler = (Event e) ->
                                                                               */
                                                                              /**
             SignUp onClick event handler as a public instance variable.
-
-@return     void
 
 @history    Thu Dec 12, 2019 10:30:00 (Giavaneers - LBM) created
 

@@ -40,8 +40,6 @@ public static final String kSTATE_ON = "on";
                                                                              /**
             Initialize.
 
-@return     void
-
 @history    Mon May 21, 2018 10:30:00 (Giavaneers - LBM) created
 
 @notes
@@ -58,8 +56,6 @@ public Consumer onHandler = (onValue) ->
                                                                               */
                                                                              /**
             Render component.
-
-@return     void
 
 @history    Sat Oct 27, 2018 10:30:00 (Giavaneers - LBM) created
 

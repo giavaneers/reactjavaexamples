@@ -61,8 +61,6 @@ public static final Map<String,Class> kAPP_ROUTES =
                                                                              /**
             Get map of component classname by route path.
 
-@return     void
-
 @history    Thu Feb 14, 2019 10:30:00 (Giavaneers - LBM) created
 
 @notes

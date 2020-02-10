@@ -48,8 +48,6 @@ public static final String kSIZE = "300px";
             useEffect handler invoked after DOM is initially updated, instead
             of componentDidMount.
 
-@return     void
-
 @history    Mon Jan 06, 2020 10:30:00 (Giavaneers - LBM) created
 
 @notes
@@ -71,8 +69,6 @@ public INativeEffectHandler effectHandler = () ->
             Passing an empty set of dependencies causes the effect handler to be
             invoked only when mounted and unmounted, not also on update as will
             occurr if the single argument useEffect() method is used.
-
-@return     void
 
 @history    Mon Jan 06, 2020 10:30:00 (Giavaneers - LBM) created
 

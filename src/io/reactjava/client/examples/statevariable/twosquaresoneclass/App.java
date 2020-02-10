@@ -42,8 +42,6 @@ public static final String kSTATE_ON = "on";
                                                                              /**
             Initialize.
 
-@return     void
-
 @history    Mon May 21, 2018 10:30:00 (Giavaneers - LBM) created
 
 @notes
@@ -60,8 +58,6 @@ public Consumer onHandler = (onValue) ->
                                                                               */
                                                                              /**
             Render component.
-
-@return     void
 
 @history    Sat Oct 27, 2018 10:30:00 (Giavaneers - LBM) created
 
@@ -120,8 +116,6 @@ public static final String kPROPERTY_STATE_CHANGE_HANDLER = "statechangehandler"
             onClick event handler as a public instance variable, accessible in
             markup.
 
-@return     void
-
 @history    Thu Feb 14, 2019 10:30:00 (Giavaneers - LBM) created
 
 @notes
@@ -137,8 +131,6 @@ public INativeEventHandler clickHandler = (Event e) ->
                                                                               */
                                                                              /**
             Render component.
-
-@return     void
 
 @history    Sat Oct 27, 2018 10:30:00 (Giavaneers - LBM) created
 
@@ -159,8 +151,6 @@ public final void render()
                                                                               */
                                                                              /**
             Get component css.
-
-@return     void
 
 @history    Sat Oct 27, 2018 10:30:00 (Giavaneers - LBM) created
 
@@ -217,8 +207,6 @@ public static final String kPROPERTY_STATE_CHANGE_HANDLER = "statechangehandler"
             onClick event handler as a public instance variable, accessible in
             markup.
 
-@return     void
-
 @history    Thu Feb 14, 2019 10:30:00 (Giavaneers - LBM) created
 
 @notes
@@ -234,8 +222,6 @@ public INativeEventHandler clickHandler = (Event e) ->
                                                                               */
                                                                              /**
             Render component.
-
-@return     void
 
 @history    Sat Oct 27, 2018 10:30:00 (Giavaneers - LBM) created
 
@@ -256,8 +242,6 @@ public final void render()
                                                                               */
                                                                              /**
             Get component css.
-
-@return     void
 
 @history    Sat Oct 27, 2018 10:30:00 (Giavaneers - LBM) created
 

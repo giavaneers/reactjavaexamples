@@ -103,8 +103,6 @@ protected void handleConversation()
                                                                              /**
             effect handler.
 
-@return     void
-
 @history    Sat Jan 04, 2020 10:30:00 (Giavaneers - LBM) created
 
 @notes
@@ -126,8 +124,6 @@ public INativeEffectHandler handleEffect = () ->
             invoked only when mounted and unmounted, not also on update as will
             occurr if the single argument useEffect() method is used.
 
-@return     void
-
 @history    Sat Jan 04, 2020 10:30:00 (Giavaneers - LBM) created
 
 @notes
@@ -136,6 +132,12 @@ public INativeEffectHandler handleEffect = () ->
 //------------------------------------------------------------------------------
 public final void render()
 {
+                                       // passing an empty set of dependencies//
+                                       // causes the effect handler to be     //
+                                       // invoked only when mounted and       //
+                                       // unmounted, not on update as would   //
+                                       // occurr if used the single argument  //
+                                       // useEffect() method                  //
    useEffect(handleEffect, new Object[0]);
 /*--
    <@material-ui.core.Grid container justify="center">
@@ -162,8 +164,6 @@ public final void render()
                                                                              /**
             Get component css.This implementation is all css, with no java
             code included.
-
-@return     void
 
 @history    Thu Dec 12, 2019 10:30:00 (Giavaneers - LBM) created
 

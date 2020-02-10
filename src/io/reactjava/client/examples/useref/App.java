@@ -50,8 +50,6 @@ public static final String kSIZE = "300px";
             its functionality can be readily replaced in ReactJava by use of a
             declared component instance variable. See 'examples/statevariable'.
 
-@return     void
-
 @history    Thu Jul 25, 2019 10:30:00 (Giavaneers - LBM) created
 
 @notes
@@ -72,8 +70,6 @@ public INativeEventHandler clickHandler = (Event e) ->
             Note, the useRef hook is supported for research purposes only, since
             its functionality can be readily replaced in ReactJava by use of a
             declared component instance variable. See 'examples/statevariable'.
-
-@return     void
 
 @history    Thu Jul 25, 2019 10:30:00 (Giavaneers - LBM) created
 

@@ -25,7 +25,6 @@ import io.reactjava.client.providers.database.IDatabaseService;
 import io.reactjava.client.providers.database.IDatabaseService.IEventCallback;
 import io.reactjava.client.core.react.Component;
 import io.reactjava.client.core.react.INativeEventHandler;
-import io.reactjava.client.core.react.NativeObject;
 import io.reactjava.client.core.react.ReactJava;
 import io.reactjava.client.core.rxjs.observable.Observable;
 import java.util.HashMap;
@@ -97,8 +96,6 @@ public void initialize()
             does not intrinsicly support input of the RETURN character, so we
             add this keyboard event handler.
 
-@return     void
-
 @history    Thu Feb 14, 2019 10:30:00 (Giavaneers - LBM) created
 
 @notes
@@ -160,8 +157,6 @@ public IEventCallback newChildCallback =
             Render component. This implementation is all markup, with no java
             code included.
 
-@return     void
-
 @history    Thu Dec 12, 2019 10:30:00 (Giavaneers - LBM) created
 
 @notes
@@ -205,8 +200,6 @@ public final void render()
                                                                              /**
             Get component css.This implementation is all css, with no java
             code included.
-
-@return     void
 
 @history    Thu Dec 12, 2019 10:30:00 (Giavaneers - LBM) created
 

@@ -41,8 +41,6 @@ public class App extends AppComponentTemplate
             onClick event handler as a public instance variable, accessible in
             markup.
 
-@return     void
-
 @history    Thu Feb 14, 2019 10:30:00 (Giavaneers - LBM) created
 
 @notes
@@ -57,10 +55,7 @@ public INativeEventHandler clickHandler = (Event e) ->
 @name       render - render component
                                                                               */
                                                                              /**
-            Render component. This implementation is all markup, with no java
-            code included.
-
-@return     void
+            Render component.
 
 @history    Sat Oct 27, 2018 10:30:00 (Giavaneers - LBM) created
 

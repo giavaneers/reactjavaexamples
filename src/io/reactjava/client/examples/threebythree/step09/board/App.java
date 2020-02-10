@@ -47,8 +47,6 @@ public class App extends AppComponentTemplate
             SquareByRenderCSS onClick event handler as an instance variable, accessible in
             markup.
 
-@return     void
-
 @history    Sat Oct 27, 2018 10:30:00 (Giavaneers - LBM) created
 
 @notes
@@ -68,8 +66,6 @@ public INativeEventHandler squareClickHandler = (Event e) ->
                                                                              /**
             Get theme based units, required to be created only once per class
             load.
-
-@return     void
 
 @history    Sat Oct 27, 2018 10:30:00 (Giavaneers - LBM) created
 
@@ -92,8 +88,6 @@ public Units getUnits()
                                                                               */
                                                                              /**
             Render component. This implementation includes java with markup.
-
-@return     void
 
 @history    Sat Oct 27, 2018 10:30:00 (Giavaneers - LBM) created
 
@@ -134,8 +128,6 @@ public final void render()
                                                                              /**
             Get component css.This implementation is all css, with no java
             code included.
-
-@return     void
 
 @history    Sat Oct 27, 2018 10:30:00 (Giavaneers - LBM) created
 

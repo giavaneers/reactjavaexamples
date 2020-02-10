@@ -92,8 +92,6 @@ public static final String kDESCRIPTION_USER_GUIDE =
                                                                              /**
             Get map of component classname by route path.
 
-@return     void
-
 @history    Thu Feb 14, 2019 10:30:00 (Giavaneers - LBM) created
 
 @notes
@@ -172,8 +170,6 @@ public static class View extends Component
                                                                              /**
             Check seo result.
 
-@return     void
-
 @history    Tue Dec 17, 2019 10:30:00 (Giavaneers - LBM) created
 
 @notes
@@ -195,8 +191,6 @@ public void seoCheck()
                                                                               */
                                                                              /**
             Check seo inserted head elements.
-
-@return     void
 
 @history    Tue Dec 17, 2019 10:30:00 (Giavaneers - LBM) created
 
@@ -271,8 +265,6 @@ public void seoCheckHeadElements()
                                                                              /**
             Check seo generated robots.txt.
 
-@return     void
-
 @history    Tue Dec 17, 2019 10:30:00 (Giavaneers - LBM) created
 
 @notes
@@ -304,8 +296,6 @@ public void seoCheckRobotsDotText()
                                                                               */
                                                                              /**
             Check seo generated sitemeap.
-
-@return     void
 
 @history    Tue Dec 17, 2019 10:30:00 (Giavaneers - LBM) created
 
@@ -362,8 +352,6 @@ public static class ViewA extends View
                                                                               */
                                                                              /**
             Render markup.
-
-@return     void
 
 @history    Tue Dec 17, 2019 10:30:00 (Giavaneers - LBM) created
 
@@ -433,8 +421,6 @@ public static class ViewB extends View
                                                                               */
                                                                              /**
             Render markup.
-
-@return     void
 
 @history    Tue Dec 17, 2019 10:30:00 (Giavaneers - LBM) created
 

@@ -70,6 +70,7 @@
           <module name="io.reactjava.client.examples.MovingBlockReactJava" enabled="false" />
           <module name="io.reactjava.client.examples.ReactJavaExamples" path="/ReactJavaExamples" />
           <module name="io.reactjava.client.examples.RoutingReactJava" enabled="false" />
+          <module name="io.reactjava.client.examples.SEOReactJava" enabled="false" />
           <module name="io.reactjava.client.examples.SimpleReactJava" enabled="false" />
           <module name="io.reactjava.client.examples.TextFieldReactJava" enabled="false" />
           <module name="io.reactjava.client.examples.ThreeByThreeReactJava" enabled="false" />

@@ -37,8 +37,6 @@ public class Square extends Component
                                                                              /**
             Render component. This implementation includes only markup.
 
-@return     void
-
 @history    Sat Oct 27, 2018 10:30:00 (Giavaneers - LBM) created
 
 @notes
@@ -58,8 +56,6 @@ public final void render()
                                                                              /**
             Get component css. This implementation is all css, with no java
             code included.
-
-@return     void
 
 @history    Sat Oct 27, 2018 10:30:00 (Giavaneers - LBM) created
 

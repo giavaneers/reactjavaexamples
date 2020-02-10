@@ -51,7 +51,7 @@ public static final double kSATOSHI = 100000000;
                                        // public instance variables --------- //
                                        // (none)                              //
                                        // protected instance variables -------//
-protected int     numTransactions;     // new transaction notifications       //
+protected int numTransactions;         // new transaction notifications       //
                                        // private instance variables -------- //
                                        // (none)                              //
 
@@ -129,8 +129,6 @@ protected void handleConversation(
                                                                               */
                                                                              /**
             effect handler.
-
-@return     void
 
 @history    Sat Jan 04, 2020 10:30:00 (Giavaneers - LBM) created
 
@@ -237,8 +235,6 @@ protected void handleTransaction(
                                                                              /**
             Render component.
 
-@return     void
-
 @history    Sat Jan 04, 2020 10:30:00 (Giavaneers - LBM) created
 
 @notes
@@ -250,7 +246,7 @@ public final void render()
                                        // passing an empty set of dependencies//
                                        // causes the effect handler to be     //
                                        // invoked only when mounted and       //
-                                       // unmounted,  not on update as would  //
+                                       // unmounted, not on update as would   //
                                        // occurr if used the single argument  //
                                        // useEffect() method                  //
    useEffect(handleEffect, new Object[0]);
@@ -279,8 +275,6 @@ public final void render()
                                                                              /**
             Get component css.This implementation is all css, with no java
             code included.
-
-@return     void
 
 @history    Thu Dec 12, 2019 10:30:00 (Giavaneers - LBM) created
 

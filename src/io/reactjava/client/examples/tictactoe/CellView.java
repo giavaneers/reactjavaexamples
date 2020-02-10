@@ -42,8 +42,6 @@ protected Integer gridPos;             // grid position                       //
             Cell onClick event handler as a public instance variable, accessible
             in markup.
 
-@return     void
-
 @history    Mon May 21, 2018 10:30:00 (Giavaneers - LBM) created
 
 @notes
@@ -83,8 +81,6 @@ protected Consumer<Integer> getMoveFunction()
                                                                               */
                                                                              /**
             Render markup.
-
-@return     void
 
 @history    Mon May 21, 2018 10:30:00 (Giavaneers - LBM) created
 
@@ -128,8 +124,6 @@ public final void render()
                                                                               */
                                                                              /**
             Get component css.
-
-@return     void
 
 @history    Mon May 21, 2018 10:30:00 (Giavaneers - LBM) created
 

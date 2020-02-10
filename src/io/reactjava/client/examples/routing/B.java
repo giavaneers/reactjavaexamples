@@ -43,8 +43,6 @@ public class B <P extends Properties> extends Component
             onClick event handler as a public instance variable, accessible in
             markup.
 
-@return     void
-
 @history    Thu Feb 14, 2019 10:30:00 (Giavaneers - LBM) created
 
 @notes
@@ -62,8 +60,6 @@ public INativeEventHandler clickHandlerA = (Event e) ->
             onClick event handler as a public instance variable, accessible in
             markup.
 
-@return     void
-
 @history    Thu Feb 14, 2019 10:30:00 (Giavaneers - LBM) created
 
 @notes
@@ -80,8 +76,6 @@ public INativeEventHandler clickHandlerTop = (Event e) ->
                                                                              /**
             Render component. This implementation is all markup, with no java
             code included.
-
-@return     void
 
 @history    Sat Oct 27, 2018 10:30:00 (Giavaneers - LBM) created
 

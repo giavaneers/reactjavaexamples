@@ -47,8 +47,6 @@ public static final String kSTATE_OPEN = "open";
                                                                              /**
             Initialize.
 
-@return     void
-
 @history    Mon May 21, 2018 10:30:00 (Giavaneers - LBM) created
 
 @notes
@@ -65,8 +63,6 @@ public Consumer openHandler = (bOpen) ->
                                                                               */
                                                                              /**
             Render component.
-
-@return     void
 
 @history    Thu Feb 14, 2019 10:30:00 (Giavaneers - LBM) created
 
@@ -118,8 +114,6 @@ public final void render()
                                                                               */
                                                                              /**
             Get component css.
-
-@return     void
 
 @history    Thu Feb 14, 2019 10:30:00 (Giavaneers - LBM) created
 

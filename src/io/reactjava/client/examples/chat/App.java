@@ -107,8 +107,6 @@ public App(
                                                                              /**
             Get map of component classname by route path.
 
-@return     void
-
 @history    Thu Dec 12, 2019 10:30:00 (Giavaneers - LBM) created
 
 @notes

@@ -39,11 +39,10 @@ public class App extends AppComponentTemplate
                                                                              /**
             Render component.
 
-@return     void
-
 @history    Sat Oct 27, 2018 10:30:00 (Giavaneers - LBM) created
 
 @notes
+         top: {400 + 400 * Math.sin(Math.toRadians(topLeft[0]))};
 
                                                                               */
 //------------------------------------------------------------------------------
@@ -54,17 +53,17 @@ public final void render()
    int[] topLeft = (int[])getState("topLeft");
    if (topLeft[0] == 0)
    {
-      DomGlobal.setInterval(
-         (e) ->
-         {
+                                       // initialize timer                    //
+      DomGlobal.setInterval((e) ->
+      {
                                        // move down by 2px and to right by 1px//
                                        // and cause render() to be invoked    //
-            int[] stateValue     = (int[])getState("topLeft");
-                  stateValue[0] += 1;
-                  stateValue[1] += 2;
+         int[] stateValue     = (int[])getState("topLeft");
+               stateValue[0] += 1;
+               stateValue[1] += 2;
 
-            setState("topLeft", stateValue);
-         }, 17);
+         setState("topLeft", stateValue);
+      }, 17);
    }
 /*--
    <div style='width:100%; height:100%;'>
@@ -73,7 +72,7 @@ public final void render()
          position:relative;
          height:30px;
          width:30px;
-         top:{topLeft[0]};
+         top: {200 + 200 * Math.sin(Math.toRadians(topLeft[0]))};
          left:{200 + 200 * Math.sin(Math.toRadians(topLeft[1]))};'
        />
    </div>

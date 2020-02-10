@@ -41,8 +41,6 @@ protected static Units units;          // theme based units                   //
             Get theme based units, required to be created only once per class
             load.
 
-@return     void
-
 @history    Sat Oct 27, 2018 10:30:00 (Giavaneers - LBM) created
 
 @notes
@@ -64,8 +62,6 @@ public Units getUnits()
                                                                              /**
             Render component. This implementation is all markup, with no java
             code included.
-
-@return     void
 
 @history    Sat Oct 27, 2018 10:30:00 (Giavaneers - LBM) created
 
@@ -90,8 +86,6 @@ public final void render()
                                                                              /**
             Get component css.This implementation is all css, with no java
             code included.
-
-@return     void
 
 @history    Sat Oct 27, 2018 10:30:00 (Giavaneers - LBM) created
 

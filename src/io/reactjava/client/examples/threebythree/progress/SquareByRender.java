@@ -39,8 +39,6 @@ public class SquareByRender extends Component
                                                                              /**
             Render component. This implementation includes only markup.
 
-@return     void
-
 @history    Sat Oct 27, 2018 10:30:00 (Giavaneers - LBM) created
 
 @notes

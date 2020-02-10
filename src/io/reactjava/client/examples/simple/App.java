@@ -40,8 +40,6 @@ protected static final String kTEXT      = App.class.getName() + ".java";
                                                                              /**
             Render markup.
 
-@return     void
-
 @history    Mon May 21, 2018 10:30:00 (Giavaneers - LBM) created
 
 @notes
@@ -51,16 +49,16 @@ protected static final String kTEXT      = App.class.getName() + ".java";
 public final void render()
 {
 /*--
-   <div class="App">
-      <header class="App-header">
-         <img src={kIMAGE_URL} class="App-logo" alt="logo" />
-         <h1 class="App-title">Welcome to ReactJava</h1>
-      </header>
-      <p class="App-intro">
-         To get started, edit <code>{kTEXT}</code>,
-         <strong>save and refresh browser</strong> to reload.
-      </p>
-   </div>
+    <div class="App">
+       <header class="App-header">
+          <img src={kIMAGE_URL} class="App-logo" alt="logo" />
+          <h1 class="App-title">Welcome to ReactJava</h1>
+       </header>
+       <p class="App-intro">
+          To get started, edit <code>{kTEXT}</code>,
+          <strong>save and refresh browser</strong> to reload.
+       </p>
+    </div>
 --*/
 }
 /*------------------------------------------------------------------------------
@@ -69,8 +67,6 @@ public final void render()
                                                                               */
                                                                              /**
             Get component css.
-
-@return     void
 
 @history    Mon May 21, 2018 10:30:00 (Giavaneers - LBM) created
 
@@ -82,7 +78,7 @@ public void renderCSS()
 {
 /*--
    .App {
-     text-align: column;
+     text-align: center;
    }
 
    .App-logo {
@@ -98,7 +94,7 @@ public void renderCSS()
    }
 
    .App-title {
-     font-size: first.5em;
+     font-size: 1.5em;
    }
 
    .App-intro {
