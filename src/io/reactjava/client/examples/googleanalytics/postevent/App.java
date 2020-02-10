@@ -14,9 +14,8 @@ notes:
 
 ==============================================================================*/
                                        // package --------------------------- //
-package io.reactjava.client.examples.googleanalytics.tracking;
+package io.reactjava.client.examples.googleanalytics.postevent;
                                        // imports --------------------------- //
-import elemental2.dom.Element;
 import elemental2.dom.Event;
 import io.reactjava.client.providers.analytics.IAnalyticsService;
 import io.reactjava.client.providers.analytics.IAnalyticsService.EventNames;

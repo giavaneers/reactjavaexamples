@@ -79,8 +79,8 @@
           <module name="io.reactjava.client.examples.UseEffectfReactJava" enabled="false" />
           <module name="io.reactjava.client.examples.UseRefReactJava" enabled="false" />
           <module name="io.reactjava.client.examples.WebSocketsReactJava" enabled="false" />
+          <module name="io.reactjava.client.examples.googleanalytics.GoogleAnalyticsPostEventReactJava" path="/GoogleAnalyticsPostEventReactJava" enabled="false" />
           <module name="io.reactjava.client.examples.googleanalytics.GoogleAnalyticsReportDataReactJava" enabled="false" />
-          <module name="io.reactjava.client.examples.googleanalytics.GoogleAnalyticsSimpleReactJava" enabled="false" />
           <module name="io.reactjava.client.examples.googleanalytics.GoogleAnalyticsTrackingReactJava" enabled="false" />
           <module name="io.reactjava.client.examples.materialui.MaterialUIGeneralPageReactJava" enabled="false" />
           <module name="io.reactjava.client.examples.materialui.MaterialUIPricingReactJava" enabled="false" />

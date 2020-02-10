@@ -5,10 +5,10 @@
    <inherits name='ReactJava'/>
 
 	<!-- transcode the application sources                     -->
-	<source path="tracking" />
+	<source path="postevent" />
 
 	<!-- Specify the app entry point classes                   -->
-	<entry-point class='io.reactjava.client.examples.googleanalytics.tracking.App'/>
+	<entry-point class='io.reactjava.client.examples.googleanalytics.postevent.App'/>
 
 	<!-- Combine all platform-specific versions                -->
 	<collapse-all-properties />
