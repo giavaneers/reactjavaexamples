@@ -21,11 +21,11 @@ import elemental2.dom.DomGlobal;
 import elemental2.dom.Element;
 import elemental2.dom.Event;
 import elemental2.dom.HTMLInputElement;
-import io.reactjava.client.providers.auth.IAuthenticationService;
 import io.reactjava.client.core.react.Component;
 import io.reactjava.client.core.react.INativeEventHandler;
-import io.reactjava.client.core.react.ReactJava;
 import io.reactjava.client.core.react.Router;
+import io.reactjava.client.providers.auth.IAuthenticationService.IUserCredential;
+
                                        // SignUp =============================//
 public class SignUp extends Component
 {
@@ -78,7 +78,7 @@ public void doCreateUser(
    else
    {
       App.auth.createUserWithEmailAndPassword(email, password).subscribe(
-         (response) ->
+         (IUserCredential userCredential) ->
          {
             kLOGGER.logInfo("Account created successfully for " + email);
             Router.push(App.kPATH_LOGGED_IN);

@@ -8,7 +8,7 @@
 	<source path="twosquaresoneclass" />
 
 	<!-- Specify the app entry point classes                   -->
-	<entry-point class='io.reactjava.client.examples.statevariable.twosquaresoneclass.App'/>
+	<entry-point class='io.reactjava.client.examples.statevariable.twosquaresonefile.App'/>
 
 	<!-- Combine all platform-specific versions                -->
 	<collapse-all-properties />

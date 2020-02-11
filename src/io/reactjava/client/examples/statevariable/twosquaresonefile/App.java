@@ -14,7 +14,7 @@ notes:
 
 ==============================================================================*/
                                        // package --------------------------- //
-package io.reactjava.client.examples.statevariable.twosquaresoneclass;
+package io.reactjava.client.examples.statevariable.twosquaresonefile;
                                        // imports --------------------------- //
 import elemental2.dom.Event;
 import io.reactjava.client.core.react.AppComponentTemplate;

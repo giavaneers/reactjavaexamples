@@ -26,6 +26,7 @@ import io.reactjava.client.core.react.Component;
 import io.reactjava.client.core.react.INativeEventHandler;
 import io.reactjava.client.core.react.ReactJava;
 import io.reactjava.client.core.react.Router;
+import io.reactjava.client.providers.auth.IAuthenticationService.IUserCredential;
                                        // Welcome ============================//
 public class Welcome extends Component
 {
@@ -66,7 +67,7 @@ public void doLogin(
    }
 
    App.auth.signInWithEmailAndPassword(email, password).subscribe(
-      responseSignIn ->
+      (IUserCredential userCredential) ->
       {
          Router.push(App.kPATH_LOGGED_IN);
       },

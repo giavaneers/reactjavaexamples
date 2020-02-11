@@ -64,6 +64,8 @@ public static final ICloudServices kCLOUD_SERVICES_CONFIG =
                                        // class variables ------------------- //
                                        // authentication service provider     //
 public static IAuthenticationService auth;
+                                       // user authentication token           //
+public static String                 authToken;
                                        // public instance variables --------- //
                                        // (none)                              //
                                        // protected instance variables -------//
