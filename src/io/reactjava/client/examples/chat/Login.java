@@ -22,10 +22,8 @@ import elemental2.dom.DomGlobal;
 import elemental2.dom.Event;
 import elemental2.dom.HTMLInputElement;
 import elemental2.dom.KeyboardEvent;
-import io.reactjava.client.providers.auth.IAuthenticationService;
 import io.reactjava.client.core.react.Component;
 import io.reactjava.client.core.react.INativeEventHandler;
-import io.reactjava.client.core.react.ReactJava;
 import io.reactjava.client.core.react.Router;
 import jsinterop.base.Js;
                                        // Login ==============================//
@@ -45,57 +43,14 @@ public static final String kELEMENT_ID_PASSWORD     = "password";
 public static final String kSTATE_CREDENTIALS_ENTERED = "credentialsEntered";
 public static final String kSTATE_ERROR               = "error";
 
-                                       // auth configuration                  //
-public static final String[] kFIREBASE_CONFIGURATION =
-{
-   "AIzaSyC2lsGWFpARlWm2janyFT1f8tcUx7I9b-U",
-   "pumajtourofheroes.firebaseapp.com",
-   "https://pumajtourofheroes.firebaseio.com",
-   "pumajtourofheroes",
-   "pumajtourofheroes.appspot.com",
-   "433064327713"
-};
                                        // class variables ------------------- //
-                                       // authentication service provider     //
-public static IAuthenticationService auth;
+                                       // (none)                              //
                                        // public instance variables --------- //
                                        // (none)                              //
                                        // protected instance variables -------//
                                        // (none)                              //
                                        // private instance variables -------- //
                                        // (none)                              //
-/*------------------------------------------------------------------------------
-
-@name       doLogin - signin button-click handler
-                                                                              */
-                                                                             /**
-            Signin button-click handler.
-
-@history    Thu Dec 12, 2019 10:30:00 (Giavaneers - LBM) created
-
-@notes
-
-                                                                              */
-//------------------------------------------------------------------------------
-public void configureServices()
-{
-   if (auth == null)
-   {
-                                       // get an authentication service       //
-                                       // instance                            //
-      auth = ReactJava.getProvider(IAuthenticationService.class);
-
-                                       // configure the services              //
-      auth.configure(kFIREBASE_CONFIGURATION).subscribe(
-         response ->
-         {
-         },
-         error ->
-         {
-            errorPut("Authentication service configuration failed.");
-         });
-   }
-}
 /*------------------------------------------------------------------------------
 
 @name       createAccount - create a new account
@@ -114,7 +69,7 @@ public void createAccount()
    String email    = getInputElementText(kELEMENT_ID_EMAIL);
    String password = getInputElementText(kELEMENT_ID_PASSWORD);
 
-   auth.createUserWithEmailAndPassword(email, password).subscribe(
+   App.getAuth().createUserWithEmailAndPassword(email, password).subscribe(
       (response) ->
       {
          kLOGGER.logInfo("Account created successfully for " + email);
@@ -195,29 +150,6 @@ public boolean getCredentialsEntered()
 @name       getInputElement - get specified input element
                                                                               */
                                                                              /**
-            Get specified input element text.
-
-@return     specified input element text, or the empty string if not found
-
-@param      elementId      specified input elementId
-
-@history    Thu Dec 12, 2019 10:30:00 (Giavaneers - LBM) created
-
-@notes
-
-                                                                              */
-//------------------------------------------------------------------------------
-public String getInputElementText(
-   String elementId)
-{
-   HTMLInputElement inputElement = getInputElement(elementId);
-   return(inputElement != null ? inputElement.value : "");
-}
-/*------------------------------------------------------------------------------
-
-@name       getInputElement - get specified input element
-                                                                              */
-                                                                             /**
             Get specified input element.
 
 @return     specified input element
@@ -237,6 +169,29 @@ public HTMLInputElement getInputElement(
       (HTMLInputElement)DomGlobal.document.getElementById(elementId);
 
    return(inputElement);
+}
+/*------------------------------------------------------------------------------
+
+@name       getInputElementText - get specified input element text
+                                                                              */
+                                                                             /**
+            Get specified input element text.
+
+@return     specified input element text, or the empty string if not found
+
+@param      elementId      specified input elementId
+
+@history    Thu Dec 12, 2019 10:30:00 (Giavaneers - LBM) created
+
+@notes
+
+                                                                              */
+//------------------------------------------------------------------------------
+public String getInputElementText(
+   String elementId)
+{
+   HTMLInputElement inputElement = getInputElement(elementId);
+   return(inputElement != null ? inputElement.value : "");
 }
 /*------------------------------------------------------------------------------
 
@@ -286,7 +241,7 @@ public void login()
    String email    = getInputElementText(kELEMENT_ID_EMAIL);
    String password = getInputElementText(kELEMENT_ID_PASSWORD);
 
-   auth.signInWithEmailAndPassword(email, password).subscribe(
+   App.getAuth().signInWithEmailAndPassword(email, password).subscribe(
       responseSignIn ->
       {
          pushPathToChat();
@@ -366,11 +321,6 @@ public final void render()
 {
    useState(kSTATE_CREDENTIALS_ENTERED, false);
    useState(kSTATE_ERROR, "");
-
-   if (auth == null)
-   {
-      configureServices();
-   }
 /*--
    <@material-ui.core.Grid container justify="center">
       <@material-ui.core.Grid item class='contentWidth'>

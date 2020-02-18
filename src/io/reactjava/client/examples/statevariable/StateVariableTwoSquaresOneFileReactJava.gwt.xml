@@ -5,7 +5,7 @@
    <inherits name='ReactJava'/>
 
 	<!-- transcode the application sources                     -->
-	<source path="twosquaresoneclass" />
+	<source path="twosquaresonefile" />
 
 	<!-- Specify the app entry point classes                   -->
 	<entry-point class='io.reactjava.client.examples.statevariable.twosquaresonefile.App'/>

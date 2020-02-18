@@ -23,7 +23,8 @@ package io.reactjava.client.examples.materialui.generalpage;
                                        // imports --------------------------- //
 import io.reactjava.client.components.generalpage.GeneralPage;
 import io.reactjava.client.core.react.AppComponentTemplate;
-
+import java.util.ArrayList;
+import java.util.List;
                                        // App ================================//
 public class App extends AppComponentTemplate
 {
@@ -39,6 +40,24 @@ public class App extends AppComponentTemplate
                                        // (none)                              //
 /*------------------------------------------------------------------------------
 
+@name       getImportedNodeModules - get imported node modules
+                                                                              */
+                                                                             /**
+            Get imported node modules.
+
+@return     list of node module names.
+
+@history    Thu Feb 14, 2019 10:30:00 (Giavaneers - LBM) created
+
+@notes
+                                                                              */
+//------------------------------------------------------------------------------
+protected List<String> getImportedNodeModules()
+{
+   return(new ArrayList(GeneralPage.getImportedNodeModules()));
+}
+/*------------------------------------------------------------------------------
+
 @name       render - render component
                                                                               */
                                                                              /**
@@ -52,7 +71,7 @@ public class App extends AppComponentTemplate
 public final void render()
 {
 /*--
-   <GeneralPage manifest={"manifests/generalPage"}></GeneralPage>
+   <GeneralPage manifest={"manifests/simple"}></GeneralPage>
 --*/
 }
 }//====================================// end App ============================//

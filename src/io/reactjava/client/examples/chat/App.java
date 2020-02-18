@@ -22,8 +22,12 @@ notes:
 package io.reactjava.client.examples.chat;
                                        // imports --------------------------- //
 import io.reactjava.client.core.react.AppComponentTemplate;
+import io.reactjava.client.core.react.Configuration.CloudServices;
+import io.reactjava.client.core.react.IConfiguration.ICloudServices;
 import io.reactjava.client.core.react.NativeObject;
 import io.reactjava.client.core.react.Properties;
+import io.reactjava.client.core.react.ReactJava;
+import io.reactjava.client.providers.auth.IAuthenticationService;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;
@@ -55,8 +59,18 @@ public static final Map<String,Class> kAPP_ROUTES =
             put(kPATH_LOG_IN, kCLASS_LOG_IN);
          }
       });
+                                       // auth configuration                  //
+public static final ICloudServices kCLOUD_SERVICES_CONFIG =
+   new CloudServices()
+      .setAPIKey("AIzaSyDh9OrV7rghijudnkyQ9wSUz4BKZE8F-sI")
+      .setProjectId("reactjava-f11e6")
+      .setAppId("1:1074492811559:web:37c314c24f220974952102")
+      .setAuthDomain("reactjava-f11e6.firebaseapp.com")
+      .setDatabaseURL("https://reactjava-f11e6.firebaseio.com");
+
                                        // class variables ------------------- //
-                                       // (none)                              //
+                                       // authentication service provider     //
+public static IAuthenticationService auth;
                                        // public instance variables --------- //
                                        // (none)                              //
                                        // protected instance variables -------//
@@ -99,6 +113,46 @@ public App(
    Properties properties)
 {
    super(properties);
+}
+/*------------------------------------------------------------------------------
+
+@name       getAuth - get authentication service provider
+                                                                              */
+                                                                             /**
+            Get authentication service provider.
+
+@return     authentication service provider.
+
+@history    Sun Nov 02, 2018 10:30:00 (Giavaneers - LBM) created
+
+@notes
+                                                                              */
+//------------------------------------------------------------------------------
+protected static IAuthenticationService getAuth()
+{
+   if (auth == null)
+   {
+      auth = ReactJava.getProvider(IAuthenticationService.class);
+   }
+   return(auth);
+}
+/*------------------------------------------------------------------------------
+
+@name       getCloudServicesConfig - get cloud services configuration
+                                                                              */
+                                                                             /**
+            Get cloud services configuration.
+
+@return     cloud services configuration.
+
+@history    Sun Nov 02, 2018 10:30:00 (Giavaneers - LBM) created
+
+@notes
+                                                                              */
+//------------------------------------------------------------------------------
+protected ICloudServices getCloudServicesConfig()
+{
+   return(kCLOUD_SERVICES_CONFIG);
 }
 /*------------------------------------------------------------------------------
 

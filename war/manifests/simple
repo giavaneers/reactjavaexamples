@@ -1,0 +1,63 @@
+/*=================================================
+
+    Getting Started
+
+=================================================*/
+.title
+Getting Started
+.end
+
+.body
+If you have already used create-reactjava-app, 
+you can skip ahead to the
+%markup%
+   <a href="ReactJavaWebsite.html#userGuide">
+      Tutorial
+   </a>
+%markup%. 
+Otherwise, create a new app from the terminal:
+.end
+
+.code
+> create-reactjava-app [pathToYourNewProjectFolder]
+.end
+
+/*=================================================
+
+    Working with the new ReactJava project
+
+=================================================*/
+.caption
+Working with the new ReactJava project
+.end
+
+.body
+You can open the new ReactJava project folder with 
+IntelliJ or import it to Eclipse.
+.end
+
+.image
+images/WorkingFigure1.png
+.end
+
+/*=================================================
+
+    Side Drawer References
+
+=================================================*/
+.reference
+<a href="path:userGuide">User Guide</a>
+.end
+.reference
+<a href="/javadoc/reactjava/index.html">
+   ReactJava API
+</a>
+.end
+.reference
+<a href="path:contributorGuide">
+   Contributor Guide
+</a>
+.end
+.reference
+<a href="http://giavaneers.com">Giavaneers</a>
+.end

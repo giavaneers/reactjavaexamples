@@ -80,14 +80,14 @@
           <module name="io.reactjava.client.examples.UseRefReactJava" enabled="false" />
           <module name="io.reactjava.client.examples.WebSocketsReactJava" enabled="false" />
           <module name="io.reactjava.client.examples.googleanalytics.GoogleAnalyticsPostEventReactJava" path="/GoogleAnalyticsPostEventReactJava" enabled="false" />
+          <module name="io.reactjava.client.examples.googleanalytics.GoogleAnalyticsReportDataReactJava" enabled="false" />
           <module name="io.reactjava.client.examples.googleanalytics.GoogleAnalyticsSimpleReactJava" enabled="false" />
           <module name="io.reactjava.client.examples.googleanalytics.GoogleAnalyticsTrackingReactJava" enabled="false" />
-          <module name="io.reactjava.client.examples.materialui.MaterialUIGeneralPageReactJava" enabled="false" />
           <module name="io.reactjava.client.examples.materialui.MaterialUIPricingReactJava" enabled="false" />
           <module name="io.reactjava.client.examples.materialui.MaterialUIThemeReactJava" enabled="false" />
           <module name="io.reactjava.client.examples.statevariable.StateVariableSimpleHandlerByReferenceReactJava" enabled="false" />
           <module name="io.reactjava.client.examples.statevariable.StateVariableSimpleReactJava" enabled="false" />
-          <module name="io.reactjava.client.examples.statevariable.StateVariableTwoSquaresOneClassReactJava" enabled="false" />
+          <module name="io.reactjava.client.examples.statevariable.StateVariableTwoSquaresOneFileReactJava" path="/StateVariableTwoSquaresOneFileReactJava" enabled="false" />
           <module name="io.reactjava.client.examples.statevariable.StateVariableTwoSquaresReactJava" enabled="false" />
         </packaging>
       </configuration>

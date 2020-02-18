@@ -21,6 +21,8 @@ notes:
                                        // package --------------------------- //
 package io.reactjava.client.examples.login;
                                        // imports --------------------------- //
+import io.reactjava.client.core.react.NativeObject;
+import io.reactjava.client.core.react.ReactJava;
 import io.reactjava.client.providers.auth.IAuthenticationService;
 import io.reactjava.client.core.react.AppComponentTemplate;
 import io.reactjava.client.core.react.Configuration.CloudServices;
@@ -35,12 +37,10 @@ public class App extends AppComponentTemplate
                                        // class constants --------------------//
                                        // route paths                         //
 public static final String kPATH_LOGGED_IN = "LoggedIn";
-public static final String kPATH_SIGN_UP   = "SignUp";
 public static final String kPATH_WELCOME   = "";
 
                                        // component class                     //
 public static final Class  kCLASS_LOGGED_IN = LoggedIn.class;
-public static final Class  kCLASS_SIGN_UP   = SignUp.class;
 public static final Class  kCLASS_WELCOME   = Welcome.class;
 
 public static final Map<String,Class> kAPP_ROUTES =
@@ -49,7 +49,6 @@ public static final Map<String,Class> kAPP_ROUTES =
       {
          {
             put(kPATH_LOGGED_IN, kCLASS_LOGGED_IN);
-            put(kPATH_SIGN_UP,   kCLASS_SIGN_UP);
             put(kPATH_WELCOME,   kCLASS_WELCOME);
          }
       });
@@ -64,8 +63,6 @@ public static final ICloudServices kCLOUD_SERVICES_CONFIG =
                                        // class variables ------------------- //
                                        // authentication service provider     //
 public static IAuthenticationService auth;
-                                       // user authentication token           //
-public static String                 authToken;
                                        // public instance variables --------- //
                                        // (none)                              //
                                        // protected instance variables -------//
@@ -74,40 +71,25 @@ public static String                 authToken;
                                        // (none)                              //
 /*------------------------------------------------------------------------------
 
-@name       App - default constructor
+@name       getAuth - get authentication service provider
                                                                               */
                                                                              /**
-            Default constructor
+            Get authentication service provider.
 
-@return     An instance of App if successful.
+@return     authentication service provider.
 
-@history    Mon Aug 28, 2017 10:30:00 (Giavaneers - LBM) created
+@history    Sun Nov 02, 2018 10:30:00 (Giavaneers - LBM) created
 
 @notes
                                                                               */
 //------------------------------------------------------------------------------
-public App()
+protected static IAuthenticationService getAuth()
 {
-   super();
-}
-/*------------------------------------------------------------------------------
-
-@name       App - constructor for specified properties
-                                                                              */
-                                                                             /**
-            Constructor for specified properties
-
-@return     An instance of App if successful.
-
-@history    Mon Aug 28, 2017 10:30:00 (Giavaneers - LBM) created
-
-@notes
-                                                                              */
-//------------------------------------------------------------------------------
-public App(
-   Properties properties)
-{
-   super(properties);
+   if (auth == null)
+   {
+      auth = ReactJava.getProvider(IAuthenticationService.class);
+   }
+   return(auth);
 }
 /*------------------------------------------------------------------------------
 
