@@ -2,7 +2,7 @@
 
 name:       App.java
 
-purpose:    Three By Three App.
+purpose:    Modal App.
 
 history:    Sat Oct 27, 2018 10:30:00 (Giavaneers - LBM) created
 
@@ -14,9 +14,12 @@ notes:
 
 ==============================================================================*/
                                        // package --------------------------- //
-package io.reactjava.client.examples.helloworld;
+package io.reactjava.client.examples.modal;
                                        // imports --------------------------- //
+import elemental2.dom.Event;
 import io.reactjava.client.core.react.AppComponentTemplate;
+import io.reactjava.client.core.react.Component;
+import io.reactjava.client.core.react.INativeEventHandler;
 
                                        // App ================================//
 public class App extends AppComponentTemplate
@@ -33,6 +36,22 @@ public class App extends AppComponentTemplate
                                        // (none)                              //
 /*------------------------------------------------------------------------------
 
+@name       clickHandler - onClick event handler
+                                                                              */
+                                                                             /**
+            onClick event handler as a public instance variable.
+
+@history    Thu Feb 14, 2019 10:30:00 (Giavaneers - LBM) created
+
+@notes
+                                                                              */
+//------------------------------------------------------------------------------
+public INativeEventHandler clickHandler = (Event e) ->
+{
+   Component.forId("modal").setState("show", true);
+};
+/*------------------------------------------------------------------------------
+
 @name       render - render component
                                                                               */
                                                                              /**
@@ -46,32 +65,18 @@ public class App extends AppComponentTemplate
 //------------------------------------------------------------------------------
 public final void render()
 {
+   useState("show", false);
 /*--
-   <h1 class='hello' style='color:blue;marginTop:30px;fontSize:20px'>
-      Hello world!
-   </h1>
-      <Modal show={getStateBoolean("modalOpen"}/>
+   <div>
+      <h1 style='color:blue;marginTop:30px;fontSize:20px'>
+         Hello world!
+      </h1>
+      <button onClick={clickHandler}>Open</button>
+      <Modal
+         id="modal"
+         msg="This is the modal content. Consider using @material-ui.core.Modal"
+       />
+   </div>
 --*/
 };
-/*------------------------------------------------------------------------------
-
-@name       renderCSS - get component css
-                                                                              */
-                                                                             /**
-            Get component css.
-
-@history    Sat Oct 27, 2018 10:30:00 (Giavaneers - LBM) created
-
-@notes
-
-                                                                              */
-//------------------------------------------------------------------------------
-public void renderCSS()
-{
-/*--
-   .hello {
-      color: blue
-   }
---*/
-}
 }//====================================// end App ============================//

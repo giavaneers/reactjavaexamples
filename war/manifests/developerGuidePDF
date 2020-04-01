@@ -1,0 +1,36 @@
+/*=================================================
+
+    PDF Document URL and Bookmarks enabled
+
+=================================================*/
+.url
+pdfs/ReactJavaDeveloperGuide.web.pdf#929492837
+.end
+.bookmarks
+true
+.end
+.displayhash
+false
+.end
+
+/*=================================================
+
+    Side Drawer References
+
+=================================================*/
+.reference
+<a href="path:userGuide">User Guide</a>
+.end
+.reference
+<a href="/javadoc/reactjava/index.html">
+   ReactJava API
+</a>
+.end
+.reference
+<a href="path:contributorGuide">
+   Contributor Guide
+</a>
+.end
+.reference
+<a href="http://giavaneers.com">Giavaneers</a>
+.end

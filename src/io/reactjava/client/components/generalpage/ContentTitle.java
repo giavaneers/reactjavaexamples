@@ -1,28 +1,34 @@
 /*==============================================================================
 
-name:       App.java
+name:       ContentTitle.java
 
-purpose:    Three By Three App.
+purpose:    Content caption.
 
-history:    Sat Oct 27, 2018 10:30:00 (Giavaneers - LBM) created
+history:    Sun Mar 31, 2019 10:30:00 (Giavaneers - LBM) created
 
 notes:
 
-                        COPYRIGHT (c) BY GIAVANEERS, INC.
-         This source code is licensed under the MIT license found in the
-               LICENSE file in the root directory of this source tree.
+                  This program was created by Giavaneers
+        and is the confidential and proprietary product of Giavaneers Inc.
+      Any unauthorized use, reproduction or transfer is strictly prohibited.
+
+                     COPYRIGHT 2019 BY GIAVANEERS, INC.
+      (Subject to limited distribution and restricted disclosure only).
+                           All rights reserved.
+
 
 ==============================================================================*/
                                        // package --------------------------- //
-package io.reactjava.client.examples.helloworld;
+package io.reactjava.client.components.generalpage;
                                        // imports --------------------------- //
-import io.reactjava.client.core.react.AppComponentTemplate;
+import io.reactjava.client.core.react.Component;
+import io.reactjava.client.core.react.IUITheme;
 
-                                       // App ================================//
-public class App extends AppComponentTemplate
+                                       // ContentTitle =======================//
+public class ContentTitle extends Component
 {
-                                       // class constants --------------------//
-                                       // (none)                              //
+                                       // class constants ------------------- //
+                                       // protected instance variables -------//
                                        // class variables ------------------- //
                                        // (none)                              //
                                        // public instance variables --------- //
@@ -38,7 +44,7 @@ public class App extends AppComponentTemplate
                                                                              /**
             Render component.
 
-@history    Sat Oct 27, 2018 10:30:00 (Giavaneers - LBM) created
+@history    Sun Mar 31, 2019 10:30:00 (Giavaneers - LBM) created
 
 @notes
 
@@ -46,13 +52,19 @@ public class App extends AppComponentTemplate
 //------------------------------------------------------------------------------
 public final void render()
 {
+   String content = props().getString("content");
+   String id      = Integer.toString(content.hashCode());
 /*--
-   <h1 class='hello' style='color:blue;marginTop:30px;fontSize:20px'>
-      Hello world!
-   </h1>
-      <Modal show={getStateBoolean("modalOpen"}/>
+   <@material-ui.core.Grid container justify="flex-start" spacing={16} >
+      <@material-ui.core.Grid key=0 item>
+         <@material-ui.core.Typography
+            component="h1" variant="h4" class="contentTitle" id={id}>
+            {content}
+         </@material-ui.core.Typography>
+      </@material-ui.core.Grid>
+   </@material-ui.core.Grid>
 --*/
-};
+}
 /*------------------------------------------------------------------------------
 
 @name       renderCSS - get component css
@@ -60,18 +72,23 @@ public final void render()
                                                                              /**
             Get component css.
 
-@history    Sat Oct 27, 2018 10:30:00 (Giavaneers - LBM) created
+@history    Sun Mar 31, 2019 10:30:00 (Giavaneers - LBM) created
 
 @notes
-
                                                                               */
 //------------------------------------------------------------------------------
 public void renderCSS()
 {
+   String unit   = "" + getTheme().getSpacing().getUnit() + "px";
+   String unit3X = IUITheme.cssLengthScale(unit, 3);
 /*--
-   .hello {
-      color: blue
+   .contentTitle
+   {
+      color:         #367DA2;
+      flex-grow:     1;
+      margin-top:    {unit3X};
+      margin-bottom: {unit3X};
    }
 --*/
 }
-}//====================================// end App ============================//
+}//====================================// end ContentTitle ===================//

@@ -1,77 +1,76 @@
+package io.reactjava.client.components.pdfviewer;
+
+import elemental2.core.JsArray;
+import io.reactjava.client.core.react.NativeObject;
+import jsinterop.annotations.JsProperty;
+import jsinterop.base.Js;
+
 /*==============================================================================
 
-name:       App.java
+name:       TextContent - pdf page text content
 
-purpose:    Three By Three App.
+purpose:    pdf page text content
 
-history:    Sat Oct 27, 2018 10:30:00 (Giavaneers - LBM) created
+history:    Thu Feb 27, 2020 10:30:00 (Giavaneers - LBM) created
 
 notes:
 
-                        COPYRIGHT (c) BY GIAVANEERS, INC.
-         This source code is licensed under the MIT license found in the
-               LICENSE file in the root directory of this source tree.
-
 ==============================================================================*/
-                                       // package --------------------------- //
-package io.reactjava.client.examples.helloworld;
-                                       // imports --------------------------- //
-import io.reactjava.client.core.react.AppComponentTemplate;
-
-                                       // App ================================//
-public class App extends AppComponentTemplate
+public class TextContent extends NativeObject
 {
-                                       // class constants --------------------//
+                                       // constants ------------------------- //
                                        // (none)                              //
                                        // class variables ------------------- //
                                        // (none)                              //
                                        // public instance variables --------- //
                                        // (none)                              //
                                        // protected instance variables -------//
-                                       // (none)                              //
+                                       // array of text items                 //
+public @JsProperty
+                                       JsArray<TextContentItem> items;
+                                       // styles                              //
+public @JsProperty
+                                       NativeObject      styles;
                                        // private instance variables -------- //
                                        // (none)                              //
+
 /*------------------------------------------------------------------------------
 
-@name       render - render component
+@name       TextContent - default constructor
                                                                               */
                                                                              /**
-            Render component.
+            Default constructor
 
-@history    Sat Oct 27, 2018 10:30:00 (Giavaneers - LBM) created
-
-@notes
-
-                                                                              */
-//------------------------------------------------------------------------------
-public final void render()
-{
-/*--
-   <h1 class='hello' style='color:blue;marginTop:30px;fontSize:20px'>
-      Hello world!
-   </h1>
-      <Modal show={getStateBoolean("modalOpen"}/>
---*/
-};
-/*------------------------------------------------------------------------------
-
-@name       renderCSS - get component css
-                                                                              */
-                                                                             /**
-            Get component css.
-
-@history    Sat Oct 27, 2018 10:30:00 (Giavaneers - LBM) created
+@history    Thu Feb 27, 2020 10:30:00 (Giavaneers - LBM) created
 
 @notes
-
                                                                               */
 //------------------------------------------------------------------------------
-public void renderCSS()
+private TextContent()
 {
-/*--
-   .hello {
-      color: blue
-   }
---*/
 }
-}//====================================// end App ============================//
+/*------------------------------------------------------------------------------
+
+@name       toString - toString() method
+                                                                              */
+                                                                             /**
+            Standard toString() method.
+
+@history    Mon Feb 24, 2020 10:30:00 (Giavaneers - LBM) created
+
+@notes
+                                                                              */
+//------------------------------------------------------------------------------
+public static String toString(
+   TextContent textContent)
+{
+   String s = "";
+   for (int i = 0; i < textContent.items.length; i++)
+   {
+      TextContentItem item = Js.uncheckedCast(textContent.items.getAt(i));
+      s += TextContentItem.toString(item) + "\n";
+   }
+
+   return(s);
+}
+}//====================================// end TextContent --------------------//

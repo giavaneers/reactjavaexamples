@@ -78,7 +78,6 @@ public final void render()
       if (root != null)
       {
          element = ElementDsc.createElement(root);
-         setId(element.props.getString("id"));
       }
       return(element);
    };

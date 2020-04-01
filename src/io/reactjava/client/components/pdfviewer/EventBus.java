@@ -1,77 +1,77 @@
+package io.reactjava.client.components.pdfviewer;
+
+import io.reactjava.client.core.react.INativeFunction;
+import jsinterop.annotations.JsType;
+
 /*==============================================================================
 
-name:       App.java
+name:       EventBus - native pdfjs EventBus api
 
-purpose:    Three By Three App.
+purpose:    Native pdfjs EventBus api
 
-history:    Sat Oct 27, 2018 10:30:00 (Giavaneers - LBM) created
+history:    Thu Feb 27, 2020 10:30:00 (Giavaneers - LBM) created
 
 notes:
 
-                        COPYRIGHT (c) BY GIAVANEERS, INC.
-         This source code is licensed under the MIT license found in the
-               LICENSE file in the root directory of this source tree.
-
 ==============================================================================*/
-                                       // package --------------------------- //
-package io.reactjava.client.examples.helloworld;
-                                       // imports --------------------------- //
-import io.reactjava.client.core.react.AppComponentTemplate;
-
-                                       // App ================================//
-public class App extends AppComponentTemplate
+@JsType(isNative  = true, namespace = "pdfjsViewer")
+public class EventBus
 {
-                                       // class constants --------------------//
+                                       // constants ------------------------- //
                                        // (none)                              //
                                        // class variables ------------------- //
                                        // (none)                              //
                                        // public instance variables --------- //
                                        // (none)                              //
                                        // protected instance variables -------//
-                                       // (none)                              //
                                        // private instance variables -------- //
                                        // (none)                              //
+
 /*------------------------------------------------------------------------------
 
-@name       render - render component
+@name       EventBus - default constructor
                                                                               */
                                                                              /**
-            Render component.
+            Default constructor
 
-@history    Sat Oct 27, 2018 10:30:00 (Giavaneers - LBM) created
-
-@notes
-
-                                                                              */
-//------------------------------------------------------------------------------
-public final void render()
-{
-/*--
-   <h1 class='hello' style='color:blue;marginTop:30px;fontSize:20px'>
-      Hello world!
-   </h1>
-      <Modal show={getStateBoolean("modalOpen"}/>
---*/
-};
-/*------------------------------------------------------------------------------
-
-@name       renderCSS - get component css
-                                                                              */
-                                                                             /**
-            Get component css.
-
-@history    Sat Oct 27, 2018 10:30:00 (Giavaneers - LBM) created
+@history    Thu Feb 27, 2020 10:30:00 (Giavaneers - LBM) created
 
 @notes
-
                                                                               */
 //------------------------------------------------------------------------------
-public void renderCSS()
+public EventBus()
 {
-/*--
-   .hello {
-      color: blue
-   }
---*/
 }
-}//====================================// end App ============================//
+/*------------------------------------------------------------------------------
+
+@name       off - unregister event bus handler
+                                                                              */
+                                                                             /**
+            Unregister event bus handler.
+
+@history    Thu Feb 27, 2020 10:30:00 (Giavaneers - LBM) created
+
+@notes
+                                                                              */
+//------------------------------------------------------------------------------
+public native void off(
+   String          eventName,
+   INativeFunction callback);
+
+/*------------------------------------------------------------------------------
+
+@name       on - register event bus handler
+                                                                              */
+                                                                             /**
+            Register event bus handler.
+
+@history    Thu Feb 27, 2020 10:30:00 (Giavaneers - LBM) created
+
+@notes
+                                                                              */
+//------------------------------------------------------------------------------
+public native void on(
+   String          eventName,
+   INativeFunction callback);
+
+}//====================================// end EventBus -----------------------//
