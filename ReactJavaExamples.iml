@@ -57,6 +57,7 @@
           <module name="gwt.react.React" enabled="false" />
           <module name="gwt.react_router.ReactRouter" enabled="false" />
           <module name="io.react4java.JSXParser" enabled="false" />
+          <module name="io.reactjava.client.GeneralPageReactJava" enabled="false" />
           <module name="io.reactjava.client.examples.BitcoinReactJava" enabled="false" />
           <module name="io.reactjava.client.examples.ChatReactJava" enabled="false" />
           <module name="io.reactjava.client.examples.CssAnimationReactJava" enabled="false" />

@@ -139,6 +139,8 @@ protected void handleConversation(
 public INativeEffectHandler handleEffect = () ->
 {
    handleConversation(null);
+                                       // no cleanup function                 //
+   return(INativeEffectHandler.kNO_CLEANUP_FCN);
 };
 /*------------------------------------------------------------------------------
 

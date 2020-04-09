@@ -58,6 +58,9 @@ public INativeEffectHandler effectHandler = () ->
    Element square = DomGlobal.document.getElementById("square");
    String  style  = square.getAttribute("style");
    square.setAttribute("style", style + "background-color:green;");
+
+                                       // no cleanup function                 //
+   return(INativeEffectHandler.kNO_CLEANUP_FCN);
 };
 /*------------------------------------------------------------------------------
 

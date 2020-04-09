@@ -15,6 +15,7 @@ notes:
                                        // package --------------------------- //
 package io.reactjava.client.examples.pdf;
                                        // imports --------------------------- //
+import com.giavaneers.util.gwt.Logger;
 import elemental2.dom.DomGlobal;
 import elemental2.dom.Event;
 import io.reactjava.client.components.pdfviewer.PDFViewer;
@@ -31,6 +32,7 @@ public class App extends AppComponentTemplate
 {
 
                                        // class constants --------------------//
+public static final Logger kLOGGER  = Logger.newInstance();
 public static final String kPDF_URL =
    //"https://storage.googleapis.com/reactjava.io/docs/ReactJavaDeveloperGuide.web.pdf";
    "pdfs/ReactJavaDeveloperGuide.web.pdf#929492837";
@@ -146,6 +148,8 @@ public final void render()
 {
    useState("show", false);
 
+   kLOGGER.logInfo("App.render(): entered");
+
    NativeObject viewerStyle =
       NativeObject.with(
          "position", "absolute",
@@ -154,12 +158,18 @@ public final void render()
          "bottom",   "0px",
          "left",     "0px",
          "width",    "100%");
+
+   NativeObject pdfOptions =
+      NativeObject.with(
+         "pdfurl",      kPDF_URL,
+         "viewerstyle", viewerStyle,
+         "cover",       "#bdcff1");
 /*--
    <div>
       <button onClick={clickHandlerRender}>Re-Render</button>
       <button onClick={clickHandler}>Open Sidebar</button>
       <Drawer id="drawer" openhandler={openHandler} />
-      <PDFViewer pdfurl={kPDF_URL} viewerstyle={viewerStyle}/>
+      <PDFViewer pdfoptions={pdfOptions} />
    </div>
 --*/
 }
