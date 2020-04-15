@@ -57,7 +57,6 @@
           <module name="gwt.react.React" enabled="false" />
           <module name="gwt.react_router.ReactRouter" enabled="false" />
           <module name="io.react4java.JSXParser" enabled="false" />
-          <module name="io.reactjava.client.GeneralPageReactJava" enabled="false" />
           <module name="io.reactjava.client.examples.BitcoinReactJava" enabled="false" />
           <module name="io.reactjava.client.examples.ChatReactJava" enabled="false" />
           <module name="io.reactjava.client.examples.CssAnimationReactJava" enabled="false" />
@@ -66,6 +65,7 @@
           <module name="io.reactjava.client.examples.GeneralPageReactJava" enabled="false" />
           <module name="io.reactjava.client.examples.GoogleAnalyticsReactJava" enabled="false" />
           <module name="io.reactjava.client.examples.HelloWorldReactJava" enabled="false" />
+          <module name="io.reactjava.client.examples.HelloWorldReactJavaScratch" path="/HelloWorldReactScratchJava" />
           <module name="io.reactjava.client.examples.HelloWorldSansJSXReactJava" enabled="false" />
           <module name="io.reactjava.client.examples.KeyboardReactJava" enabled="false" />
           <module name="io.reactjava.client.examples.LoginReactJava" enabled="false" />

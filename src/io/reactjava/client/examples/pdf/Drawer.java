@@ -16,16 +16,14 @@ notes:
                                        // package --------------------------- //
 package io.reactjava.client.examples.pdf;
                                        // imports --------------------------- //
-import elemental2.dom.DomGlobal;
 import elemental2.dom.Element;
 import elemental2.dom.Event;
-import elemental2.dom.HTMLElement;
 import io.reactjava.client.components.pdfviewer.Bookmark;
 import io.reactjava.client.components.pdfviewer.PDFViewer;
 import io.reactjava.client.core.react.Component;
-import io.reactjava.client.core.react.INativeEffectHandler;
 import io.reactjava.client.core.react.INativeEventHandler;
 import io.reactjava.client.core.react.INativeFunction;
+import io.reactjava.client.core.react.INativeFunction1Arg;
 import io.reactjava.client.core.react.NativeObject;
 import java.util.HashMap;
 import java.util.List;
@@ -93,9 +91,11 @@ protected List<List<Bookmark>> getBookmarks()
    if (bookmarks == null)
    {
       PDFViewer.getInstance().subscribe(
+         this,
          (PDFViewer pdfViewer) ->
          {
             pdfViewer.getBookmarks().subscribe(
+               this,
                (List<List<Bookmark>> viewerBookmarks) ->
                {
                   setState("bookmarks", viewerBookmarks);

@@ -50,7 +50,6 @@ public final void render()
    <h1 class='hello' style='color:blue;marginTop:30px;fontSize:20px'>
       Hello world!
    </h1>
-      <Modal show={getStateBoolean("modalOpen"}/>
 --*/
 };
 /*------------------------------------------------------------------------------
