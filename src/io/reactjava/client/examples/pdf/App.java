@@ -59,7 +59,13 @@ public static final String kPDF_URL =
 //------------------------------------------------------------------------------
 public INativeEventHandler clickHandler = (Event e) ->
 {
-   Component.forId("drawer").setState("show", true);
+   Component.forClass(Drawer.class).subscribe(
+      this,
+      (Component component) ->
+      {
+         component.setState("show", true);
+      },
+      error -> {});
 };
 /*------------------------------------------------------------------------------
 
@@ -77,25 +83,6 @@ public INativeEventHandler clickHandlerRender = (Event e) ->
 {
    forceUpdate();
 };
-/*------------------------------------------------------------------------------
-
-@name       getPDFViewer - get any PDFViewer
-                                                                              */
-                                                                             /**
-            Get any PDFViewer.
-
-@return     any PDFViewer
-
-@history    Sun Mar 31, 2019 10:30:00 (Giavaneers - LBM) created
-
-@notes
-
-                                                                              */
-//------------------------------------------------------------------------------
-protected PDFViewer getPDFViewer()
-{
-   return((PDFViewer)Component.forId(PDFViewer.kCOMPONENT_ID_PDF_VIEWER));
-}
 /*------------------------------------------------------------------------------
 
 @name       openHandler - open handler
@@ -123,7 +110,7 @@ public Consumer<Map<String,Object>> openHandler = (Map<String,Object> args) ->
    else if (id.startsWith("bookmark:"))
    {
                                        // ex: bookmark:{157,0,'XYZ',72,720,0} //
-      getPDFViewer().navigateTo(id);
+      pdfFViewerNavigateToBookmark(id);
    }
    else if (Utilities.isURL(id))
    {
@@ -131,6 +118,32 @@ public Consumer<Map<String,Object>> openHandler = (Map<String,Object> args) ->
       DomGlobal.window.open(id, "_blank");
    }
 };
+/*------------------------------------------------------------------------------
+
+@name       pdfFViewerNavigateToBookmark - pdfViewer navigate to bookmark
+                                                                              */
+                                                                             /**
+            PDFViewer navigate to specified bookmark
+
+@param      bookmark    target bookmark, ex: "bookmark:{157,0,'XYZ',72,720,0}"
+
+@history    Sun Mar 31, 2019 10:30:00 (Giavaneers - LBM) created
+
+@notes
+
+                                                                              */
+//------------------------------------------------------------------------------
+protected void pdfFViewerNavigateToBookmark(
+   String bookmark)
+{
+   Component.forId(PDFViewer.kCOMPONENT_ID_PDF_VIEWER).subscribe(
+      this,
+      (Component pdfViewer) ->
+      {
+         ((PDFViewer)pdfViewer).navigateTo(bookmark);
+      },
+      error -> {});
+}
 /*------------------------------------------------------------------------------
 
 @name       render - render component
@@ -168,7 +181,7 @@ public final void render()
    <div>
       <button onClick={clickHandlerRender}>Re-Render</button>
       <button onClick={clickHandler}>Open Sidebar</button>
-      <Drawer id="drawer" openhandler={openHandler} />
+      <Drawer openhandler={openHandler} />
       <PDFViewer pdfoptions={pdfOptions} />
    </div>
 --*/

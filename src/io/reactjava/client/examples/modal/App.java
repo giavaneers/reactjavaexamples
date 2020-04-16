@@ -48,7 +48,13 @@ public class App extends AppComponentTemplate
 //------------------------------------------------------------------------------
 public INativeEventHandler clickHandler = (Event e) ->
 {
-   Component.forId("modal").setState("show", true);
+   Component.forClass(Modal.class).subscribe(
+      this,
+      (Component component) ->
+      {
+         component.setState("show", true);
+      },
+      error ->{});
 };
 /*------------------------------------------------------------------------------
 
@@ -73,7 +79,6 @@ public final void render()
       </h1>
       <button onClick={clickHandler}>Open</button>
       <Modal
-         id="modal"
          msg="This is the modal content. Consider using @material-ui.core.Modal"
        />
    </div>
