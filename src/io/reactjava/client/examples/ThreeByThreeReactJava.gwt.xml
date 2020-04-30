@@ -5,10 +5,10 @@
    <inherits name='ReactJava'/>
 
 	<!-- transcode the application sources                    -->
-	<source path="threebythree/step05" />
+	<source path="threebythree/step10" />
 
 	<!-- Specify the app entry point class.                   -->
-	<entry-point class='io.reactjava.client.examples.threebythree.step05.materialui.App'/>
+	<entry-point class='io.reactjava.client.examples.threebythree.step10.httpclient.App'/>
 
 	<!-- Combine all platform-specific versions               -->
 	<collapse-all-properties />

@@ -2,9 +2,9 @@
 
 name:       App.java
 
-purpose:    Three By Three App version httpclient.
+purpose:    HttpClient GET and POST.
 
-history:    Sat Oct 27, 2018 10:30:00 (Giavaneers - LBM) created
+history:    Thu Apr 30, 2020 10:30:00 (Giavaneers - LBM) created
 
 notes:
                         COPYRIGHT (c) BY GIAVANEERS, INC.
@@ -13,9 +13,10 @@ notes:
 
 ==============================================================================*/
                                        // package --------------------------- //
-package io.reactjava.client.examples.threebythree.step10.httpclient;
+package io.reactjava.client.examples.httpclient;
 
                                        // imports --------------------------- //
+import com.giavaneers.util.gwt.Logger;
 import elemental2.dom.DomGlobal;
 import elemental2.dom.Element;
 import elemental2.dom.Event;
@@ -30,7 +31,15 @@ import io.reactjava.client.core.react.IUITheme.Breakpoints;
 public class App extends AppComponentTemplate
 {
                                        // class constants ------------------- //
-                                       // (none)                              //
+protected static final boolean kSRC_CFG_DEVELOPMENT = false;
+                                       // logger                              //
+public static final Logger     kLOGGER = Logger.newInstance();
+
+protected static final String  kREQUEST_URL =
+   kSRC_CFG_DEVELOPMENT
+      ? "http://localhost:8080/examples/threebythree/getColor"
+      : "http://reactjavabackend.appspot.com/examples/threebythree/getColor";
+
                                        // class variables ------------------- //
 protected static Units units;          // theme based units                   //
                                        // public instance variables --------- //
@@ -55,22 +64,23 @@ protected static Units units;          // theme based units                   //
 //------------------------------------------------------------------------------
 public INativeEventHandler buttonClickHandler = (Event e) ->
 {
-   final Element element = (Element)e.target;
-
-                                       // request a color from the backend    //
-   HttpClient.get(
-      //"http://localhost:8080/examples/threebythree/getColor")
-      "http://reactjavabackend.appspot.com/examples/threebythree/getColor")
-      .subscribe(
+                                       // assign the next color from  backend //
+   try
+   {
+      HttpClient.post(kREQUEST_URL + "?color=yellow", null).subscribe(
          (HttpResponse rsp) ->
          {
-                                       // change the clicked element to green //
-            element.setAttribute("style", "background-color:" + rsp.getText());
+            kLOGGER.logInfo("buttonClickHandler(): success");
          },
          (Throwable error) ->
          {
-            DomGlobal.window.console.log(error.getMessage());
+            kLOGGER.logError(error);
          });
+   }
+   catch(Exception error)
+   {
+      kLOGGER.logError(error);
+   }
 };
 /*------------------------------------------------------------------------------
 
@@ -80,7 +90,7 @@ public INativeEventHandler buttonClickHandler = (Event e) ->
             Cell onClick event handler as an instance variable, accessible in
             markup.
 
-@history    Sat Oct 27, 2018 10:30:00 (Giavaneers - LBM) created
+@history    Thu Apr 30, 2020 10:30:00 (Giavaneers - LBM) created
 
 @notes
 
@@ -91,19 +101,16 @@ public INativeEventHandler squareClickHandler = (Event e) ->
    final Element element = (Element)e.target;
 
                                        // request a color from the backend    //
-   HttpClient.get(
-      "http://localhost:8080/examples/threebythree/getColor")
-      //"http://reactjavabackend.appspot.com/examples/threebythree/getColor")
-      .subscribe(
-         (HttpResponse rsp) ->
-         {
+   HttpClient.get(kREQUEST_URL).subscribe(
+      (HttpResponse rsp) ->
+      {
                                        // change the clicked element to green //
-            element.setAttribute("style", "background-color:" + rsp.getText());
-         },
-         (Throwable error) ->
-         {
-            DomGlobal.window.console.log(error.getMessage());
-         });
+         element.setAttribute("style", "background-color:" + rsp.getText());
+      },
+      (Throwable error) ->
+      {
+         kLOGGER.logError(error);
+      });
 };
 /*------------------------------------------------------------------------------
 
@@ -113,7 +120,7 @@ public INativeEventHandler squareClickHandler = (Event e) ->
             Get theme based units, required to be created only once per class
             load.
 
-@history    Sat Oct 27, 2018 10:30:00 (Giavaneers - LBM) created
+@history    Thu Apr 30, 2020 10:30:00 (Giavaneers - LBM) created
 
 @notes
 
@@ -126,7 +133,7 @@ public Units getUnits()
       units = new Units();
    }
    return(units);
-};
+}
 /*------------------------------------------------------------------------------
 
 @name       render - render component
@@ -134,7 +141,7 @@ public Units getUnits()
                                                                              /**
             Render component.
 
-@history    Sat Oct 27, 2018 10:30:00 (Giavaneers - LBM) created
+@history    Thu Apr 30, 2020 10:30:00 (Giavaneers - LBM) created
 
 @notes
 
@@ -150,23 +157,32 @@ public final void render()
 /*--
       <@material-ui.core.Grid container spacing={8} class='contentWidth'>
 --*/
-         for (int iCol = 0; iCol < 3; iCol++)
-         {
+      for (int iCol = 0; iCol < 3; iCol++)
+      {
 /*--
          <@material-ui.core.Grid item xs={4}>
             <div class='square' onClick={squareClickHandler}></div>
          </@material-ui.core.Grid>
 --*/
-         }
+      }
 /*--
       </@material-ui.core.Grid>
 --*/
    }
                                        // add a button at the bottom          //
 /*--
+      <@material-ui.core.Grid container class='contentWidth'>
+         <@material-ui.core.Button
+            class='button'
+            variant='contained'
+            fullWidth={true}
+            onClick={buttonClickHandler} >
+            Next Color Yellow
+         </@material-ui.core.Button>
+      </@material-ui.core.Grid>
    </@material-ui.core.Grid>
 --*/
-};
+}
 /*------------------------------------------------------------------------------
 
 @name       renderCSS - get component css
@@ -174,7 +190,7 @@ public final void render()
                                                                              /**
             Get component css.
 
-@history    Sat Oct 27, 2018 10:30:00 (Giavaneers - LBM) created
+@history    Thu Apr 30, 2020 10:30:00 (Giavaneers - LBM) created
 
 @notes
 
@@ -184,6 +200,12 @@ public void renderCSS()
 {
    Units units = getUnits();
 /*--
+   .button
+   {
+      margin-top:  20px;
+      background:  green;
+      color:       white;
+   }
    .square
    {
       background:  blue;
