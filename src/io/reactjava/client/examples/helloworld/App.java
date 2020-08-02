@@ -31,6 +31,7 @@ public class App extends AppComponentTemplate
                                        // (none)                              //
                                        // private instance variables -------- //
                                        // (none)                              //
+
 /*------------------------------------------------------------------------------
 
 @name       render - render component

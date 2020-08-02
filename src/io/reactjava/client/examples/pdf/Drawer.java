@@ -23,7 +23,6 @@ import io.reactjava.client.components.pdfviewer.PDFViewer;
 import io.reactjava.client.core.react.Component;
 import io.reactjava.client.core.react.INativeEventHandler;
 import io.reactjava.client.core.react.INativeFunction;
-import io.reactjava.client.core.react.INativeFunction1Arg;
 import io.reactjava.client.core.react.NativeObject;
 import java.util.ArrayList;
 import java.util.HashMap;

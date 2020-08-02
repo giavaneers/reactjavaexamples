@@ -59,8 +59,10 @@
           <module name="io.react4java.JSXParser" enabled="false" />
           <module name="io.reactjava.client.GeneralPageReactJava" enabled="false" />
           <module name="io.reactjava.client.PDFReactJava" enabled="false" />
+          <module name="io.reactjava.client.examples.AppBaseReactJava" enabled="false" />
           <module name="io.reactjava.client.examples.BitcoinReactJava" enabled="false" />
           <module name="io.reactjava.client.examples.ChatReactJava" enabled="false" />
+          <module name="io.reactjava.client.examples.CloudStorageReactJava" enabled="false" />
           <module name="io.reactjava.client.examples.CssAnimationReactJava" enabled="false" />
           <module name="io.reactjava.client.examples.DatabaseReactJava" enabled="false" />
           <module name="io.reactjava.client.examples.DisplayCodeReactJava" enabled="false" />
@@ -69,6 +71,7 @@
           <module name="io.reactjava.client.examples.HelloWorldReactJava" enabled="false" />
           <module name="io.reactjava.client.examples.HelloWorldReactJavaScratch" path="/HelloWorldReactScratchJava" />
           <module name="io.reactjava.client.examples.HelloWorldSansJSXReactJava" enabled="false" />
+          <module name="io.reactjava.client.examples.HttpClientReactJava" enabled="false" />
           <module name="io.reactjava.client.examples.KeyboardReactJava" enabled="false" />
           <module name="io.reactjava.client.examples.LoginReactJava" enabled="false" />
           <module name="io.reactjava.client.examples.ModalReactJava" enabled="false" />
@@ -77,6 +80,7 @@
           <module name="io.reactjava.client.examples.RoutingReactJava" enabled="false" />
           <module name="io.reactjava.client.examples.SEOReactJava" enabled="false" />
           <module name="io.reactjava.client.examples.SimpleReactJava" enabled="false" />
+          <module name="io.reactjava.client.examples.SpeckReactJava" path="/SpeckReactJava" />
           <module name="io.reactjava.client.examples.TextFieldReactJava" enabled="false" />
           <module name="io.reactjava.client.examples.ThreeByThreeReactJava" enabled="false" />
           <module name="io.reactjava.client.examples.TicTacToeReactJava" enabled="false" />

@@ -59,8 +59,8 @@ public INativeEventHandler buttonClickHandler = (Event e) ->
 
                                        // request a color from the backend    //
    HttpClient.get(
-      //"http://localhost:8080/examples/threebythree/getColor")
-      "http://reactjavabackend.appspot.com/examples/threebythree/getColor")
+      "http://localhost:8080/examples/threebythree/getColor")
+      //"http://reactjavabackend.appspot.com/examples/threebythree/getColor")
       .subscribe(
          (HttpResponse rsp) ->
          {

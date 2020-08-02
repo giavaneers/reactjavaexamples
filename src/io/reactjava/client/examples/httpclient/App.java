@@ -17,7 +17,6 @@ package io.reactjava.client.examples.httpclient;
 
                                        // imports --------------------------- //
 import com.giavaneers.util.gwt.Logger;
-import elemental2.dom.DomGlobal;
 import elemental2.dom.Element;
 import elemental2.dom.Event;
 import io.reactjava.client.providers.http.HttpClient;
