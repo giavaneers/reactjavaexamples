@@ -1,14 +1,14 @@
 <!DOCTYPE module PUBLIC "-//Google Inc.//DTD Google Web Toolkit 2.8.2//EN" "http://gwtproject.org/doctype/2.8.0/gwt-module.dtd">
-<module rename-to="AppBaseReactJava">
+<module rename-to="GeneralPageReactJava">
 
-	<!-- Inherit the ReactJava module                          -->
-   <inherits name='ReactJava'/>
+	<!-- Inherit the ReactJavaComponents module                -->
+   <inherits name='ReactJavaComponents'/>
 
 	<!-- transcode the application sources                     -->
-	<source path="appbase" />
+	<source path="generalpage" />
 
 	<!-- Specify the app entry point classes                   -->
-	<entry-point class='io.reactjava.client.examples.appbase.App'/>
+	<entry-point class='io.reactjava.client.examples.generalpage.App'/>
 
 	<!-- Combine all platform-specific versions                -->
 	<collapse-all-properties />

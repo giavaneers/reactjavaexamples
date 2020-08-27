@@ -76,11 +76,12 @@
           <module name="io.reactjava.client.examples.LoginReactJava" enabled="false" />
           <module name="io.reactjava.client.examples.ModalReactJava" enabled="false" />
           <module name="io.reactjava.client.examples.MovingBlockReactJava" enabled="false" />
+          <module name="io.reactjava.client.examples.PDFReactJava" enabled="false" />
           <module name="io.reactjava.client.examples.ReactJavaExamples" path="/ReactJavaExamples" />
           <module name="io.reactjava.client.examples.RoutingReactJava" enabled="false" />
           <module name="io.reactjava.client.examples.SEOReactJava" enabled="false" />
           <module name="io.reactjava.client.examples.SimpleReactJava" enabled="false" />
-          <module name="io.reactjava.client.examples.SpeckReactJava" path="/SpeckReactJava" />
+          <module name="io.reactjava.client.examples.SpeckReactJava" enabled="false" />
           <module name="io.reactjava.client.examples.TextFieldReactJava" enabled="false" />
           <module name="io.reactjava.client.examples.ThreeByThreeReactJava" enabled="false" />
           <module name="io.reactjava.client.examples.TicTacToeReactJava" enabled="false" />
@@ -117,7 +118,7 @@
     </content>
     <orderEntry type="jdk" jdkName="1.8" jdkType="JavaSDK" />
     <orderEntry type="sourceFolder" forTests="false" />
-    <orderEntry type="library" name="lib" level="project" />
     <orderEntry type="library" name="gwt-user" level="project" />
+    <orderEntry type="library" name="lib" level="project" />
   </component>
 </module>

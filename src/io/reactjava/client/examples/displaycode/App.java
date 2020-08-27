@@ -16,8 +16,8 @@ notes:
                                        // package --------------------------- //
 package io.reactjava.client.examples.displaycode;
                                        // imports --------------------------- //
-import io.reactjava.client.components.generalpage.Prism;
 import io.reactjava.client.core.react.AppComponentTemplate;
+import io.reactjava.client.components.generalpage.Prism;
 import java.util.Arrays;
 import java.util.List;
                                        // App ================================//
