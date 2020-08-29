@@ -18,7 +18,9 @@ package io.reactjava.client.examples.tensorflowvisor;
                                        // imports --------------------------- //
 import com.giavaneers.util.gwt.Logger;
 import elemental2.dom.DomGlobal;
+import elemental2.dom.Event;
 import io.reactjava.client.core.react.INativeEffectHandler;
+import io.reactjava.client.core.react.INativeEventHandler;
 import io.reactjava.tensorflow.TensorflowAppTemplate;
 import io.reactjava.tensorflow.components.visor.Visor;
 
@@ -27,6 +29,9 @@ public class App extends TensorflowAppTemplate
 {
                                        // class constants --------------------//
 protected static final Logger kLOGGER = Logger.newInstance();
+
+protected static final String kELEMENT_ID_TRAIN_BTN = "trainBtnId";
+
                                        // class variables ------------------- //
                                        // (none)                              //
                                        // public instance variables --------- //
@@ -128,10 +133,39 @@ public final void render()
          </div>
       </@material-ui.core.Grid>
       <@material-ui.core.Grid item xs={6}>
-         <Visor />
+         <Visor trainButtonId={kELEMENT_ID_TRAIN_BTN} />
       </@material-ui.core.Grid>
+--*/
+                                       // the train button is passed to the   //
+                                       // Visor, which removes it from this   //
+                                       // hierarchy and adds it to the Visor  //
+                                       // control panel                       //
+/*--
+      <@material-ui.core.Button
+         id     = {kELEMENT_ID_TRAIN_BTN}
+         variant='contained'
+         onClick={trainStartHandler} >
+         Train
+      </@material-ui.core.Button>
    </@material-ui.core.Grid>
 --*/
+};
+/*------------------------------------------------------------------------------
+
+@name       trainStartHandler - train start event handler
+                                                                              */
+                                                                             /**
+            Train start event handler as a public instance variable.
+
+@history    Thu Dec 12, 2019 10:30:00 (Giavaneers - LBM) created
+
+@notes
+
+                                                                              */
+//------------------------------------------------------------------------------
+public INativeEventHandler trainStartHandler = (Event e) ->
+{
+   e = e;
 };
 /*------------------------------------------------------------------------------
 
