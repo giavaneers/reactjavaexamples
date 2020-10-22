@@ -17,6 +17,7 @@ notes:
 package io.reactjava.client.examples.routing;
                                        // imports --------------------------- //
 import io.reactjava.client.core.react.AppComponentTemplate;
+import io.reactjava.client.core.react.StringLiteralList;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;

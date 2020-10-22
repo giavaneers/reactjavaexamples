@@ -148,7 +148,7 @@ public final void render()
    for (int iRow = 0; iRow < 3; iRow++)
    {
 /*--
-      <@material-ui.core.Grid container spacing={8} class='contentWidth'>
+      <@material-ui.core.Grid container spacing={1} class='contentWidth'>
 --*/
          for (int iCol = 0; iCol < 3; iCol++)
          {

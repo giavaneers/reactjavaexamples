@@ -143,7 +143,7 @@ public final void render()
             </@material-ui.core.Typography>
          </div>
                                        <!-- Cards ----------------------------->
-         <@material-ui.core.Grid container spacing={40} alignItems="flex-end">
+         <@material-ui.core.Grid container spacing={5} alignItems="flex-end">
 --*/
          for (TierDsc tier : kTIERS)
          {
@@ -202,7 +202,7 @@ public final void render()
                                        <!-- Footer ---------------------------->
       <footer class="footer layout">
          <@material-ui.core.Grid
-            container spacing={32} justify="space-evenly">
+            container spacing={4} justify="space-evenly">
 --*/
          for (FooterDsc footer : kFOOTERS)
          {

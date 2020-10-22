@@ -2,11 +2,11 @@
 
 name:       App.java
 
-purpose:    Three By Three App.
+purpose:    Demonstrates directly binding native React components
 
-history:    Sat Oct 27, 2018 10:30:00 (Giavaneers - LBM) created
+history:    Sat Aug 29, 2020 10:30:00 (Giavaneers - LBM) created
 
-notes:
+notes:      see "https://github.com/tomkp/react-split-pane"
 
                         COPYRIGHT (c) BY GIAVANEERS, INC.
          This source code is licensed under the MIT license found in the
@@ -14,10 +14,11 @@ notes:
 
 ==============================================================================*/
                                        // package --------------------------- //
-package io.reactjava.client.examples.displaycode;
+package io.reactjava.client.examples.splitpanel;
                                        // imports --------------------------- //
 import io.reactjava.client.core.react.AppComponentTemplate;
-import io.reactjava.client.components.generalpage.Prism;
+import io.reactjava.client.components.splitpanel.SplitPanel;
+
                                        // App ================================//
 public class App extends AppComponentTemplate
 {
@@ -31,6 +32,7 @@ public class App extends AppComponentTemplate
                                        // (none)                              //
                                        // private instance variables -------- //
                                        // (none)                              //
+
 /*------------------------------------------------------------------------------
 
 @name       render - render component
@@ -38,7 +40,9 @@ public class App extends AppComponentTemplate
                                                                              /**
             Render component.
 
-@history    Sat Oct 27, 2018 10:30:00 (Giavaneers - LBM) created
+@return     void
+
+@history    Sat Aug 29, 2020 10:30:00 (Giavaneers - LBM) created
 
 @notes
                                                                               */
@@ -46,7 +50,19 @@ public class App extends AppComponentTemplate
 public final void render()
 {
 /*--
-   <Prism background='#6dcff6'>{text://text/displayCode}</Prism>
+   <SplitPanel split="horizontal" minSize={50} defaultSize={"80%"}>
+      <div class='panel top' >
+         <@material-ui.core.Grid container>
+            <@material-ui.core.Grid item xs={6}>
+               <div class='leftPanel' />
+            </@material-ui.core.Grid>
+            <@material-ui.core.Grid item xs={6}>
+               <div class='rightPanel' />
+            </@material-ui.core.Grid>
+         </@material-ui.core.Grid>
+      </div>
+      <div class='panel bottom' />
+   </SplitPanel>
 --*/
 };
 /*------------------------------------------------------------------------------
@@ -56,7 +72,20 @@ public final void render()
                                                                              /**
             Get component css.
 
-@history    Sat Oct 27, 2018 10:30:00 (Giavaneers - LBM) created
+            When assigned to be 'horizontal', the top pane is a 'div' with
+
+               class="Pane horizontal Pane1"
+
+            and the bottom pane is a 'div with
+
+               class="Pane horizontal Pane2"
+
+            Resizer styling gives a single pixel wide divider, but with a
+            'grabbable' surface of 11 pixels thanks to
+            background-clip: padding-box; for making transparent borders
+            possible (tomkp)
+
+@history    Sat Aug 29, 2020 10:30:00 (Giavaneers - LBM) created
 
 @notes
 
@@ -65,22 +94,30 @@ public final void render()
 public void renderCSS()
 {
 /*--
-   .top
-   {
-      height:           300px;
-      width:            300px;
-      background-color: green;
-   }
-   .bottom
-   {
-      height:           300px;
-      width:            300px;
-      background-color: red;
-   }
-   .token.comment
-   {
-      color: #6dcff6;
-   }
+.panel
+{
+   width:  100%;
+   height: 100%;
+}
+.top
+{
+   background-color:lightskyblue
+}
+.bottom
+{
+   background-color:lightgreen
+}
+.leftPanel
+{
+   width:  100%;
+   height: 100%;
+}
+.rightPanel
+{
+   width:  100%;
+   height: 600px;
+   background-color:blue
+}
 --*/
 }
 }//====================================// end App ============================//

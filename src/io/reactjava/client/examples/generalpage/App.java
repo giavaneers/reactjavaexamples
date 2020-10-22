@@ -64,24 +64,7 @@ public static final PageDsc kPAGE_DSC =
                                        // (none)                              //
                                        // private instance variables -------- //
                                        // (none)                              //
-/*------------------------------------------------------------------------------
 
-@name       getImportedNodeModules - get imported node modules
-                                                                              */
-                                                                             /**
-            Get imported node modules.
-
-@return     list of node module names.
-
-@history    Thu Feb 14, 2019 10:30:00 (Giavaneers - LBM) created
-
-@notes
-                                                                              */
-//------------------------------------------------------------------------------
-protected List<String> getImportedNodeModules()
-{
-   return(new ArrayList(GeneralPage.getImportedNodeModules()));
-}
 /*------------------------------------------------------------------------------
 
 @name       getPageDsc - get page descriptor

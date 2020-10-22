@@ -29,11 +29,9 @@ import io.reactjava.client.core.react.AppComponentTemplate;
 import io.reactjava.client.core.react.Component;
 import io.reactjava.client.core.react.ReactJava;
 import io.reactjava.client.core.react.SEOInfo;
-import io.reactjava.client.core.react.SEOInfo.SEOPageInfo;
+import io.reactjava.client.core.react.StringLiteralList;
 import io.reactjava.client.providers.http.HttpClient;
 import io.reactjava.client.providers.http.HttpResponse;
-import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;
@@ -122,23 +120,13 @@ protected Map<String,Class> getNavRoutes()
 @Override
 protected SEOInfo getSEOInfo()
 {
-   SEOInfo seoInfo =
-      new SEOInfo(
-         kSEO_DEPLOY_PATH,
-         kPATH_A,
-         new ArrayList<>(
-            Arrays.asList(
-               new SEOPageInfo(
-                  kPATH_A,
-                  kTITLE_LANDING,
-                  kDESCRIPTION_LANDING),
-               new SEOPageInfo(
-                  kPATH_B,
-                  kTITLE_USER_GUIDE,
-                  kDESCRIPTION_USER_GUIDE)
-            )));
-
-   return(seoInfo);
+   return(SEOInfo.newInstance(
+      StringLiteralList.newInstance(
+         kSEO_DEPLOY_PATH, kPATH_A),
+      StringLiteralList.newInstance(
+         kPATH_A, kTITLE_LANDING, kDESCRIPTION_LANDING),
+      StringLiteralList.newInstance(
+         kPATH_B, kTITLE_USER_GUIDE, kDESCRIPTION_USER_GUIDE)));
 }
 /*==============================================================================
 

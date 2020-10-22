@@ -83,7 +83,7 @@ public final void render()
          <div class="heroUnit">
             <@material-ui.core.Grid container
                justify="center"
-               spacing={16}
+               spacing={2}
                class="heroUnitCaption">
                <@material-ui.core.Grid key=0 item>
                   <@material-ui.core.Typography

@@ -22,6 +22,7 @@ import elemental2.dom.Event;
 import io.reactjava.client.core.react.INativeEffectHandler;
 import io.reactjava.client.core.react.INativeEventHandler;
 import io.reactjava.tensorflow.TensorflowAppTemplate;
+import io.reactjava.tensorflow.Workflow.State;
 import io.reactjava.tensorflow.components.visor.Visor;
 
                                        // App ================================//
@@ -53,7 +54,7 @@ protected static final String kELEMENT_ID_TRAIN_BTN = "trainBtnId";
             is provided.
 
             On componentDidMount, indirectly instantiates the Visor, which must
-            done after the DOM is rendered.
+            be done after the DOM is rendered.
 
 @history    Thu Jun 25, 2020 10:30:00 (Giavaneers - LBM) created
 
@@ -143,8 +144,10 @@ public final void render()
 /*--
       <@material-ui.core.Button
          id     = {kELEMENT_ID_TRAIN_BTN}
-         variant='contained'
-         onClick={trainStartHandler} >
+         variant  ='contained'
+         disabled ={getStateInt("count") != 0}
+         onClick  ={trainStartHandler}
+      >
          Train
       </@material-ui.core.Button>
    </@material-ui.core.Grid>
@@ -169,10 +172,12 @@ public INativeEventHandler trainStartHandler = (Event e) ->
 };
 /*------------------------------------------------------------------------------
 
-@name       workflow - tensorflow workflow
+@name       workflowStateChanged - tensorflow workflow state changed indicator
                                                                               */
                                                                              /**
-            Tensorflow workflow.
+            Tensorflow workflow state changed indicator.
+
+@param      state    new state value
 
 @history    Mon May 21, 2018 10:30:00 (Giavaneers - LBM) created
 
@@ -180,7 +185,7 @@ public INativeEventHandler trainStartHandler = (Event e) ->
 
                                                                               */
 //------------------------------------------------------------------------------
-protected void workflow(
+protected void workflowStateChanged(
    State state)
 {
 }

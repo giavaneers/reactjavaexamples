@@ -22,6 +22,7 @@ notes:
 package io.reactjava.client.examples.login;
                                        // imports --------------------------- //
 import io.reactjava.client.core.react.ReactJava;
+import io.reactjava.client.core.react.StringLiteralList;
 import io.reactjava.client.providers.auth.IAuthenticationService;
 import io.reactjava.client.core.react.AppComponentTemplate;
 import io.reactjava.client.core.react.Configuration.CloudServices;

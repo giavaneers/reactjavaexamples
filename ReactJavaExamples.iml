@@ -61,7 +61,6 @@
           <module name="io.reactjava.client.PDFReactJava" enabled="false" />
           <module name="io.reactjava.client.examples.AppBaseReactJava" enabled="false" />
           <module name="io.reactjava.client.examples.BitcoinReactJava" enabled="false" />
-          <module name="io.reactjava.client.examples.ChatReactJava" enabled="false" />
           <module name="io.reactjava.client.examples.CloudStorageReactJava" enabled="false" />
           <module name="io.reactjava.client.examples.CssAnimationReactJava" enabled="false" />
           <module name="io.reactjava.client.examples.DatabaseReactJava" enabled="false" />
@@ -80,8 +79,12 @@
           <module name="io.reactjava.client.examples.ReactJavaExamples" path="/ReactJavaExamples" />
           <module name="io.reactjava.client.examples.RoutingReactJava" enabled="false" />
           <module name="io.reactjava.client.examples.SEOReactJava" enabled="false" />
+          <module name="io.reactjava.client.examples.ScratchReactJava" enabled="false" />
           <module name="io.reactjava.client.examples.SimpleReactJava" enabled="false" />
           <module name="io.reactjava.client.examples.SpeckReactJava" enabled="false" />
+          <module name="io.reactjava.client.examples.SplitPaneReactJava" enabled="false" />
+          <module name="io.reactjava.client.examples.SplitPanelReactJava" enabled="false" />
+          <module name="io.reactjava.client.examples.TensorflowVisorReactJava" enabled="false" />
           <module name="io.reactjava.client.examples.TextFieldReactJava" enabled="false" />
           <module name="io.reactjava.client.examples.ThreeByThreeReactJava" enabled="false" />
           <module name="io.reactjava.client.examples.TicTacToeReactJava" enabled="false" />
@@ -89,6 +92,7 @@
           <module name="io.reactjava.client.examples.UseEffectfReactJava" enabled="false" />
           <module name="io.reactjava.client.examples.UseRefReactJava" enabled="false" />
           <module name="io.reactjava.client.examples.WebSocketsReactJava" enabled="false" />
+          <module name="io.reactjava.client.examples.WrapNativeReactComponentsReactJava" enabled="false" />
           <module name="io.reactjava.client.examples.googleanalytics.GoogleAnalyticsPostEventReactJava" path="/GoogleAnalyticsPostEventReactJava" enabled="false" />
           <module name="io.reactjava.client.examples.googleanalytics.GoogleAnalyticsReportDataReactJava" enabled="false" />
           <module name="io.reactjava.client.examples.googleanalytics.GoogleAnalyticsSimpleReactJava" enabled="false" />
@@ -98,7 +102,7 @@
           <module name="io.reactjava.client.examples.materialui.MaterialUIThemeReactJava" enabled="false" />
           <module name="io.reactjava.client.examples.statevariable.StateVariableSimpleHandlerByReferenceReactJava" enabled="false" />
           <module name="io.reactjava.client.examples.statevariable.StateVariableSimpleReactJava" enabled="false" />
-          <module name="io.reactjava.client.examples.statevariable.StateVariableTwoSquaresOneFileReactJava" path="/StateVariableTwoSquaresOneFileReactJava" enabled="false" />
+          <module name="io.reactjava.client.examples.statevariable.StateVariableTwoSquaresOneFileReactJava" enabled="false" />
           <module name="io.reactjava.client.examples.statevariable.StateVariableTwoSquaresReactJava" enabled="false" />
         </packaging>
       </configuration>
@@ -116,9 +120,9 @@
     <content url="file://$MODULE_DIR$">
       <sourceFolder url="file://$MODULE_DIR$/src" isTestSource="false" />
     </content>
-    <orderEntry type="jdk" jdkName="1.8" jdkType="JavaSDK" />
+    <orderEntry type="library" exported="" name="lib" level="project" />
     <orderEntry type="sourceFolder" forTests="false" />
+    <orderEntry type="jdk" jdkName="1.8" jdkType="JavaSDK" />
     <orderEntry type="library" name="gwt-user" level="project" />
-    <orderEntry type="library" name="lib" level="project" />
   </component>
 </module>
