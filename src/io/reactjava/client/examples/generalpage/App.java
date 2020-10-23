@@ -26,8 +26,7 @@ import io.reactjava.client.components.generalpage.Descriptors.FooterDsc.FooterCr
 import io.reactjava.client.components.generalpage.Descriptors.PageDsc;
 import io.reactjava.client.components.generalpage.GeneralPage;
 import io.reactjava.client.core.react.AppComponentTemplate;
-import java.util.ArrayList;
-import java.util.List;
+
                                        // App ================================//
 public class App extends AppComponentTemplate
 {

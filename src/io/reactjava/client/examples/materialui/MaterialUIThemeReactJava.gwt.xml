@@ -2,7 +2,7 @@
 <module rename-to="MaterialUIThemeReactJava">
 
    <!-- Inherit the ReactJava module                         -->
-   <inherits name='ReactJava'/>
+   <inherits name='ReactJavaComponents'/>
 
    <!-- transcode the application sources                    -->
    <source path="theme" />

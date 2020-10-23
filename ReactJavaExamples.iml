@@ -61,6 +61,7 @@
           <module name="io.reactjava.client.PDFReactJava" enabled="false" />
           <module name="io.reactjava.client.examples.AppBaseReactJava" enabled="false" />
           <module name="io.reactjava.client.examples.BitcoinReactJava" enabled="false" />
+          <module name="io.reactjava.client.examples.ChatReactJava" enabled="false" />
           <module name="io.reactjava.client.examples.CloudStorageReactJava" enabled="false" />
           <module name="io.reactjava.client.examples.CssAnimationReactJava" enabled="false" />
           <module name="io.reactjava.client.examples.DatabaseReactJava" enabled="false" />
@@ -99,7 +100,6 @@
           <module name="io.reactjava.client.examples.googleanalytics.GoogleAnalyticsTrackingReactJava" enabled="false" />
           <module name="io.reactjava.client.examples.materialui.MaterialUIGeneralPageReactJava" enabled="false" />
           <module name="io.reactjava.client.examples.materialui.MaterialUIPricingReactJava" enabled="false" />
-          <module name="io.reactjava.client.examples.materialui.MaterialUIThemeReactJava" enabled="false" />
           <module name="io.reactjava.client.examples.statevariable.StateVariableSimpleHandlerByReferenceReactJava" enabled="false" />
           <module name="io.reactjava.client.examples.statevariable.StateVariableSimpleReactJava" enabled="false" />
           <module name="io.reactjava.client.examples.statevariable.StateVariableTwoSquaresOneFileReactJava" enabled="false" />
