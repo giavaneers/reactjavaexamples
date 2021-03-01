@@ -19,7 +19,7 @@
     "keyboardjs": "^2.6.4",
     "lz-string": "^1.4.4",
     "pdfjs-dist": "^2.5.207",
-    "prismjs": "^1.22.0",
+    "prismjs": "^1.23.0",
     "react": "^16.14.0",
     "react-dom": "^16.14.0",
     "react-ga": "^2.7.0",
