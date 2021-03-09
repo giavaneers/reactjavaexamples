@@ -9,7 +9,7 @@
     "brfs": "^2.0.2",
     "browserify": "^16.5.2",
     "common-shakeify": "^0.6.2",
-    "elliptic": "^6.5.3",
+    "elliptic": "^6.5.4",
     "envify": "^4.1.0",
     "firebase-tools": "^8.12.1",
     "googleapis": "^46.0.0",
