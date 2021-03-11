@@ -73,7 +73,6 @@
           <module name="io.reactjava.client.examples.HelloWorldSansJSXReactJava" enabled="false" />
           <module name="io.reactjava.client.examples.HttpClientReactJava" enabled="false" />
           <module name="io.reactjava.client.examples.KeyboardReactJava" enabled="false" />
-          <module name="io.reactjava.client.examples.LoginReactJava" enabled="false" />
           <module name="io.reactjava.client.examples.ModalReactJava" enabled="false" />
           <module name="io.reactjava.client.examples.MovingBlockReactJava" enabled="false" />
           <module name="io.reactjava.client.examples.PDFReactJava" enabled="false" />
@@ -100,6 +99,7 @@
           <module name="io.reactjava.client.examples.googleanalytics.GoogleAnalyticsTrackingReactJava" enabled="false" />
           <module name="io.reactjava.client.examples.materialui.MaterialUIGeneralPageReactJava" enabled="false" />
           <module name="io.reactjava.client.examples.materialui.MaterialUIPricingReactJava" enabled="false" />
+          <module name="io.reactjava.client.examples.materialui.MaterialUIThemeReactJava" enabled="false" />
           <module name="io.reactjava.client.examples.statevariable.StateVariableSimpleHandlerByReferenceReactJava" enabled="false" />
           <module name="io.reactjava.client.examples.statevariable.StateVariableSimpleReactJava" enabled="false" />
           <module name="io.reactjava.client.examples.statevariable.StateVariableTwoSquaresOneFileReactJava" enabled="false" />

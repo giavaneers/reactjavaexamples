@@ -66,7 +66,7 @@ public INativeEventHandler buttonClickHandler = (Event e) ->
                                        // assign the next color from  backend //
    try
    {
-      HttpClient.post(kREQUEST_URL + "?color=yellow", null).subscribe(
+      HttpClient.post(kREQUEST_URL + "?color=yellow", (byte[])null).subscribe(
          (HttpResponse rsp) ->
          {
             kLOGGER.logInfo("buttonClickHandler(): success");

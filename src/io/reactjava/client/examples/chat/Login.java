@@ -331,7 +331,8 @@ public final void render()
                margin="normal"
                error={getStateString(kSTATE_ERROR).length() > 0}
                fullWidth
-               InputProps={App.kATTRIB_READ_ONLY}/>
+               InputProps={App.kATTRIB_READ_ONLY}
+            </@material-ui.core.TextField>
             <@material-ui.core.TextField
                id={kELEMENT_ID_DISPLAY_NAME}
                label="Display Name"
@@ -339,7 +340,8 @@ public final void render()
                margin="normal"
                variant="outlined"
                fullWidth
-               onChange={onChangeHandler} />
+               onChange={onChangeHandler}
+            </@material-ui.core.TextField>
             <@material-ui.core.TextField
                id={kELEMENT_ID_EMAIL}
                label="EMail"
@@ -348,7 +350,8 @@ public final void render()
                variant="outlined"
                fullWidth
                onChange={onChangeHandler}
-               onKeyUp={keyUpHandler} />
+               onKeyUp={keyUpHandler}
+            </@material-ui.core.TextField>
             <@material-ui.core.TextField
                id={kELEMENT_ID_PASSWORD}
                label="Password"
@@ -357,7 +360,8 @@ public final void render()
                variant="outlined"
                fullWidth
                onChange={onChangeHandler}
-               onKeyUp={keyUpHandler} />
+               onKeyUp={keyUpHandler}
+            </@material-ui.core.TextField>
             <@material-ui.core.Button
                class='padtop'
                variant='contained'
